@@ -81,5 +81,3 @@ HTML5 + CSS3
 📬 Contacto
 ¿Consultas, mejoras o sugerencias?
 Escribe a contacto@nextia.com o abre un Issue en este repositorio.
-
-<div align="center"> <b>nextIA - Impulsando negocios con inteligencia artificial</b> </div>
