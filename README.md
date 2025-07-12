@@ -1,9 +1,9 @@
-# NextIA Landing Page
+# nextIA Landing Page
 
-Bienvenido al repositorio de la **Landing Page de NextIA** — soluciones avanzadas de inteligencia artificial, automatización y visión por computadora para empresas.
+Bienvenido al repositorio de la **Landing Page de nextIA** — soluciones avanzadas de inteligencia artificial, automatización y visión por computadora para empresas.
 
 <div align="center">
-  <img src="assets/images/logo/logo_nextia.webp" alt="NextIA Logo" width="120" />
+  <img src="assets/images/logo/logo_nextia.webp" alt="nextIA Logo" width="120" />
 </div>
 
 ## 🚀 Descripción
@@ -20,7 +20,7 @@ Esta landing es la puerta de entrada a nuestra propuesta de valor: consultoría,
 
 ## 🖥️ Vista previa
 
-![Vista previa de NextIA](assets/images/hero/nextia_main.avif)
+![Vista previa de nextIA](assets/images/hero/nextia_main.avif)
 
 ---
 
@@ -82,4 +82,4 @@ HTML5 + CSS3
 ¿Consultas, mejoras o sugerencias?
 Escribe a contacto@nextia.com o abre un Issue en este repositorio.
 
-<div align="center"> <b>NextIA - Impulsando negocios con inteligencia artificial</b> </div>
+<div align="center"> <b>nextIA - Impulsando negocios con inteligencia artificial</b> </div>
