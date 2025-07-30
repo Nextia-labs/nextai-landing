@@ -6,169 +6,263 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
         content="Soluciones avanzadas de inteligencia artificial, automatización y visión por computadora para empresas.">
-    <meta property="og:title" content="NextIA - Soluciones en Inteligencia Artificial">
+    <meta property="og:title" content="NextAI - Impulsa tu negocio con soluciones tecnológicas">
     <meta property="og:description"
         content="Impulsamos la transformación digital con IA personalizada y consultoría experta.">
     <meta property="og:type" content="website">
     <meta property="og:image" content="URL_DE_IMAGEN_DESTACADA">
     <meta name="theme-color" content="#00CFFF">
 
-    <title>nextIA - Soluciones en Inteligencia Artificial</title>
+    <title>nextAI - Soluciones  Inteligencia Artificial</title>
     <base target="_self">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Favicon general -->
+    <link rel="icon" href="/assets/images/favicon/favicon.ico" type="image/x-icon">
 
-    <!-- Tailwind config personalizada -->
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                screens: { sm: '640px', md: '768px', lg: '1024px', xl: '1280px', xxl: '1480px' },
-                extend: {
-                    colors: {
-                        primary: { blue: '#00CFFF', violet: '#C500F5', cyan: '#00FFE0' },
-                        dark: { 900: '#000000', 800: '#0A0A0A', 700: '#1A1A1A' },
-                        light: { plasma: '#F0F9FF' },
-                        gray: { 750: '#2D3748' }
-                    },
-                    animation: { float: "float 3s ease-in-out infinite", "fade-in": "fadeIn 1s ease-in" },
-                    keyframes: {
-                        float: { "0%, 100%": { transform: "translateY(0)" }, "50%": { transform: "translateY(-10px)" } },
-                        fadeIn: { "0%": { opacity: "0" }, "100%": { opacity: "1" } }
-                    }
-                }
+    <!-- Para navegadores modernos (opcional) -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon/favicon-16x16.png">
+
+    <!-- Para dispositivos Apple -->
+    <link rel="apple-touch-icon" href="/assets/images/favicon/favicon-apple-touch-icon.png" sizes="180x180">
+
+    <!-- Manifest (para PWA, Android) -->
+    <link rel="manifest" href="/assets/images/favicon/site.webmanifest">
+
+
+<!-- Configuración Tailwind personalizada -->
+<script>
+  tailwind.config = {
+    darkMode: 'class',
+    theme: {
+      screens: { sm: '640px', md: '768px', lg: '1024px', xl: '1280px', xxl: '1480px' },
+      extend: {
+        colors: {
+          primary: { blue: '#00CFFF', violet: '#C500F5', cyan: '#00FFE0' },
+          dark: { 900: '#000000', 800: '#0A0A0A', 700: '#1A1A1A' },
+          light: { plasma: '#F0F9FF' },
+          gray: { 750: '#2D3748' }
+        },
+        animation: {
+          float: "float 3s ease-in-out infinite",
+          "fade-in": "fadeIn 1s ease-in",
+          gradientFlow: "gradientFlow 10s ease infinite",
+          pulseGlow: "pulseGlow 5s ease-in-out infinite",
+          slideBubble: "slideBubble 0.6s ease-in-out"
+        },
+        keyframes: {
+          float: {
+            "0%, 100%": { transform: "translateY(0)" },
+            "50%": { transform: "translateY(-10px)" }
+          },
+          fadeIn: {
+            "0%": { opacity: "0" },
+            "100%": { opacity: "1" }
+          },
+          gradientFlow: {
+            "0%": { backgroundPosition: "0% 50%" },
+            "50%": { backgroundPosition: "100% 50%" },
+            "100%": { backgroundPosition: "0% 50%" }
+          },
+          pulseGlow: {
+            "0%, 100%": {
+              boxShadow: "0 0 4px rgba(0, 255, 255, 0.2), 0 0 8px rgba(197, 0, 245, 0.2)"
+            },
+            "50%": {
+              boxShadow: "0 0 6px rgba(0, 255, 255, 0.3), 0 0 10px rgba(197, 0, 245, 0.3)"
             }
+          },
+          slideBubble: {
+            "0%": { transform: "translateX(-50%) scale(0.8)", opacity: 0 },
+            "100%": { transform: "translateX(0) scale(1)", opacity: 1 }
+          }
         }
-    </script>
+      }
+    }
+  }
+</script>
 
-    <style>
-        :root {
-            --color-primary-blue: 0, 207, 255;
-            --color-primary-violet: 197, 0, 245;
-            --color-primary-cyan: 0, 255, 224;
-        }
+<style>
+  :root {
+    --color-primary-blue: 0, 207, 255;
+    --color-primary-violet: 197, 0, 245;
+    --color-primary-cyan: 0, 255, 224;
+  }
 
-        html {
-            scroll-behavior: smooth
-        }
+  html {
+    scroll-behavior: smooth;
+  }
 
-        .gradient-text {
-            background: linear-gradient(90deg, #00CFFF 0%, #C500F5 50%, #00FFE0 100%);
-            text-shadow: 0 1px 8px rgba(0, 0, 0, 0.15);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            -webkit-text-fill-color: transparent;
-        }
+  .gradient-text {
+    background: linear-gradient(90deg, #00CFFF 0%, #C500F5 50%, #00FFE0 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.15);
+  }
 
-        .gradient-bg {
-            background: linear-gradient(135deg, #00CFFF 0%, #C500F5 50%, #00FFE0 100%);
-        }
+  .gradient-bg {
+    background: linear-gradient(135deg, #00CFFF 0%, #C500F5 50%, #00FFE0 100%);
+  }
 
-        .transition-slow {
-            transition: all 0.5s ease;
-        }
+  .transition-slow {
+    transition: all 0.5s ease;
+  }
 
-        .bg-grid-pattern {
-            background-image:
-                linear-gradient(rgba(0, 207, 255, 0.05) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 207, 255, 0.05) 1px, transparent 1px);
-            background-size: 30px 30px;
-        }
+  .bg-grid-pattern {
+    background-image:
+      linear-gradient(rgba(0, 207, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 207, 255, 0.05) 1px, transparent 1px);
+    background-size: 30px 30px;
+  }
 
-        .border-glow {
-            border: 1px solid rgba(0, 207, 255, 0.2);
-            box-shadow: 0 0 10px rgba(0, 207, 255, 0.1);
-            border-radius: 1.1rem;
-            border-image: none;
-            border-width: 1px;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
+  .border-glow {
+    position: relative;
+    border-radius: 1rem;
+    z-index: 0;
+    overflow: hidden;
+  }
 
-        .border-glow:hover:not(.border-gradient-inversiones) {
-            border-width: 3px;
-            border-style: solid;
-            border-image: linear-gradient(90deg, #00FFE0 0%, #C500F5 100%);
-            border-image-slice: 1;
-            box-shadow: 0 0 18px 2px #C500F550;
-        }
+  .border-glow::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 2px;
+    border-radius: inherit;
+    background: linear-gradient(90deg, #00FFE0, #C500F5);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    z-index: -1;
+  }
 
-        .border-glow.border-gradient-inversiones:hover {
-            border-width: 3px;
-            border-style: solid;
-            border-image: linear-gradient(90deg, #C500F5 0%, #00FFE0 100%);
-            border-image-slice: 1;
-            box-shadow: 0 0 18px 2px #00FFE040;
-        }
+  .border-glow:hover:not(.border-gradient-inversiones)::before {
+    padding: 1px;
+    background: linear-gradient(90deg, #00FFE0, #C500F5);
+  }
 
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
+  .border-glow.border-gradient-inversiones:hover::before {
+    background: linear-gradient(90deg, #C500F5, #00FFE0);
+  }
 
-        .glow-gradient {
-            border: 3px solid transparent;
-            border-radius: 1rem;
-            background: linear-gradient(90deg, #00CFFF, #C500F5, #00FFE0);
-            background-origin: border-box;
-            box-shadow: 0 0 40px 0 #00CFFF40, 0 0 80px 0 #C500F540;
-            padding: 6px;
-        }
-    </style>
+  .service-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .glow-gradient {
+    border: 3px solid transparent;
+    border-radius: 1rem;
+    background: linear-gradient(90deg, #00CFFF, #C500F5, #00FFE0);
+    background-origin: border-box;
+    box-shadow: 0 0 40px 0 #00CFFF40, 0 0 80px 0 #C500F540;
+    padding: 6px;
+  }
+
+  .glass-header {
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-active {
+    background: linear-gradient(270deg, #00FFFF, #C500F5, #00FFFF);
+    background-size: 600% 600%;
+    animation:
+      gradientFlow 10s ease infinite,
+      pulseGlow 5s ease-in-out infinite,
+      slideBubble 0.6s ease-in-out;
+    color: white;
+    border-radius: 999px;
+    padding: 0.5rem 1rem;
+    font-weight: 600;
+    transition: all 1.2s cubic-bezier(0.86, 0, 0.07, 1);
+    box-shadow: 0 0 8px rgba(0, 255, 255, 0.15), 0 0 10px rgba(197, 0, 245, 0.15);
+  }
+
+  .nav-active:hover {
+    box-shadow: 0 0 3px rgba(0, 255, 255, 0.25), 0 0 4px rgba(197, 0, 245, 0.25);
+    transform: translateY(-1px);
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 1s ease-in-out forwards;
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .animation-delay-1500 {
+    animation-delay: 3s;
+  }
+</style>
+
+
+
 </head>
+
 
 <body class="bg-white text-gray-900 dark:bg-dark-900 dark:text-light-plasma">
     <!-- ==== HEADER ==== -->
-    <header class="bg-white dark:bg-dark-900 sticky top-0 z-50 border-b border-primary-blue/20 backdrop-blur-md">
-        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16 items-center">
-                <div class="flex items-center space-x-3">
-                    <img src="assets/images/logo/logo_nextia.webp" alt="Logo nextIA" class="w-10">
-                    <a href="#" onclick="scrollToSection('hero')" class="text-2xl font-bold gradient-text">nextIA</a>
-                </div>
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="#hero"
-                        class="text-gray-800 dark:text-light-plasma hover:text-primary-blue dark:hover:text-primary-violet transition-colors">Inicio</a>
-                    <a href="#services"
-                        class="text-gray-800 dark:text-light-plasma hover:text-primary-violet dark:hover:text-primary-cyan transition-colors">Servicios</a>
-                    <a href="#about"
-                        class="text-gray-800 dark:text-light-plasma hover:text-primary-cyan dark:hover:text-primary-blue transition-colors">Nosotros</a>
-                    <a href="#contact"
-                        class="text-gray-800 dark:text-light-plasma hover:text-primary-blue dark:hover:text-primary-violet transition-colors">Contacto</a>
-                    <button onclick="scrollToSection('contact')"
-                        class="gradient-bg text-white px-4 py-2 rounded-lg hover:opacity-90 transition-all shadow-lg shadow-primary-blue/30">
-                        Consultar
-                    </button>
-                </div>
-                <div class="flex items-center space-x-2">
-                    <button id="toggleDarkMode"
-                        class="z-40 bg-primary-blue text-white px-4 py-2 rounded shadow-md hover:bg-primary-violet transition">
-                        🌙
-                    </button>
-                    <button id="menuToggle"
-                        class="md:hidden text-gray-800 dark:text-white text-xl p-2 focus:outline-none"
-                        aria-label="Abrir menú de navegación">
-                        <i class="fas fa-bars"></i>
-                    </button>
-                </div>
-            </div>
-        </nav>
-        <div id="mobileMenu"
-            class="hidden w-full bg-white dark:bg-dark-900 md:hidden p-6 space-y-4 border-t border-primary-blue/10">
-            <a href="#hero"
-                class="block text-gray-800 dark:text-light-plasma hover:text-primary-blue dark:hover:text-primary-violet transition-colors">Inicio</a>
-            <a href="#services"
-                class="block text-gray-800 dark:text-light-plasma hover:text-primary-violet dark:hover:text-primary-cyan transition-colors">Servicios</a>
-            <a href="#about"
-                class="block text-gray-800 dark:text-light-plasma hover:text-primary-cyan dark:hover:text-primary-blue transition-colors">Nosotros</a>
-            <a href="#contact"
-                class="block text-gray-800 dark:text-light-plasma hover:text-primary-blue dark:hover:text-primary-violet transition-colors">Contacto</a>
-            <button onclick="scrollToSection('contact')"
-                class="w-full gradient-bg text-white py-2 rounded-lg hover:opacity-90 transition-all font-semibold">
-                Consultar
-            </button>
-        </div>
-    </header>
+<header class="sticky top-0 z-50 backdrop-blur-md border-b border-white/10 bg-white/60 dark:bg-[#0f0f0f]/80 transition-colors duration-300">
+  <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between h-16 items-center">
+      <!-- Logo + Marca -->
+      <div class="flex items-center space-x-3">
+        <img src="assets/images/logo/logo_nextAI.png" alt="Logo nextAI" class="w-10">
+        <a href="#" onclick="scrollToSection('hero')" class="text-2xl font-bold gradient-text">nextAI</a>
+      </div>
+
+      <!-- Navegación Escritorio -->
+      <div class="hidden md:flex items-center space-x-8">
+        <a href="#hero" class="nav-link">Inicio</a>
+        <a href="#services" class="nav-link">Servicios</a>
+        <a href="#about" class="nav-link">Nosotros</a>
+        <a href="#contact" class="nav-link">Contacto</a>
+        <button onclick="scrollToSection('contact')"
+          class="bg-primary-violet text-white px-4 py-2 rounded-full hover:bg-primary-cyan transition-colors shadow-md focus:outline-none focus:ring-2 focus:ring-primary-cyan">
+          Consultar
+        </button>
+      </div>
+
+      <!-- Toggle dark mode + menú mobile -->
+      <div class="flex items-center space-x-2">
+        <button id="toggleDarkMode"
+          class="z-40 bg-primary-blue text-white px-2 py-2 rounded-full shadow-md hover:bg-primary-violet transition"
+          aria-label="Alternar modo oscuro">
+        </button>
+        <button id="menuToggle"
+          class="md:hidden text-gray-800 dark:text-white text-xl p-2 focus:outline-none"
+          aria-label="Abrir menú de navegación">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Menú mobile -->
+  <div id="mobileMenu"
+    class="hidden w-full bg-white/90 dark:bg-[#0f0f0f]/90 md:hidden p-6 space-y-4 border-t border-primary-blue/10 backdrop-blur-md">
+    <a href="#hero" class="block nav-link">Inicio</a>
+    <a href="#services" class="block nav-link">Servicios</a>
+    <a href="#about" class="block nav-link">Nosotros</a>
+    <a href="#contact" class="block nav-link">Contacto</a>
+    <button onclick="scrollToSection('contact')"
+      class="w-full bg-primary-violet text-white py-2 rounded-full hover:bg-primary-cyan transition-colors font-semibold">
+      Consultar
+    </button>
+  </div>
+</header>
+
+
 
     <!-- Hero Section -->
     <section id="hero" class="py-20 bg-gray-50 dark:bg-dark-800 md:py-32 bg-grid-pattern relative overflow-hidden">
@@ -179,7 +273,7 @@
             <div class="flex flex-col md:flex-row items-center">
                 <div class="md:w-1/2 mb-10 md:mb-0 animate-fade-in">
                     <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-                        <span class="gradient-text">Soluciones de IA</span> para tu negocio
+                        <span class="gradient-text">Soluciones tecnológicas</span> para tu negocio
                     </h1>
                     <p class="text-xl text-gray-700 dark:text-sky-400 mb-8">
                         Impulsamos la transformación digital con inteligencia artificial personalizada y soluciones
@@ -187,11 +281,11 @@
                     </p>
                     <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
                         <button onclick="event.preventDefault(); scrollToSection('services')"
-                            class="gradient-bg text-white px-6 py-3 rounded-lg hover:opacity-90 transition-all shadow-lg shadow-primary-blue/30 font-medium">
-                            Nuestros proyectos
+                            class="gradient-bg text-white px-6 py-3 rounded-full-lg hover:opacity-90 transition-all shadow-lg shadow-primary-blue/30 font-medium">
+                            Nuestros servicios
                         </button>
                         <button onclick="event.preventDefault(); scrollToSection('contact')"
-                            class="bg-gray-800 text-white hover:bg-gray-700 px-8 py-3 rounded-lg font-medium shadow-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary-blue">
+                            class="bg-gray-800 text-white hover:bg-gray-700 px-8 py-3 rounded-full-lg font-medium shadow-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary-blue">
                             Contactar ahora
                         </button>
                     </div>
@@ -205,9 +299,9 @@
                             class="absolute -bottom-5 -right-5 w-32 h-32 bg-primary-violet rounded-full mix-blend-screen filter blur-xl opacity-20 animate-float animation-delay-2000">
                         </div>
                         <div
-                            class="relative bg-white dark:bg-dark-800 rounded-2xl shadow-xl overflow-hidden border-glow transition-slow hover:shadow-primary-violet/30">
-                            <img src="assets/images/hero/nextia_main.avif" alt="Inteligencia Artificial"
-                                class="rounded-2xl shadow-xl overflow-hidden border-glow transition-transform duration-700 transform hover:scale-110 object-cover opacity-70 hover:opacity-100"
+                            class="relative bg-white dark:bg-dark-800 rounded-full-2xl shadow-xl overflow-hidden border-glow transition-slow hover:shadow-primary-violet/30">
+                            <img src="assets/images/hero/nextAI_main.avif" alt="Inteligencia Artificial"
+                                class="rounded-full-2xl shadow-xl overflow-hidden border-glow transition-transform duration-700 transform hover:scale-110 object-cover opacity-70 hover:opacity-100"
                                 loading="lazy">
                         </div>
                     </div>
@@ -220,7 +314,7 @@
     <section id="services" class="py-20 bg-gray-50 dark:bg-dark-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">Nuestros <span class="gradient-text">Proyectos</span>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Nuestros <span class="gradient-text">Servicios</span>
                 </h2>
                 <p class="text-xl text-gray-700 dark:text-primary-cyan max-w-3xl mx-auto">
                     Soluciones innovadoras con inteligencia artificial diseñadas para transformar la experiencia del
@@ -230,8 +324,8 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <!-- Proyecto 1: Virtual Room -->
-                <div class="bg-white dark:bg-dark-800 p-8 rounded-xl border-glow transition-slow service-card">
-                    <div class="w-16 h-16 bg-primary-cyan/10 rounded-lg flex items-center justify-center mb-6">
+                <div class="bg-white dark:bg-dark-800 p-8 rounded-full-xl border-glow transition-slow service-card">
+                    <div class="w-16 h-16 bg-primary-cyan/10 rounded-full-lg flex items-center justify-center mb-6">
                         <i class="fas fa-tshirt text-3xl text-primary-cyan"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-3">Virtual Room</h3>
@@ -260,8 +354,8 @@
 
                 <!-- Proyecto 2: App de Inversiones -->
                 <div
-                    class="bg-white dark:bg-dark-800 p-8 rounded-xl border-glow border-gradient-inversiones transition-slow service-card">
-                    <div class="w-16 h-16 bg-primary-violet/10 rounded-lg flex items-center justify-center mb-6">
+                    class="bg-white dark:bg-dark-800 p-8 rounded-full-xl border-glow border-gradient-inversiones transition-slow service-card">
+                    <div class="w-16 h-16 bg-primary-violet/10 rounded-full-lg flex items-center justify-center mb-6">
                         <i class="fas fa-chart-line text-3xl text-primary-violet"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-3">App de Inversiones</h3>
@@ -295,7 +389,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row items-center">
                 <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-6">Sobre <span class="gradient-text">nextIA</span></h2>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">Sobre <span class="gradient-text">nextAI</span></h2>
                     <p class="text-gray-700 dark:text-light-plasma/80 mb-6">
                         Somos un equipo de expertos en inteligencia artificial apasionados por crear soluciones
                         tecnológicas que transforman negocios. Combinamos conocimiento técnico avanzado con una profunda
@@ -307,13 +401,13 @@
                         accesibles para empresas de todos los tamaños.
                     </p>
                     <button onclick="event.preventDefault(); scrollToSection('contact')"
-                        class="gradient-bg text-white px-6 py-3 rounded-lg hover:opacity-90 transition-all font-medium shadow-lg shadow-primary-blue/30">
+                        class="gradient-bg text-white px-6 py-3 rounded-full-lg hover:opacity-90 transition-all font-medium shadow-lg shadow-primary-blue/30">
                         Conoce más
                     </button>
                 </div>
                 <div class="md:w-1/2">
-                    <div class="relative rounded-2xl overflow-hidden shadow-xl border-glow">
-                        <img src="assets/images/about/nextia_2.avif" alt="Equipo de nextIA"
+                    <div class="relative rounded-full-2xl overflow-hidden shadow-xl border-glow">
+                        <img src="assets/images/about/nextAI_2.avif" alt="Equipo de nextAI"
                             class="w-full h-auto object-cover opacity-90 hover:opacity-100 transition-slow"
                             loading="lazy">
                     </div>
@@ -331,7 +425,7 @@
                 Agenda una consultoría gratuita con nuestros expertos y descubre cómo podemos ayudarte.
             </p>
             <button onclick="event.preventDefault(); scrollToSection('contact')"
-                class="bg-white text-gray-800 px-8 py-3 rounded-lg font-medium shadow-lg transition-colors duration-200 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-primary-blue">
+                class="bg-white text-gray-800 px-8 py-3 rounded-full-lg font-medium shadow-lg transition-colors duration-200 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-primary-blue">
                 Contactar ahora
             </button>
             <div style="max-width:560px; margin:auto; position:relative;">
@@ -374,17 +468,17 @@
                     </p>
                     <div class="space-y-6">
                         <div class="flex items-start">
-                            <div class="flex-shrink-0 bg-primary-blue/10 rounded-lg p-3 mr-4">
+                            <div class="flex-shrink-0 bg-primary-blue/10 rounded-full-lg p-3 mr-4">
                                 <i class="fas fa-envelope text-primary-blue text-xl"></i>
                             </div>
                             <div>
                                 <h3 class="font-bold text-lg mb-1 text-gray-800 dark:text-light-plasma">Correo
                                     Electrónico</h3>
-                                <p class="text-gray-600 dark:text-light-plasma/80">contacto@nextia.com</p>
+                                <p class="text-gray-600 dark:text-light-plasma/80">contacto@nextAI.com</p>
                             </div>
                         </div>
                         <div class="flex items-start">
-                            <div class="flex-shrink-0 bg-primary-violet/10 rounded-lg p-3 mr-4">
+                            <div class="flex-shrink-0 bg-primary-violet/10 rounded-full-lg p-3 mr-4">
                                 <i class="fas fa-phone-alt text-primary-violet text-xl"></i>
                             </div>
                             <div>
@@ -393,7 +487,7 @@
                             </div>
                         </div>
                         <div class="flex items-start">
-                            <div class="flex-shrink-0 bg-primary-cyan/10 rounded-lg p-3 mr-4">
+                            <div class="flex-shrink-0 bg-primary-cyan/10 rounded-full-lg p-3 mr-4">
                                 <i class="fas fa-map-marker-alt text-primary-cyan text-xl"></i>
                             </div>
                             <div>
@@ -405,22 +499,22 @@
                     </div>
                 </div>
                 <div class="md:w-1/2">
-                    <form class="bg-white dark:bg-dark-800 p-8 rounded-xl border-glow shadow-sm">
+                    <form class="bg-white dark:bg-dark-800 p-8 rounded-full-xl border-glow shadow-sm">
                         <div class="mb-6">
                             <label for="name" class="block text-gray-800 dark:text-light-plasma mb-2">Nombre</label>
                             <input type="text" id="name"
-                                class="w-full px-4 py-3 rounded-lg bg-gray-50 dark:bg-dark-900 border-glow focus:outline-none focus:ring-2 focus:ring-primary-blue text-gray-800 dark:text-light-plasma">
+                                class="w-full px-4 py-3 rounded-full-lg bg-gray-50 dark:bg-dark-900 border-glow focus:outline-none focus:ring-2 focus:ring-primary-blue text-gray-800 dark:text-light-plasma">
                         </div>
                         <div class="mb-6">
                             <label for="email" class="block text-gray-800 dark:text-light-plasma mb-2">Correo
                                 Electrónico</label>
                             <input type="email" id="email"
-                                class="w-full px-4 py-3 rounded-lg bg-gray-50 dark:bg-dark-900 border-glow focus:outline-none focus:ring-2 focus:ring-primary-blue text-gray-800 dark:text-light-plasma">
+                                class="w-full px-4 py-3 rounded-full-lg bg-gray-50 dark:bg-dark-900 border-glow focus:outline-none focus:ring-2 focus:ring-primary-blue text-gray-800 dark:text-light-plasma">
                         </div>
                         <div class="mb-6">
                             <label for="subject" class="block text-gray-800 dark:text-light-plasma mb-2">Asunto</label>
                             <select id="subject"
-                                class="w-full px-4 py-3 rounded-lg bg-gray-50 dark:bg-dark-900 border-glow focus:outline-none focus:ring-2 focus:ring-primary-blue text-gray-800 dark:text-light-plasma">
+                                class="w-full px-4 py-3 rounded-full-lg bg-gray-50 dark:bg-dark-900 border-glow focus:outline-none focus:ring-2 focus:ring-primary-blue text-gray-800 dark:text-light-plasma">
                                 <option value="">Selecciona un tema</option>
                                 <option value="consult">Consultoría</option>
                                 <option value="service">Servicios</option>
@@ -430,10 +524,10 @@
                         <div class="mb-6">
                             <label for="message" class="block text-gray-800 dark:text-light-plasma mb-2">Mensaje</label>
                             <textarea id="message" rows="4"
-                                class="w-full px-4 py-3 rounded-lg bg-gray-50 dark:bg-dark-900 border-glow focus:outline-none focus:ring-2 focus:ring-primary-blue text-gray-800 dark:text-light-plasma"></textarea>
+                                class="w-full px-4 py-3 rounded-full-lg bg-gray-50 dark:bg-dark-900 border-glow focus:outline-none focus:ring-2 focus:ring-primary-blue text-gray-800 dark:text-light-plasma"></textarea>
                         </div>
                         <button type="submit"
-                            class="w-full gradient-bg text-white py-3 rounded-lg hover:opacity-90 transition-all font-medium shadow-lg shadow-primary-blue/30">
+                            class="w-full gradient-bg text-white py-3 rounded-full-lg hover:opacity-90 transition-all font-medium shadow-lg shadow-primary-blue/30">
                             Enviar Mensaje
                         </button>
                     </form>
@@ -449,9 +543,9 @@
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div class="md:col-span-2">
                     <a href="#" class="text-2xl font-bold gradient-text"
-                        onclick="event.preventDefault(); scrollToSection('hero')">nextIA</a>
+                        onclick="event.preventDefault(); scrollToSection('hero')">nextAI</a>
                     <p class="mt-4">
-                        Soluciones avanzadas de inteligencia artificial para impulsar tu negocio.
+                        Soluciones tecnológicas avanzadas de inteligencia artificial para impulsar tu negocio.
                     </p>
                     <div class="flex space-x-4 mt-6">
                         <a href="#" class="hover:text-primary-blue transition-colors" aria-label="Ir a Facebook">
@@ -490,7 +584,7 @@
                 </div>
             </div>
             <div class="border-t border-gray-700 mt-12 pt-8 text-center text-sm">
-                <p>&copy; 2023 nextIA. Todos los derechos reservados.</p>
+                <p>&copy; 2023 nextAI. Todos los derechos reservados.</p>
             </div>
         </div>
     </footer>
@@ -503,15 +597,17 @@ document.addEventListener('DOMContentLoaded', function() {
     const html = document.documentElement;
 
     function setDarkMode(dark) {
-        if (dark) {
-            html.classList.add('dark');
-            toggle.innerText = '🌙';
-            localStorage.setItem('theme', 'dark');
+    if (dark) {
+    html.classList.add('dark');
+    toggle.innerHTML = '<i data-lucide="moon"></i>';
+    localStorage.setItem('theme', 'dark');
         } else {
-            html.classList.remove('dark');
-            toggle.innerText = '☀️';
-            localStorage.setItem('theme', 'light');
-        }
+    html.classList.remove('dark');
+    toggle.innerHTML = '<i data-lucide="sun"></i>';
+    localStorage.setItem('theme', 'light');
+    }
+lucide.createIcons(); // Renderiza el ícono actualizado
+
     }
     (function initTheme() {
         const storedTheme = localStorage.getItem('theme');
@@ -547,6 +643,36 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 </script>
+<script src="https://unpkg.com/lucide@latest" defer></script>
+
+<script>
+  const sections = document.querySelectorAll('section');
+  const navLinks = document.querySelectorAll('header nav a');
+
+  function setActiveNav() {
+    let currentSection = '';
+
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.offsetHeight;
+      if (scrollY >= sectionTop - sectionHeight / 3) {
+        currentSection = section.getAttribute('id');
+      }
+    });
+
+    navLinks.forEach(link => {
+      link.classList.remove('nav-active');
+      const href = link.getAttribute('href');
+      if (href === `#${currentSection}`) {
+        link.classList.add('nav-active');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', setActiveNav);
+</script>
+
+
 
 </body>
 
