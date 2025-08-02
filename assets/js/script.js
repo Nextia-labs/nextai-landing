@@ -72,8 +72,56 @@ document.addEventListener('DOMContentLoaded', function () {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
+      // Actualizar URL sin recargar la página
+      history.pushState(null, null, `#${sectionId}`);
     }
   };
+
+  // ==========================================================================
+  // TÍTULOS CLICABLES ADICIONALES
+  // ==========================================================================
+  
+  // Inicializar eventos de clic para títulos clicables después de que se cargue el DOM
+  function initClickableTitles() {
+    // Texto animado del hero
+    const heroTitle = document.querySelector('.gradient-text.cursor-pointer');
+    if (heroTitle) {
+      heroTitle.addEventListener('click', function(e) {
+        e.preventDefault();
+        scrollToSection('services');
+      });
+    }
+
+    // Enlaces del logo hacia "about"
+    const logoLinks = document.querySelectorAll('a[href="#about"]');
+    logoLinks.forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        scrollToSection('about');
+      });
+    });
+
+    // Títulos de secciones con cursor pointer
+    const clickableTitles = document.querySelectorAll('h2.cursor-pointer');
+    clickableTitles.forEach(title => {
+      title.addEventListener('click', function(e) {
+        e.preventDefault();
+        // Extraer el ID de la sección del onclick si existe
+        const onclickAttr = this.getAttribute('onclick');
+        if (onclickAttr) {
+          const match = onclickAttr.match(/scrollToSection\('([^']+)'\)/);
+          if (match) {
+            scrollToSection(match[1]);
+          }
+        }
+      });
+    });
+
+    console.log('🖱️ Títulos clicables inicializados');
+  }
+
+  // Inicializar títulos clicables
+  initClickableTitles();
 
   // ==========================================================================
   // INDICADOR DE NAVEGACIÓN ACTIVA (DESKTOP)
@@ -84,15 +132,24 @@ document.addEventListener('DOMContentLoaded', function () {
   const navWrapper = document.getElementById("nav-wrapper");
 
   function updateIndicator() {
-    const currentLink = document.querySelector(".nav-link.nav-active");
-    if (!currentLink || !navWrapper || !indicator) return;
+    const currentLink = document.querySelector(".nav-link.nav-active:not(.btn-agendar-navbar):not(.btn-agendar-section)");
+    if (!currentLink || !navWrapper || !indicator) {
+      // Si no hay enlace activo o es el botón agendar, ocultar el indicador
+      if (indicator) {
+        indicator.style.opacity = '0';
+        indicator.style.transform = 'translateX(-100px) scale(0.8)';
+      }
+      return;
+    }
 
     const linkRect = currentLink.getBoundingClientRect();
     const wrapperRect = navWrapper.getBoundingClientRect();
 
+    // Mostrar y posicionar el indicador
+    indicator.style.opacity = '1';
     indicator.style.width = `${linkRect.width}px`;
     indicator.style.height = `${linkRect.height}px`;
-    indicator.style.transform = `translateX(${linkRect.left - wrapperRect.left}px)`;
+    indicator.style.transform = `translateX(${linkRect.left - wrapperRect.left}px) scale(1)`;
   }
 
   // ==========================================================================
@@ -126,18 +183,23 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Agregar clases activas a los enlaces correspondientes
         navLinks.forEach(link => {
-          link.classList.add("nav-active");
+          // Si es el botón agendar, solo marcarlo como activo sin efectos visuales
+          if (link.classList.contains('btn-agendar-navbar') || link.classList.contains('btn-agendar-section')) {
+            link.classList.add("nav-active");
+          } else {
+            link.classList.add("nav-active");
 
-          // Efectos especiales para menú móvil
-          if (menu.contains(link)) {
-            link.classList.add(
-              "bg-gradient-to-r", 
-              "from-cyan-400", 
-              "via-fuchsia-500", 
-              "to-cyan-400", 
-              "animate-gradientFlow", 
-              "shadow-cyan"
-            );
+            // Efectos especiales para menú móvil
+            if (menu && menu.contains(link)) {
+              link.classList.add(
+                "bg-gradient-to-r", 
+                "from-cyan-400", 
+                "via-fuchsia-500", 
+                "to-cyan-400", 
+                "animate-gradientFlow", 
+                "shadow-cyan"
+              );
+            }
           }
         });
 
@@ -164,6 +226,14 @@ document.addEventListener('DOMContentLoaded', function () {
       if (id) {
         const section = document.getElementById(id);
         if (section) {
+          // Si es el botón agendar, ocultar inmediatamente el indicador
+          if (link.classList.contains('btn-agendar-navbar') || link.classList.contains('btn-agendar-section')) {
+            if (indicator) {
+              indicator.style.opacity = '0';
+              indicator.style.transform = 'translateX(-100px) scale(0.8)';
+            }
+          }
+          
           section.scrollIntoView({ behavior: 'smooth' });
           // Actualizar URL sin recargar la página
           history.pushState(null, null, `#${id}`);
@@ -331,6 +401,7 @@ document.addEventListener('DOMContentLoaded', function () {
     console.log('🚀 NextIA Landing - Scripts cargados correctamente');
     console.log('📱 Modo oscuro:', html.classList.contains('dark') ? 'Activado' : 'Desactivado');
     console.log('✨ Animaciones de letras inicializadas');
+    console.log('🖱️ Títulos clicables activados');
     
     // Agregar funcionalidad de debugging para las animaciones
     console.log('🎬 Para reiniciar animaciones de letras: restartLetterAnimations()');

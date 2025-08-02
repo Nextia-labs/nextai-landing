@@ -3,13 +3,18 @@
    ========================================================================== */
 
 /* ==========================================================================
-   CSS VARIABLES
+   CSS VARIABLES - EXPANDIDAS
    ========================================================================== */
 
 :root {
   --color-primary-blue: 0, 207, 255;
   --color-primary-violet: 197, 0, 245;
   --color-primary-cyan: 0, 255, 224;
+  
+  /* Transiciones estándar */
+  --transition-standard: 0.25s ease;
+  --transition-fast: 0.18s ease;
+  --transition-slow: 0.5s ease;
 }
 
 /* ==========================================================================
@@ -339,7 +344,7 @@ section {
 }
 
 /* ==========================================================================
-   BORDER EFFECTS
+   BORDER EFFECTS - SIMPLIFICADOS
    ========================================================================== */
 
 .border-glow {
@@ -356,20 +361,32 @@ section {
   padding: 2px;
   border-radius: inherit;
   background: linear-gradient(90deg, #00FFE0, #C500F5);
+  background-size: 200% 200%;
+  animation: gradientFlow 8s ease infinite;
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   pointer-events: none;
   z-index: -1;
+  transition: 
+    transform var(--transition-fast),
+    opacity var(--transition-standard);
+  opacity: 1;
+  transform: scale(1);
 }
 
-.border-glow:hover::before {
-  padding: 1px;
+/* Estados hover/focus para todas las cards */
+.border-glow:hover::before,
+.border-glow:focus::before {
+  transform: scale(1.02);
+  opacity: 1;
 }
 
-.border-gradient-inversiones:hover::before {
-  background: linear-gradient(90deg, #C500F5, #00FFE0);
+/* Zoom en hover para las cards */
+.service-card:hover,
+.service-card:focus {
+  transform: scale(1.02);
 }
 
 /* ==========================================================================
@@ -432,12 +449,269 @@ section {
   height: 100%;
   background-color: #00FFE0;
   border-radius: 9999px;
-  transition: transform 0.4s ease, width 0.4s ease;
+  transition: transform 0.4s ease, width 0.4s ease, opacity 0.3s ease;
   z-index: 1;
   pointer-events: none;
   box-shadow:
     0 0 10px rgba(0, 255, 224, 0.5),
     0 0 10px rgba(197, 0, 245, 0.5);
+  opacity: 1;
+}
+
+/* ==========================================================================
+   BOTONES AGENDAR - CLASES INDEPENDIENTES
+   ========================================================================== */
+
+/* Botón agendar en navbar - BASE */
+.btn-agendar-navbar {
+  /* Estados base */
+  background-color: #ff0000; /* Modo claro idle */
+  color: transparent;
+  
+  /* Propiedades estructurales */
+  position: relative;
+  z-index: 10;
+  outline: none;
+  cursor: pointer;
+  overflow: hidden;
+  font-weight: 700;
+  border-radius: 9999px;
+  border: 2px solid #00FFE0;
+  box-shadow: 0 0 12px 0 rgba(0,255,224,0.25), 0 0 4px 0 rgba(197,0,245,0.18);
+  transition: 
+    box-shadow var(--transition-standard),
+    border-color var(--transition-standard),
+    transform var(--transition-fast),
+    background-color var(--transition-standard);
+  padding: 0.5rem 1.5rem;
+  font-size: 0.875rem;
+  width: auto;
+  text-align: center;
+}
+
+/* Botón agendar en navbar - HOVER modo claro */
+.btn-agendar-navbar:hover {
+  background-color: #0059ff; /* Modo claro hover */
+  box-shadow: 0 0 32px 0 rgba(0,255,224,0.45), 0 0 12px 0 rgba(197,0,245,0.28);
+  border-color: #C500F5;
+  transform: scale(1.05);
+}
+
+/* Botón agendar en navbar - MODO OSCURO idle */
+.dark .btn-agendar-navbar {
+  background-color: #d0ff00; /* Modo oscuro idle */
+}
+
+/* Botón agendar en navbar - MODO OSCURO hover */
+.dark .btn-agendar-navbar:hover {
+  background-color: #00ff0d; /* Modo oscuro hover */
+}
+
+/* Botón agendar en secciones - BASE */
+.btn-agendar-section {
+  /* Estados base */
+  background-color: rgb(245, 245, 245); /* Modo claro idle */
+  color: transparent;
+  
+  /* Propiedades estructurales */
+  position: relative;
+  z-index: 10;
+  outline: none;
+  cursor: pointer;
+  overflow: hidden;
+  font-weight: 700;
+  border-radius: 9999px;
+  border: 2px solid #00FFE0;
+  box-shadow: 0 0 12px 0 rgba(0,255,224,0.25), 0 0 4px 0 rgba(197,0,245,0.18);
+  transition: 
+    box-shadow var(--transition-standard),
+    border-color var(--transition-standard),
+    transform var(--transition-fast),
+    background-color var(--transition-standard);
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  width: 100%;
+  text-align: center;
+}
+
+/* Botón agendar en secciones - HOVER modo claro */
+.btn-agendar-section:hover {
+  background-color: #ffffff; /* Modo claro hover */
+  box-shadow: 0 0 32px 0 rgba(0,255,224,0.45), 0 0 12px 0 rgba(197,0,245,0.28);
+  border-color: #C500F5;
+  transform: scale(1.05);
+}
+
+/* Botón agendar en secciones - MODO OSCURO idle */
+.dark .btn-agendar-section {
+  background-color: rgb(24, 24, 24); /* Modo oscuro idle */
+}
+
+/* Botón agendar en secciones - MODO OSCURO hover */
+.dark .btn-agendar-section:hover {
+  background-color: #000000; /* Modo oscuro hover */
+}
+
+/* Pseudo-elemento para gradiente de texto - Ambos botones */
+.btn-agendar-navbar[data-text]::before,
+.btn-agendar-section[data-text]::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(90deg, #00CFFF 0%, #C500F5 50%, #00FFE0 100%);
+  background-size: 200% 200%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: gradientFlow 6s ease infinite;
+  pointer-events: none;
+  font-weight: 700;
+  font-size: inherit;
+}
+
+/* Efectos hover en pseudo-elemento */
+.btn-agendar-navbar:hover::before,
+.btn-agendar-section:hover::before {
+  background-position: 100% 0;
+}
+
+/* Fallback para navegadores sin soporte */
+@supports not (-webkit-background-clip: text) {
+  .btn-agendar-navbar[data-text],
+  .btn-agendar-section[data-text] {
+    color: #00CFFF;
+  }
+  .btn-agendar-navbar[data-text]::before,
+  .btn-agendar-section[data-text]::before {
+    display: none;
+  }
+}
+
+/* Responsive para navbar */
+@media (min-width: 767px) and (max-width: 920px) {
+  .btn-agendar-navbar {
+    padding: 0.375rem 0.8rem;
+    font-size: 0.8rem;
+  }
+}
+
+@media (min-width: 867px) and (max-width: 868px) {
+  .btn-agendar-navbar {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.75rem;
+  }
+}
+
+/* Estados activos para navegación */
+.btn-agendar-navbar.nav-active,
+.btn-agendar-section.nav-active {
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+.dark .btn-agendar-navbar.nav-active {
+  background-color: #e0e0e0;
+}
+
+.dark .btn-agendar-section.nav-active {
+  background-color: #e0e0e0;
+}
+
+/* ==========================================================================
+   RESPONSIVE UTILITIES - CONSOLIDADAS
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+
+  .container {
+    overflow: hidden;
+  }
+  
+  .btn-primary {
+    font-size: 1rem;
+    padding: 0.875rem 1.5rem;
+  }
+  
+  .card-container {
+    padding: 1.5rem;
+  }
+  
+  .icon-container {
+    width: 3rem;
+    height: 3rem;
+  }
+  
+  .nav-active {
+    margin: 0;
+    border-radius: 6px;
+  }
+}
+
+/* Eliminada la duplicación de .nav-active */
+
+/* ==========================================================================
+   TÍTULOS CLICABLES - CONSOLIDADAS
+   ========================================================================== */
+
+.clickable-title,
+h2.cursor-pointer,
+.gradient-text.cursor-pointer {
+  cursor: pointer;
+  user-select: none;
+  transition: opacity var(--transition-standard), transform 0.2s ease;
+}
+
+.clickable-title:hover,
+h2.cursor-pointer:hover {
+  opacity: 0.8;
+  transform: translateY(-1px);
+}
+
+.gradient-text.cursor-pointer:hover {
+  transform: translateY(-2px);
+}
+
+.gradient-text.cursor-pointer .letter-stream {
+  cursor: pointer;
+}
+
+/* ==========================================================================
+   TRANSICIONES ESTANDARIZADAS
+   ========================================================================== */
+
+.border-glow::before {
+  /* ...existing properties... */
+  transition: 
+    padding var(--transition-standard),
+    background var(--transition-standard),
+    transform var(--transition-fast),
+    opacity var(--transition-standard);
+}
+
+.card-container {
+  /* ...existing properties... */
+  transition: 
+    all 0.6s ease,
+    box-shadow var(--transition-standard),
+    transform var(--transition-fast);
+}
+
+.service-card {
+  transition: 
+    transform 0.3s ease, 
+    box-shadow 0.3s ease,
+    border-color var(--transition-standard);
 }
 
 /* ==========================================================================
@@ -480,24 +754,25 @@ section {
 }
 
 /* ==========================================================================
-   CARDS & CONTAINERS
+   CARDS & CONTAINERS - SIMPLIFICADOS
    ========================================================================== */
 
 .card-container {
   background-color: white;
   padding: 2rem;
-  border-radius: 0.75rem;
-  position: relative;
   border-radius: 1rem;
+  position: relative;
   z-index: 0;
   overflow: hidden;
-  transition: all 0.5s ease;
+  transition: 
+    transform var(--transition-standard),
+    box-shadow var(--transition-standard);
 }
 
 .card-container.reveal {
   opacity: 0 !important;
   transform: translateY(40px) scale(0.95) !important;
-  transition: opacity 4.2s ease-out, transform 3.2s ease-out, all 1.5s ease !important;
+  transition: opacity 4.2s ease-out, transform 3.2s ease-out !important;
 }
 
 .card-container.reveal-visible {
@@ -517,15 +792,25 @@ section {
   align-items: center;
   justify-content: center;
   margin-bottom: 1.5rem;
+  box-shadow: 
+    0 0 15px rgba(0, 255, 224, 0.4),
+    0 0 30px rgba(197, 0, 245, 0.3);
 }
 
 .service-card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: 
+    transform var(--transition-standard),
+    box-shadow var(--transition-standard);
 }
 
-.service-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+/* Hover intenso para las service cards */
+.service-card:hover,
+.service-card:focus {
+  transform: scale(1.02);
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.15),
+    0 0 25px rgba(0, 255, 224, 0.3),
+    0 0 50px rgba(197, 0, 245, 0.2);
 }
 
 /* ==========================================================================
@@ -633,4 +918,60 @@ section {
     margin: 0;
     border-radius: 6px;
   }
+}
+
+/* Eliminada la duplicación de .nav-active */
+
+/* ==========================================================================
+   TÍTULOS CLICABLES - CONSOLIDADAS
+   ========================================================================== */
+
+.clickable-title,
+h2.cursor-pointer,
+.gradient-text.cursor-pointer {
+  cursor: pointer;
+  user-select: none;
+  transition: opacity var(--transition-standard), transform 0.2s ease;
+}
+
+.clickable-title:hover,
+h2.cursor-pointer:hover {
+  opacity: 0.8;
+  transform: translateY(-1px);
+}
+
+.gradient-text.cursor-pointer:hover {
+  transform: translateY(-2px);
+}
+
+.gradient-text.cursor-pointer .letter-stream {
+  cursor: pointer;
+}
+
+/* ==========================================================================
+   TRANSICIONES ESTANDARIZADAS
+   ========================================================================== */
+
+.border-glow::before {
+  /* ...existing properties... */
+  transition: 
+    padding var(--transition-standard),
+    background var(--transition-standard),
+    transform var(--transition-fast),
+    opacity var(--transition-standard);
+}
+
+.card-container {
+  /* ...existing properties... */
+  transition: 
+    all 0.6s ease,
+    box-shadow var(--transition-standard),
+    transform var(--transition-fast);
+}
+
+.service-card {
+  transition: 
+    transform 0.3s ease, 
+    box-shadow 0.3s ease,
+    border-color var(--transition-standard);
 }

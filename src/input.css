@@ -1,6 +1,3 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-/* Importar estilos personalizados */
-@import url('../assets/css/style.css');

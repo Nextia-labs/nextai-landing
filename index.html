@@ -18,18 +18,19 @@
   <link rel="stylesheet" href="dist/output.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="assets/css/style.css">
+  
   <!-- Favicon general -->
-  <link rel="icon" href="/assets/images/favicon/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="assets/images/favicon/favicon.ico" type="image/x-icon">
 
-  <!-- Para navegadores modernos (opcional) -->
-  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon/favicon-16x16.png">
+  <!-- Para navegadores modernos -->
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon/favicon-16x16.png">
 
   <!-- Para dispositivos Apple -->
-  <link rel="apple-touch-icon" href="/assets/images/favicon/favicon-apple-touch-icon.png" sizes="180x180">
+  <link rel="apple-touch-icon" href="assets/images/favicon/favicon-apple-touch-icon.png" sizes="180x180">
 
   <!-- Manifest (para PWA, Android) -->
-  <link rel="manifest" href="/assets/images/favicon/site.webmanifest">
+  <link rel="manifest" href="assets/images/favicon/site.webmanifest">
 
 </head>
 
@@ -43,7 +44,8 @@
         <!-- Logo + Marca -->
         <div class="flex items-center space-x-2 md-lg:space-x-3">
           <!-- Logo compuesto: PNG base + SVG animado externo -->
-          <div class="relative w-12 h-12 md-lg:w-16 md-lg:h-16 shrink-0">
+          <a href="#about" onclick="event.preventDefault(); scrollToSection('about')" 
+             class="relative w-12 h-12 md-lg:w-16 md-lg:h-16 shrink-0 cursor-pointer transition-transform hover:scale-110">
             <!-- Imagen base -->
             <img src="assets/images/logo/logo_nextai.png" alt="Logo sólido"
               class="w-full h-full select-none pointer-events-none" />
@@ -51,14 +53,13 @@
             <!-- SVG animado sobre el PNG -->
             <object data="assets/images/logo/logo_nextia_glow.svg" type="image/svg+xml"
               class="absolute inset-0 w-full h-full z-10 pointer-events-none"></object>
-          </div>
-
-          <!-- Texto del logo -->
-          <a href="#hero" class="text-xl md-lg:text-2xl font-bold gradient-text">
-            nextAI
           </a>
 
-
+          <!-- Texto del logo -->
+          <a href="#about" onclick="event.preventDefault(); scrollToSection('about')" 
+             class="text-xl md-lg:text-2xl font-bold gradient-text cursor-pointer transition-transform hover:scale-105">
+            nextAI
+          </a>
         </div>
 
         <!-- Navegación Escritorio -->
@@ -74,7 +75,8 @@
           <a href="#about"
             class="nav-link relative z-10 px-2 md-lg:px-3 py-2 rounded-full dark:text-white transition-colors text-sm md-lg:text-base">Nosotros</a>
           <a href="#cta"
-            class="nav-link relative z-10 px-2 md-lg:px-3 py-2 rounded-full dark:text-white transition-colors text-sm md-lg:text-base font-semibold">
+            class="nav-link btn-agendar-navbar"
+            data-text="Agendar reunión">
             <span class="hidden md-lg:inline">Agendar reunión</span>
             <span class="md-lg:hidden">Agendar</span>
           </a>
@@ -113,8 +115,9 @@
         </a>
 
         <!-- Agendar reunión -->
-        <button onclick="scrollToSection('cta')" class="inline-block w-max bg-primary-violet text-white px-6 py-2
-             rounded-full hover:bg-primary-cyan transition-colors font-semibold">
+        <button onclick="scrollToSection('cta')" 
+                class="btn-agendar-section" 
+                data-text="Agendar reunión">
           Agendar reunión
         </button>
 
@@ -140,7 +143,8 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       <div class="flex flex-col md:flex-row items-center">
         <div class="md:w-1/2 mb-10 md:mb-0 animate-fade-in">
-          <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold gradient-text py-3 hover:pulse-glow ">
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold gradient-text py-3 hover:pulse-glow cursor-pointer"
+            onclick="event.preventDefault(); scrollToSection('services')">
             <span class="block">
               <span class="letter-stream">S</span><span class="letter-stream">o</span><span
                 class="letter-stream">l</span><span class="letter-stream">u</span><span
@@ -156,11 +160,11 @@
                 class="letter-stream">i</span><span class="letter-stream">c</span><span
                 class="letter-stream">a</span><span class="letter-stream">s</span>
             </span>
-            <h1 class="text-2xl md:text-3xl lg:text-4xl mb-5 ">para tu negocio
+            <h1 class="text-2xl md:text-3xl lg:text-4xl mb-5 ">Construimos el futuro con IA
             </h1>
           </h1>
           <p class="text-xl text-gray-700 dark:text-sky-400 mb-8">
-            Impulsamos la transformación digital aplicando inteligencia artificial personalizada, creando soluciones
+            Impulsamos la transformación digital aplicando inteligencia artificial personalizada creando soluciones
             de software innovadoras.
           </p>
           <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
@@ -168,9 +172,10 @@
               class="btn-primary bg-primary-blue text-white hover:bg-primary-violet">
               Nuestros servicios
             </button>
-            <button onclick="event.preventDefault(); scrollToSection('contact')"
-              class="btn-primary bg-gray-800 text-white hover:bg-gray-700">
-              Contactar ahora
+            <button onclick="event.preventDefault(); scrollToSection('cta')" 
+                    class="btn-agendar-section" 
+                    data-text="Agendar reunión">
+              Agendar reunión
             </button>
           </div>
         </div>
@@ -198,10 +203,12 @@
   <section id="services" class="py-20 bg-gray-50 dark:bg-dark-800">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
-        <h2 class="text-3xl md:text-4xl font-bold mb-4">Nuestros <span class="gradient-text">Servicios</span>
+        <h2 class="text-3xl md:text-4xl font-bold mb-4 cursor-pointer hover:opacity-80 transition-opacity"
+          onclick="event.preventDefault(); scrollToSection('services')">
+          Nuestros <span class="gradient-text">servicios</span>
         </h2>
         <p class="text-xl text-gray-700 dark:text-primary-cyan max-w-3xl mx-auto">
-          Soluciones innovadoras con inteligencia artificial diseñadas para transformar la experiencia de tus clientes.
+          Soluciones innovadoras con inteligencia artificial diseñadas para transformar tu experiencia.
         </p>
       </div>
 
@@ -211,13 +218,15 @@
           <div class="icon-container bg-primary-cyan/10">
             <i class="fas fa-tshirt text-3xl text-primary-cyan"></i>
           </div>
-          <h3 class="text-xl font-bold mb-3">Virtual Room</h3>
+          <h3 class="text-xl font-bold mb-3">SnapAI</h3>
           <p class="text-muted mb-4">
             Aplicación de fitting digital impulsada por IA que se integra fácilmente en tiendas online a través de un
             widget interactivo. <br>
-            Permite a los usuarios de un e-commerce, tomarse una simple foto para calcular sus medidas
-            corporales y compararlas automáticamente con las tallas reales de cada prenda en la tienda.
+            Permite a los usuarios de un e-commerce, a través de solo dos fotos, conocer sus medidas
+            corporales. <br> Nuestra app le sugiere al usuario automáticamente la talla más adecuada, reduciendo así las
+            tasas de devolución.
           </p>
+          <h3 class="font-bold mb-3 gradient-text-animated">Beneficios clave</h3>
           <ul class="space-y-2 text-sm">
             <li class="flex items-start">
               <i class="fas fa-check-circle mt-1 mr-2 text-xs text-primary-cyan"></i>
@@ -246,7 +255,8 @@
             </li>
             <li class="flex items-start">
               <i class="fas fa-check-circle mt-1 mr-2 text-xs text-primary-cyan"></i>
-              <span class="text-gray-900 dark:text-light-plasma">Módulo de dashboard para tiendas con métricas de ventas
+              <span class="text-gray-900 dark:text-light-plasma">Módulo de administración para tiendas con métricas de
+                ventas
                 y devoluciones.</span>
             </li>
           </ul>
@@ -303,16 +313,14 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex flex-col md:flex-row items-center">
         <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
-          <h2 class="text-3xl md:text-4xl font-bold mb-6">Sobre <span class="gradient-text">nextAI</span></h2>
+          <h2 class="text-3xl md:text-4xl font-bold mb-6 cursor-pointer hover:opacity-80 transition-opacity"
+            onclick="event.preventDefault(); scrollToSection('about')">
+            Sobre <span class="gradient-text">nextAI</span>
+          </h2>
           <p class="text-gray-700 dark:text-light-plasma/80 mb-6">
-            Somos un equipo de expertos en inteligencia artificial apasionados por crear soluciones
-            tecnológicas que transforman negocios. Combinamos conocimiento técnico avanzado con una profunda
-            comprensión de las necesidades empresariales.
-          </p>
-          <p class="text-gray-700 dark:text-light-plasma/80 mb-6">
-            Nuestra misión es impulsar el acceso de herramientas basadas en IA, ofreciendo herramientas
-            poderosas pero
-            accesibles para empresas de todos los tamaños.
+            Somo un equipo de expertos que unimos inteligencia artificial con desarrollo de software para crear
+            productos con la finalidad de brindar soluciones a necesidades reales.
+
           </p>
           <button onclick="event.preventDefault(); scrollToSection('contact')"
             class="gradient-bg text-white px-6 py-3 rounded-lg hover:opacity-90 transition-all font-medium shadow-lg shadow-primary-blue/30">
@@ -333,7 +341,10 @@
   <section id="cta" class="py-20 relative overflow-hidden gradient-bg">
     <div class="absolute inset-0 bg-grid-pattern"></div>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-      <h2 class="text-3xl md:text-4xl font-bold mb-6 text-white">¿Listo para transformar tu negocio con IA?</h2>
+      <h2 class="text-3xl md:text-4xl font-bold mb-6 text-white cursor-pointer hover:opacity-80 transition-opacity"
+        onclick="event.preventDefault(); scrollToSection('cta')">
+        ¿Listo para transformar tu negocio con IA?
+      </h2>
       <p class="text-xl text-white/90 mb-8 max-w-3xl mx-auto">
         Agenda una consultoría gratuita con nuestros expertos y descubre cómo podemos ayudarte.
       </p>
@@ -374,7 +385,10 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex flex-col md:flex-row">
         <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
-          <h2 class="text-3xl md:text-4xl font-bold mb-6">Contáctanos</h2>
+          <h2 class="text-3xl md:text-4xl font-bold mb-6 cursor-pointer hover:opacity-80 transition-opacity"
+            onclick="event.preventDefault(); scrollToSection('contact')">
+            Contáctanos
+          </h2>
           <p class="text-gray-700 dark:text-light-plasma/80 mb-8">
             Completa el formulario y nos pondremos en contacto contigo a la brevedad. También puedes
             escribirnos directamente a nuestro correo.
