@@ -44,40 +44,118 @@ nextia-landing/
 └── README.md
 
 ⚡ Cómo usar
-Clona el repositorio
+# 🧠 NextIA Landing Page
 
-bash
-Copiar
-Editar
-git clone https://github.com/Nextia-labs/nextia-landing.git
-Abre index.html en tu navegador.
+Landing page estática desarrollada con Tailwind CSS para presentar soluciones de inteligencia artificial y desarrollo de software de la startup **NextIA**.
 
-No requiere instalación de dependencias ni servidor backend.
+---
 
-El diseño se apoya en Tailwind CDN y Font Awesome CDN.
+## 📦 Requisitos
 
-Edición
+- **Node.js** `v18.x` o superior
+- **npm** o `pnpm` como gestor de paquetes
 
-Edita index.html y los assets para personalizar textos, imágenes o colores.
+---
 
-🌗 Cambiar a modo oscuro
-Haz clic en el botón 🌙 (o ☀️) arriba a la derecha para alternar entre modo claro y oscuro.
-La preferencia queda guardada localmente.
+## 🚀 Instalación
 
-📌 Notas
-No incluye dependencias ni build tools: todo es HTML/CSS estándar, para facilitar la edición y el deploy.
+1. **Clonar el repositorio**
+   ```bash
+   git clone https://github.com/usuario/nextia-landing.git
+   cd nextia-landing
+   ```
 
-¿Quieres agregar más secciones? Duplica/modifica bloques de HTML según tus necesidades.
+2. **Instalar dependencias**
+   ```bash
+   npm ci
+   # o, si no tenés package-lock.json
+   npm install
+   ```
 
-Para producción: recomendamos servir desde un hosting estático (Netlify, Vercel, GitHub Pages, etc.).
+---
 
-🛠️ Tecnologías usadas
-Tailwind CSS (CDN)
+## 🔧 Comandos disponibles
 
-Font Awesome (CDN)
+### ✅ Desarrollo (modo watch)
+Compila `output.css` automáticamente al detectar cambios:
+```bash
+npm run dev
+```
 
-HTML5 + CSS3
+### 📤 Build para producción
+Genera una versión minificada del CSS:
+```bash
+npm run build
+```
 
-📬 Contacto
-¿Consultas, mejoras o sugerencias?
-Escribe a contacto@nextia.com o abre un Issue en este repositorio.
+### 🛠 Compilación manual alternativa
+Podés usar el script `build-css` (equivalente a `dev`):
+```bash
+npm run build-css
+```
+
+---
+
+## 🗂 Estructura esperada
+
+```
+├── dist/
+│   └── output.css         ← CSS generado por Tailwind
+├── src/
+│   └── input.css          ← Archivo base con directivas Tailwind
+├── index.html             ← Landing principal
+├── tailwind.config.js     ← Config extendida (colores, animaciones, breakpoints)
+├── package.json
+└── ...
+```
+
+El archivo `src/input.css` debe incluir:
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+---
+
+## 🌙 Modo oscuro
+
+Tailwind está configurado con `darkMode: 'class'`. Para activar el modo oscuro, asegurate de incluir la clase `dark` en el elemento `<html>` o `<body>`.
+
+---
+
+## 🎨 Estilos personalizados
+
+Este proyecto incluye:
+
+- Paleta personalizada (`primary`, `dark`, `light`, `gray`)
+- Animaciones extendidas (`float`, `fade-in`, `gradientFlow`, `pulseGlow`, `slideBubble`)
+- Breakpoint adicional: `md-lg` (`868px`)
+
+Todos los estilos están definidos en `tailwind.config.js`.
+
+---
+
+## 🧯 Solución de errores comunes
+
+| Error | Posible causa | Solución |
+|-------|----------------|----------|
+| `tailwindcss: command not found` | Tailwind no instalado globalmente | Usar `npx tailwindcss` o asegurarte de haber corrido `npm install` |
+| No se actualizan los estilos | Cambios en el config no recargados | Detené `npm run dev` con `Ctrl+C` y volvé a ejecutarlo |
+| Faltan estilos personalizados | Clases dinámicas no detectadas por JIT | Asegurate de que las clases estén en el HTML/JS explícitamente |
+
+---
+
+## 📌 Notas
+
+- Este proyecto **no usa frameworks como React o Vite**.
+- El CSS final se encuentra en `dist/output.css`.
+- Podés servir el sitio directamente abriendo `index.html` o subirlo a Netlify/Vercel como proyecto estático.
+
+---
+
+## 🧠 Sobre NextIA
+
+NextIA es una startup dedicada a unir inteligencia artificial con desarrollo de software para impulsar la transformación digital de personas y organizaciones, brindando soluciones accesibles, eficientes y personalizadas.
+
+---
