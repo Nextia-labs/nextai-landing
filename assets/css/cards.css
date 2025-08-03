@@ -1,0 +1,103 @@
+/* Card Styles */
+.card-container {
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(5px);
+    padding: 2rem;
+    border-radius: 1.25rem;
+    position: relative;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2),
+                0 0 5px rgba(0, 255, 224, 0.1),
+                0 0 5px rgba(197, 0, 245, 0.1);
+}
+
+.card-container::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(90deg,
+            rgb(0, 255, 224),
+            rgb(197, 0, 245));
+    -webkit-mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    pointer-events: none;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.card-container:hover {
+    transform: scale(1.01);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3),
+                0 0 10px rgba(0, 255, 224, 0.2),
+                0 0 10px rgba(197, 0, 245, 0.2);
+}
+
+.card-container:hover::before {
+    opacity: 1;
+    padding: 1.5px;
+}
+
+.border-glow {
+    position: relative;
+    border-radius: 16px;
+    z-index: 0;
+    overflow: hidden;
+    border: 2px solid transparent;
+    background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)) padding-box,
+        linear-gradient(90deg, #00FFE0, #C500F5) border-box;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15),
+                0 0 5px rgba(0, 255, 224, 0.1),
+                0 0 5px rgba(197, 0, 245, 0.1);
+}
+
+/* Estados hover/focus para todas las cards */
+.border-glow:hover,
+.border-glow:focus {
+    border-image: linear-gradient(90deg, #00FFE0, #C500F5) 1;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2),
+                0 0 10px rgba(0, 255, 224, 0.2),
+                0 0 10px rgba(197, 0, 245, 0.2);
+}
+
+/* Service Cards */
+.service-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover,
+.service-card:focus {
+    transform: scale(1.05);
+    box-shadow:
+        0 0px 10px rgba(0, 0, 0, 0.15),
+        0 0 10px rgba(0, 255, 224, 0.3),
+        0 0 109px rgba(197, 0, 245, 0.2);
+}
+
+/* Animación de pulsación para bordes neón */
+@keyframes pulse-border {
+    0%, 100% {
+        opacity: 0.8;
+        box-shadow: 0 0 5px rgba(0, 255, 224, 0.1),
+                  0 0 5px rgba(197, 0, 245, 0.1);
+    }
+    50% {
+        opacity: 1;
+        box-shadow: 0 0 10px rgba(0, 255, 224, 0.2),
+                  0 0 10px rgba(197, 0, 245, 0.2);
+    }
+}
+
+/* Aplicar animación a elementos con borde neón en modo oscuro */
+.dark .card-container::before,
+.dark .border-glow {
+    animation: pulse-border 3s infinite;
+}

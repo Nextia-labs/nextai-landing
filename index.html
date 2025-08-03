@@ -18,6 +18,7 @@
   <link rel="stylesheet" href="dist/output.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/cards.css">
   
   <!-- Favicon general -->
   <link rel="icon" href="assets/images/favicon/favicon.ico" type="image/x-icon">
@@ -35,10 +36,10 @@
 </head>
 
 
-<body class="bg-white text-gray-900 dark:bg-dark-900 dark:text-light-plasma">
+<body class="bg-white text-gray-900 dark:bg-black dark:text-light-plasma">
   <!-- ==== HEADER ==== -->
   <header
-    class="sticky top-0 z-50 backdrop-blur-md border-b border-white/10 bg-white/60 dark:bg-[#0f0f0f]/80 transition-colors duration-300 bg-[linear-gradient(90deg,#00CFFF,#C500F5,#00FFE0)">
+    class="sticky top-0 z-50 backdrop-blur-md border-b border-white/10 bg-white/60 dark:bg-black/50 transition-colors duration-300">
     <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
       <div class="flex justify-between h-16 items-center">
         <!-- Logo + Marca -->
@@ -65,7 +66,7 @@
         <!-- Navegación Escritorio -->
         <div class="hidden md:flex items-center space-x-2 md-lg:space-x-8 relative" id="nav-wrapper">
           <div id="nav-indicator"
-            class="absolute bottom-0 h-full rounded-full z-0 transition-all duration-500 ease-in-out pointer-events-none bg-gradient-to-r from-cyan-400 via-violet-500 to-cyan-400 bg-[length:400%_400%] animate-[gradientFlow_6s_ease_infinite]">
+            class="absolute bottom-0 h-full rounded-full z-0 transition-all duration-700 ease-in-out pointer-events-none bg-gradient-to-r from-cyan-400 via-violet-500 to-cyan-400 bg-[length:400%_400%] animate-[gradientFlow_6s_ease_infinite]">
           </div>
 
           <a href="#hero"
@@ -100,7 +101,7 @@
     </nav>
 
     <!-- Menú mobile -->
-    <div id="mobileMenu" class="hidden w-full bg-white/90 dark:bg-[#0f0f0f]/90 md:hidden p-6
+    <div id="mobileMenu" class="hidden w-full bg-white/90 dark:bg-black/50 md:hidden p-6
          space-y-4 border-t border-primary-blue/10 backdrop-blur-md">
       <div class="flex flex-col items-center space-y-4">
         <a href="#hero"
@@ -164,8 +165,7 @@
             </h1>
           </h1>
           <p class="text-xl text-gray-700 dark:text-sky-400 mb-8">
-            Impulsamos la transformación digital aplicando inteligencia artificial personalizada creando soluciones
-            de software innovadoras.
+            Usamos inteligencia artificial para crear soluciones de software innovadoras que ayudan a personas y organizaciones a crecer y transformar su futuro.
           </p>
           <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
             <button onclick="event.preventDefault(); scrollToSection('services')"
@@ -200,7 +200,7 @@
   </section>
 
   <!-- Services Section -->
-  <section id="services" class="py-20 bg-gray-50 dark:bg-dark-800">
+  <section id="services" class="py-20 bg-gray-50 dark:bg-black">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
         <h2 class="text-3xl md:text-4xl font-bold mb-4 cursor-pointer hover:opacity-80 transition-opacity"
@@ -208,18 +208,18 @@
           Nuestros <span class="gradient-text">servicios</span>
         </h2>
         <p class="text-xl text-gray-700 dark:text-primary-cyan max-w-3xl mx-auto">
-          Soluciones innovadoras con inteligencia artificial diseñadas para transformar tu experiencia.
+          Creamos experiencias fluidas, eficientes y personalizadas a través de IA.
         </p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         <!-- Proyecto 1: Virtual Room -->
-        <div class="reveal card-container border-glow border-gradient-inversiones service-card">
-          <div class="icon-container bg-primary-cyan/10">
+        <div class="card-container">
+          <div class="w-16 h-16 mb-6 rounded-2xl bg-dark-800/50 flex items-center justify-center">
             <i class="fas fa-tshirt text-3xl text-primary-cyan"></i>
           </div>
-          <h3 class="text-xl font-bold mb-3">SnapAI</h3>
-          <p class="text-muted mb-4">
+          <h3 class="text-xl font-bold text-white mb-4">SnapAI</h3>
+          <p class="text-gray-300 mb-6">
             Aplicación de fitting digital impulsada por IA que se integra fácilmente en tiendas online a través de un
             widget interactivo. <br>
             Permite a los usuarios de un e-commerce, a través de solo dos fotos, conocer sus medidas
@@ -263,12 +263,12 @@
         </div>
 
         <!-- Proyecto 2: App de Inversiones -->
-        <div class="reveal card-container border-glow border-gradient-inversiones service-card">
-          <div class="icon-container bg-primary-violet/10">
+        <div class="card-container">
+          <div class="w-16 h-16 mb-6 rounded-2xl bg-dark-800/50 flex items-center justify-center">
             <i class="fas fa-chart-line text-3xl text-primary-violet"></i>
           </div>
-          <h3 class="text-xl font-bold mb-3">App de Inversiones</h3>
-          <p class="text-muted mb-4">
+          <h3 class="text-xl font-bold text-white mb-4">App de Inversiones</h3>
+          <p class="text-gray-300 mb-6">
             Aplicación potenciada por IA que monitorea en tiempo real la actividad de grandes inversionistas y genera
             alertas personalizadas para ayudarte a anticiparte a movimientos clave del mercado.
           </p>
@@ -309,7 +309,7 @@
   </section>
 
   <!-- About Section -->
-  <section id="about" class="bg-white dark:bg-dark-800 py-20">
+  <section id="about" class="bg-white dark:bg-black py-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex flex-col md:flex-row items-center">
         <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
@@ -318,9 +318,9 @@
             Sobre <span class="gradient-text">nextAI</span>
           </h2>
           <p class="text-gray-700 dark:text-light-plasma/80 mb-6">
-            Somo un equipo de expertos que unimos inteligencia artificial con desarrollo de software para crear
-            productos con la finalidad de brindar soluciones a necesidades reales.
-
+            Somos un equipo de desarrolladores de soluciones tecnológicas impulsadas por inteligencia artificial.
+Creamos software personalizado para resolver desafíos reales, optimizar procesos y acompañar el crecimiento de personas y organizaciones.
+Nuestra prioridad es ofrecer tecnología innovadora capaz de resolver problemas reales.
           </p>
           <button onclick="event.preventDefault(); scrollToSection('contact')"
             class="gradient-bg text-white px-6 py-3 rounded-lg hover:opacity-90 transition-all font-medium shadow-lg shadow-primary-blue/30">
@@ -381,7 +381,7 @@
   </section>
 
   <!-- Contact Section -->
-  <section id="contact" class="py-20 bg-white dark:bg-dark-800">
+  <section id="contact" class="py-20 bg-white dark:bg-black">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex flex-col md:flex-row">
         <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
@@ -464,7 +464,7 @@
 
 
   <!-- Footer -->
-  <footer class="bg-gray-800 text-gray-300 py-12 border-t border-primary-blue/10">
+  <footer class="bg-gray-800 dark:bg-black text-gray-300 py-12 border-t border-primary-blue/10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
         <div class="md:col-span-2">
@@ -509,7 +509,7 @@
           </ul>
         </div>
       </div>
-      <div class="border-t border-gray-700 mt-12 pt-8 text-center text-sm">
+      <div class="border-t dark:border-gray-800 mt-12 pt-8 text-center text-sm">
         <p>&copy; 2023 nextAI. Todos los derechos reservados.</p>
       </div>
     </div>

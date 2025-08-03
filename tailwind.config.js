@@ -53,10 +53,10 @@ module.exports = {
         },
         pulseGlow: {
           "0%, 100%": {
-            boxShadow: "0 0 4px rgba(0, 255, 255, 0.2), 0 0 8px rgba(197, 0, 245, 0.2)"
+            boxShadow: "0 0 1px rgba(0, 255, 255, 0.2), 0 0 1px rgba(197, 0, 245, 0.2)"
           },
           "50%": {
-            boxShadow: "0 0 6px rgba(0, 255, 255, 0.3), 0 0 10px rgba(197, 0, 245, 0.3)"
+            boxShadow: "0 0 1px rgba(0, 255, 255, 0.3), 0 0 1px rgba(197, 0, 245, 0.3)"
           }
         },
         slideBubble: {

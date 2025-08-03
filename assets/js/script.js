@@ -132,24 +132,32 @@ document.addEventListener('DOMContentLoaded', function () {
   const navWrapper = document.getElementById("nav-wrapper");
 
   function updateIndicator() {
+    // Verificar si la sección activa es CTA
+    const ctaLink = document.querySelector(".nav-link.nav-active.btn-agendar-navbar");
+    if (ctaLink) {
+      // Si estamos en la sección CTA, desvanecer el indicador
+      indicator.style.opacity = '0';
+      indicator.style.transition = 'opacity 0.3s ease-in-out';
+      return;
+    }
+
     const currentLink = document.querySelector(".nav-link.nav-active:not(.btn-agendar-navbar):not(.btn-agendar-section)");
     if (!currentLink || !navWrapper || !indicator) {
-      // Si no hay enlace activo o es el botón agendar, ocultar el indicador
-      if (indicator) {
-        indicator.style.opacity = '0';
-        indicator.style.transform = 'translateX(-100px) scale(0.8)';
-      }
       return;
     }
 
     const linkRect = currentLink.getBoundingClientRect();
     const wrapperRect = navWrapper.getBoundingClientRect();
-
-    // Mostrar y posicionar el indicador
+    
+    // Calcular la posición del indicador con una transición suave
+    const targetX = linkRect.left - wrapperRect.left;
+    
+    // Aplicar la transición suave sin reiniciar la posición
     indicator.style.opacity = '1';
     indicator.style.width = `${linkRect.width}px`;
     indicator.style.height = `${linkRect.height}px`;
-    indicator.style.transform = `translateX(${linkRect.left - wrapperRect.left}px) scale(1)`;
+    indicator.style.transform = `translateX(${targetX}px) scale(1)`;
+    indicator.style.transition = 'all 0.3s ease-in-out';
   }
 
   // ==========================================================================
@@ -226,14 +234,8 @@ document.addEventListener('DOMContentLoaded', function () {
       if (id) {
         const section = document.getElementById(id);
         if (section) {
-          // Si es el botón agendar, ocultar inmediatamente el indicador
-          if (link.classList.contains('btn-agendar-navbar') || link.classList.contains('btn-agendar-section')) {
-            if (indicator) {
-              indicator.style.opacity = '0';
-              indicator.style.transform = 'translateX(-100px) scale(0.8)';
-            }
-          }
-          
+          // No ocultamos el indicador al hacer clic en el botón agendar
+          // para mantener una transición suave
           section.scrollIntoView({ behavior: 'smooth' });
           // Actualizar URL sin recargar la página
           history.pushState(null, null, `#${id}`);

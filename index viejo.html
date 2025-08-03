@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Soluciones avanzadas de inteligencia artificial, automatización y visión por computadora para empresas.">
+    <meta property="og:title" content="NextAI - Impulsa tu negocio con soluciones tecnológicas">
+    <meta property="og:description"
+        content="Impulsamos la transformación digital con IA personalizada y consultoría experta.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="URL_DE_IMAGEN_DESTACADA">
+    <meta name="theme-color" content="#00CFFF">
+
+    <title>nextAI - Soluciones  Inteligencia Artificial</title>
+    <base target="_self">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Favicon general -->
+    <link rel="icon" href="/assets/images/favicon/favicon.ico" type="image/x-icon">
+
+    <!-- Para navegadores modernos (opcional) -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon/favicon-16x16.png">
+
+    <!-- Para dispositivos Apple -->
+    <link rel="apple-touch-icon" href="/assets/images/favicon/favicon-apple-touch-icon.png" sizes="180x180">
+
+    <!-- Manifest (para PWA, Android) -->
+    <link rel="manifest" href="/assets/images/favicon/site.webmanifest">
+
+
+<!-- Configuración Tailwind personalizada -->
+<script>
+  tailwind.config = {
+    darkMode: 'class',
+    theme: {
+      screens: { sm: '640px', md: '768px', lg: '1024px', xl: '1280px', xxl: '1480px' },
+      extend: {
+        colors: {
+          primary: { blue: '#00CFFF', violet: '#C500F5', cyan: '#00FFE0' },
+          dark: { 900: '#000000', 800: '#0A0A0A', 700: '#1A1A1A' },
+          light: { plasma: '#F0F9FF' },
+          gray: { 750: '#2D3748' }
+        },
+        animation: {
+          float: "float 3s ease-in-out infinite",
+          "fade-in": "fadeIn 1s ease-in",
+          gradientFlow: "gradientFlow 7s ease infinite",
+          pulseGlow: "pulseGlow 5s ease-in-out infinite",
+          slideBubble: "slideBubble 0.6s ease-in-out"
+        },
+        keyframes: {
+          float: {
+            "0%, 100%": { transform: "translateY(0)" },
+            "50%": { transform: "translateY(-10px)" }
+          },
+          fadeIn: {
+            "0%": { opacity: "0" },
+            "100%": { opacity: "1" }
+          },
+          gradientFlow: {
+            "0%": { backgroundPosition: "0% 50%" },
+            "50%": { backgroundPosition: "100% 50%" },
+            "100%": { backgroundPosition: "0% 50%" }
+          },
+          pulseGlow: {
+            "0%, 100%": {
+              boxShadow: "0 0 4px rgba(0, 255, 255, 0.2), 0 0 8px rgba(197, 0, 245, 0.2)"
+            },
+            "50%": {
+              boxShadow: "0 0 6px rgba(0, 255, 255, 0.3), 0 0 10px rgba(197, 0, 245, 0.3)"
+            }
+          },
+          slideBubble: {
+            "0%": { transform: "translateX(-50%) scale(0.8)", opacity: 0 },
+            "100%": { transform: "translateX(0) scale(1)", opacity: 1 }
+          }
+        }
+      }
+    }
+  }
+  
+</script>
+
+
+
+<style>
+:root {
+  --color-primary-blue: 0, 207, 255;
+  --color-primary-violet: 197, 0, 245;
+  --color-primary-cyan: 0, 255, 224;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+section {
+  scroll-margin-top: 100px; /* Ajusta según la altura de tu header */
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, #00CFFF 0%, #C500F5 50%, #00FFE0 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: gradientFlow 6s ease infinite;
+  background-size: 200% 200%;
+}
+
+.gradient-bg {
+  background: linear-gradient(135deg, #00CFFF 0%, #C500F5 50%, #00FFE0 100%);
+}
+
+.transition-slow {
+  transition: all 0.5s ease;
+}
+
+.bg-grid-pattern {
+  background-image:
+    linear-gradient(rgba(0, 207, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 207, 255, 0.05) 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+
+.border-glow {
+  position: relative;
+  border-radius: 1rem;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.border-glow::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 2px;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #00FFE0, #C500F5);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.border-glow:hover:not(.border-gradient-inversiones)::before {
+  padding: 1px;
+  background: linear-gradient(90deg, #00FFE0, #C500F5);
+}
+
+.border-glow.border-gradient-inversiones:hover::before {
+  background: linear-gradient(90deg, #C500F5, #00FFE0);
+}
+
+.service-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.glow-gradient {
+  border: 3px solid transparent;
+  border-radius: 1rem;
+  background: linear-gradient(90deg, #00CFFF, #C500F5, #00FFE0);
+  background-origin: border-box;
+  box-shadow: 0 0 40px 0 #00CFFF40, 0 0 80px 0 #C500F540;
+  padding: 6px;
+}
+
+.gradient-text-animated {
+  background: linear-gradient(90deg, #00CFFF, #C500F5, #00FFE0);
+  background-size: 300% 300%;
+  background-position: 0% 50%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: gradientFlow 7s ease infinite;
+}
+
+.glass-header {
+  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.nav-link {
+  position: relative;
+  z-index: 10;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  transition: color 0.3s ease;
+  color: black;
+  background-color: transparent !important;
+}
+
+.dark .nav-link {
+  color: white;
+}
+
+.nav-link.mobile-active {
+  @apply bg-gradient-to-r from-cyan-400 via-fuchsia-500 to-cyan-400
+         bg-[length:400%_400%] animate-[gradientFlow_10s_ease_infinite]
+         shadow-[0_0_30px_rgba(0,255,255,0.6)] text-white font-semibold;
+}
+
+.nav-link:hover {
+  font-weight: 700;
+}
+
+.nav-active {
+  background-color: #00FFE0;
+  color: black;
+  border-radius: 999px;
+  padding: 0.5rem 1rem;
+  font-weight: 700;
+  transition: all 0.4s ease;
+}
+
+.dark .nav-active {
+  color: white;
+}
+
+.nav-active:hover {
+  box-shadow: inset 0 0 6px rgba(0, 255, 255, 0.2);
+  transform: translateY(-1px);
+}
+
+#nav-indicator {
+  position: absolute;
+  height: 100%;
+  background-color: #00FFE0;
+  border-radius: 9999px;
+  transition: transform 0.4s ease, width 0.4s ease;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.animate-fade-in {
+  animation: fadeIn 1s ease-in-out forwards;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animation-delay-1500 {
+  animation-delay: 1s;
+}
+
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-gradientFlow {
+  background-size: 400% 400%;
+  animation: gradientFlow 10s ease infinite;
+}
+
+.shadow-cyan {
+  box-shadow: 0 0 2px rgba(0, 255, 255, 0.6);
+}
+
+/* === Animación personalizada letra por letra === */
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-90px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-down {
+  animation: fadeInDown 4.5s forwards;
+  display: inline-block;
+  opacity: 0;;
+}
+</style>
+
+</head>
+
+
+<body class="bg-white text-gray-900 dark:bg-dark-900 dark:text-light-plasma">
+    <!-- ==== HEADER ==== -->
+<header class="sticky top-0 z-50 backdrop-blur-md border-b border-white/10 bg-white/60 dark:bg-[#0f0f0f]/80 transition-colors duration-300 bg-[linear-gradient(90deg,#00CFFF,#C500F5,#00FFE0)">
+  <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+    <div class="flex justify-between h-16 items-center">
+      <!-- Logo + Marca -->
+<div class="flex items-center space-x-3">
+  <!-- Logo compuesto: PNG + SVG -->
+  <div class="relative w-16 h-16 shrink-0">
+    <!-- Imagen rellena -->
+<img
+  src="assets/images/logo/logo_nextai.png"
+  alt="Logo sólido"
+  class="absolute inset-0 w-full h-full z-10 select-none
+         drop-shadow-[0_0_1px_rgba(0,255,255,0.4)]
+         hover:drop-shadow-[0_0_35px_rgba(0,255,255,0.9)]
+         transition-shadow duration-300"
+/>
+
+
+    <!-- SVG con trazo animado -->
+    <svg
+      class="absolute inset-0 w-full h-full z-10"
+      viewBox="0 0 1326 1326"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+    >
+      <defs>
+        <linearGradient id="logoGradient" x1="0%" y1="0%" x2="0%" y2="0%">
+          <stop offset="0%" stop-color="#00CFFF">
+            <animate attributeName="stop-color" values="#00CFFF;#C500F5;#00FFE0;#00CFFF" dur="2s" repeatCount="indefinite" />
+          </stop>
+          <stop offset="-300%" stop-color="#00FFE0">
+            <animate attributeName="stop-color" values="#00FFE0;#00CFFF;#C500F5;#00FFE0" dur="3s" repeatCount="indefinite" />
+          </stop>
+        </linearGradient>
+      </defs>
+
+      <g
+        transform="translate(4.000000,1487.000000) scale(0.29150,-0.298000)"
+        stroke="url(#logoGradient)"
+        stroke-width="40"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        fill="none"
+      >
+<path d="M2201 4875 c-24 -7 -49 -11 -57 -8 -8 3 -14 0 -14 -6 0 -6 -8 -11
+-17 -11 -10 0 -36 -11 -58 -23 -22 -13 -84 -49 -137 -80 -54 -32 -100 -57
+-103 -57 -3 0 -11 -5 -18 -10 -17 -15 -104 -66 -287 -170 -85 -48 -211 -120
+-280 -160 -199 -115 -205 -118 -214 -118 -5 0 -12 -5 -15 -10 -3 -6 -26 -21
+-51 -34 -114 -62 -340 -194 -390 -228 -50 -34 -87 -70 -145 -141 -10 -13 -18
+-25 -17 -27 1 -1 -5 -16 -13 -32 -39 -75 -40 -110 -40 -990 0 -916 1 -926 51
+-1030 33 -69 128 -162 222 -217 39 -24 74 -43 77 -43 3 0 24 -12 48 -27 47
+-30 208 -123 213 -123 1 0 39 -23 84 -50 45 -28 83 -50 84 -50 2 0 66 -37 142
+-81 76 -45 159 -93 184 -107 25 -14 89 -51 143 -83 54 -33 99 -59 101 -59 2 0
+52 -29 111 -65 59 -36 111 -65 116 -65 5 0 9 -4 9 -10 0 -5 5 -10 10 -10 6 0
+42 -18 79 -39 75 -42 180 -71 261 -71 53 0 178 27 194 41 6 5 16 9 23 9 7 0
+43 19 80 42 38 23 97 58 133 78 36 20 106 61 155 90 235 138 377 220 455 263
+30 16 66 38 80 47 25 18 130 78 230 133 30 16 66 38 80 47 14 9 30 19 35 21
+26 10 150 84 153 91 2 4 8 8 13 8 19 0 119 70 160 112 67 69 104 135 123 221
+16 70 17 160 17 930 0 760 -2 859 -17 917 -21 82 -52 135 -117 201 -63 62
+-102 88 -326 215 -96 55 -200 113 -230 130 -31 18 -87 50 -126 72 -38 22 -115
+66 -170 96 -55 31 -122 70 -150 86 -27 17 -66 38 -85 48 -19 9 -39 21 -45 25
+-21 16 -128 77 -135 77 -5 0 -15 6 -22 13 -7 6 -29 20 -48 30 -40 21 -58 31
+-185 104 -90 52 -144 77 -157 75 -3 -1 -28 5 -55 13 -58 18 -85 18 -142 0z
+m199 -48 c63 -21 179 -81 191 -100 3 -5 8 -7 10 -6 7 5 99 -44 99 -53 0 -4 9
+-8 19 -8 11 0 26 -6 33 -13 10 -11 154 -93 313 -181 11 -6 22 -13 25 -16 7 -8
+70 -45 150 -88 36 -19 77 -43 92 -53 14 -11 28 -19 31 -19 9 0 152 -84 165
+-97 7 -7 20 -13 27 -13 7 0 20 -6 27 -14 8 -7 41 -26 74 -42 32 -15 65 -33 72
+-40 6 -7 32 -23 57 -35 25 -12 53 -30 63 -38 9 -9 26 -18 37 -19 21 -4 75 -39
+87 -57 4 -5 8 -6 8 -1 0 4 29 -20 65 -55 36 -35 63 -70 60 -76 -2 -7 1 -12 7
+-10 6 1 22 -25 36 -58 34 -81 38 -182 40 -1095 2 -618 0 -742 -12 -782 -8 -25
+-12 -49 -9 -52 4 -3 1 -6 -5 -6 -7 0 -12 -6 -12 -13 0 -32 -92 -167 -114 -167
+-6 0 -21 -11 -34 -25 -13 -13 -43 -34 -68 -46 -24 -13 -44 -26 -44 -31 0 -4
+-6 -8 -13 -8 -18 0 -127 -56 -121 -63 3 -2 -7 -8 -22 -11 -24 -6 -72 -36 -100
+-62 -7 -6 -27 -17 -46 -24 -18 -8 -38 -21 -44 -29 -6 -8 -16 -11 -22 -7 -6 3
+-19 -2 -29 -13 -10 -10 -34 -26 -53 -36 -19 -10 -37 -21 -40 -24 -3 -3 -21
+-14 -40 -24 -19 -9 -62 -33 -95 -52 -33 -20 -76 -43 -95 -53 -19 -9 -56 -32
+-82 -50 -26 -17 -51 -32 -57 -32 -5 0 -30 -13 -54 -30 -25 -16 -50 -30 -56
+-30 -6 0 -11 -5 -11 -11 0 -5 -4 -7 -10 -4 -5 3 -10 3 -10 -2 0 -4 -20 -19
+-45 -32 -25 -13 -45 -28 -45 -32 0 -5 -7 -6 -15 -3 -8 4 -15 2 -15 -3 0 -5
+-30 -25 -67 -44 -38 -19 -71 -38 -75 -44 -4 -5 -8 -6 -8 -2 0 5 -7 2 -15 -7
+-55 -54 -223 -115 -325 -117 -56 -1 -148 17 -164 32 -6 5 -19 9 -30 9 -10 0
+-34 11 -53 26 -18 14 -33 22 -33 18 0 -4 -8 0 -17 9 -10 8 -25 17 -33 19 -8 2
+-19 8 -25 15 -5 6 -28 21 -50 34 -113 62 -130 73 -135 79 -3 4 -22 13 -42 21
+-21 7 -35 15 -33 18 3 2 -12 12 -33 22 -46 23 -75 41 -84 54 -4 6 -8 6 -8 1 0
+-5 -8 -2 -18 7 -10 10 -38 27 -63 40 -95 50 -264 150 -267 158 -2 5 -11 9 -20
+10 -9 0 -44 18 -77 40 -33 21 -71 44 -85 51 -14 7 -43 23 -65 37 -22 14 -58
+35 -80 47 -116 62 -141 78 -152 92 -11 13 -13 13 -13 1 -1 -9 -7 -7 -19 8 -11
+13 -26 23 -35 23 -9 0 -16 5 -16 10 0 6 -4 10 -10 10 -12 0 -70 39 -98 67 -12
+13 -28 23 -34 23 -9 0 -8 4 2 10 13 8 13 10 -2 10 -19 0 -81 97 -72 112 3 4 1
+8 -4 8 -5 0 -9 6 -10 13 0 6 -7 37 -16 67 -13 48 -16 169 -16 912 0 484 4 859
+9 862 9 6 25 64 22 84 -1 6 3 12 9 12 5 0 9 3 8 8 -3 6 6 21 54 97 20 30 58
+63 108 93 25 14 47 29 50 33 7 9 84 47 92 45 3 0 17 8 30 20 13 12 30 24 38
+27 8 4 33 18 55 32 22 14 47 28 55 32 8 4 43 24 78 45 34 21 67 38 72 38 6 0
+10 5 10 11 0 5 4 8 9 5 5 -4 11 -2 13 3 1 4 26 21 53 35 28 15 68 38 90 52 22
+13 56 31 75 40 19 9 39 22 43 30 4 8 14 14 21 14 6 0 33 13 59 30 26 16 47 26
+47 22 0 -4 4 -2 8 4 8 12 131 85 147 88 6 1 29 14 52 29 24 15 45 27 49 27 3
+0 26 14 51 30 24 17 46 30 49 30 3 0 25 14 49 30 24 17 46 30 49 30 3 0 45 23
+92 52 47 28 94 52 103 53 9 1 23 5 31 8 76 28 152 26 250 -6z"/>
+<path d="M2199 4661 c-37 -12 -159 -74 -159 -81 0 -4 -19 -15 -42 -25 -24 -11
+-56 -28 -73 -39 -16 -12 -47 -30 -70 -42 -68 -34 -240 -138 -243 -146 -2 -4
+-10 -8 -19 -8 -8 0 -29 -10 -46 -22 -18 -13 -38 -22 -45 -20 -7 2 -15 -4 -18
+-13 -3 -8 -12 -15 -20 -15 -8 0 -14 -3 -14 -7 0 -5 -10 -13 -23 -19 -103 -51
+-167 -88 -167 -97 0 -6 -3 -8 -6 -4 -4 3 -26 -7 -50 -23 -23 -17 -50 -30 -58
+-30 -9 0 -16 -4 -16 -9 0 -5 -19 -19 -42 -31 -24 -12 -70 -37 -103 -56 -33
+-19 -68 -37 -77 -40 -10 -4 -18 -9 -18 -13 0 -4 -16 -13 -35 -20 -19 -7 -41
+-18 -48 -24 -21 -20 -74 -47 -92 -47 -9 0 -14 -4 -10 -9 3 -5 -4 -13 -16 -16
+-32 -11 -118 -101 -124 -132 -4 -16 -11 -38 -16 -51 -14 -35 -12 -1679 3
+-1723 6 -19 15 -46 21 -61 16 -47 143 -149 203 -164 13 -3 24 -10 24 -14 0 -5
+12 -15 28 -23 72 -38 126 -69 160 -92 20 -14 42 -25 49 -25 7 0 13 -3 13 -8 0
+-4 9 -13 21 -20 17 -11 20 -11 14 0 -3 7 0 5 8 -4 8 -10 18 -18 22 -18 14 0
+208 -120 213 -133 2 -4 8 -5 13 -1 5 3 22 -4 38 -15 16 -12 34 -21 39 -21 5 0
+13 -7 16 -16 3 -8 10 -12 16 -9 5 3 10 2 10 -4 0 -6 11 -13 25 -17 14 -3 25
+-10 25 -16 0 -5 5 -6 10 -3 6 3 10 2 10 -3 0 -5 8 -12 18 -15 9 -4 42 -21 73
+-39 31 -18 83 -48 115 -66 33 -18 66 -37 74 -43 8 -5 23 -12 33 -15 9 -4 17
+-10 17 -15 0 -5 5 -9 10 -9 6 0 29 -12 53 -27 23 -15 44 -27 47 -28 3 0 19
+-10 35 -21 17 -12 65 -38 108 -57 151 -70 219 -65 381 28 43 24 86 47 96 50 9
+3 25 14 35 25 10 11 26 20 35 20 10 0 23 7 30 15 7 8 18 15 25 15 6 0 31 14
+55 31 49 36 130 83 179 105 19 9 40 21 47 29 8 7 27 19 44 27 16 7 30 16 30
+20 0 5 5 8 10 8 6 0 29 12 53 27 63 41 81 52 97 58 8 4 22 11 30 16 8 5 31 18
+50 29 19 11 53 31 75 45 22 13 63 36 90 50 28 15 57 32 65 40 8 7 25 16 38 20
+12 3 20 11 17 16 -4 5 2 9 13 9 10 0 29 9 42 20 13 11 30 20 38 20 9 0 13 3 9
+6 -3 4 17 18 46 33 29 14 55 30 58 34 3 5 9 8 13 8 22 -3 36 0 32 7 -3 5 12
+18 32 30 58 32 90 72 110 137 18 57 19 106 21 890 1 728 0 836 -14 875 -20 58
+-57 105 -108 137 -23 14 -48 32 -55 40 -7 7 -20 13 -28 13 -8 0 -14 5 -14 12
+0 6 -3 9 -6 5 -3 -3 -15 3 -27 13 -11 11 -35 24 -54 31 -18 6 -31 15 -28 20 4
+5 0 6 -8 4 -7 -3 -22 3 -32 15 -10 11 -26 20 -36 20 -9 0 -19 4 -21 9 -1 4
+-33 24 -70 43 -37 20 -65 39 -62 42 2 3 1 4 -2 2 -3 -3 -23 5 -43 18 -20 12
+-44 25 -53 29 -10 3 -18 11 -18 17 0 5 -7 10 -15 10 -8 0 -15 5 -15 11 0 5 -3
+8 -7 6 -5 -2 -25 5 -45 17 -20 12 -68 38 -107 60 -39 21 -71 43 -71 49 0 6 -3
+7 -6 4 -4 -4 -19 2 -34 13 -16 11 -32 20 -38 20 -5 0 -20 8 -33 18 -13 10 -53
+34 -89 53 -36 18 -67 36 -70 40 -3 3 -30 19 -60 34 -30 15 -58 33 -62 39 -4 6
+-8 8 -8 4 0 -4 -28 11 -62 32 -35 22 -91 54 -125 72 -35 18 -63 36 -63 40 0 4
+-7 5 -15 2 -8 -4 -15 -2 -15 4 0 26 -128 41 -191 23z m211 -61 c40 -22 77 -40
+81 -40 5 0 9 -4 9 -10 0 -5 4 -10 10 -10 5 0 39 -18 75 -40 36 -22 70 -40 75
+-40 6 0 10 -3 10 -8 0 -4 15 -13 33 -21 17 -8 61 -32 96 -53 34 -21 65 -38 68
+-38 3 0 45 -25 94 -55 49 -30 91 -55 94 -55 3 0 24 -12 47 -26 23 -14 60 -36
+82 -49 99 -54 141 -80 144 -87 2 -4 9 -8 15 -8 7 0 40 -18 75 -40 34 -22 65
+-40 67 -40 2 0 28 -14 57 -32 97 -57 173 -99 191 -105 9 -3 17 -9 17 -14 0 -5
+4 -9 9 -9 15 0 123 -69 154 -98 16 -15 38 -45 48 -67 18 -38 19 -84 19 -896 0
+-935 3 -893 -58 -954 -16 -16 -67 -52 -113 -79 -46 -27 -128 -75 -182 -107
+-54 -33 -100 -59 -103 -59 -2 0 -28 -16 -58 -35 -30 -19 -60 -35 -66 -35 -5 0
+-10 -4 -10 -10 0 -5 -5 -10 -10 -10 -6 0 -43 -20 -83 -43 -39 -24 -117 -70
+-172 -102 -55 -32 -131 -77 -170 -100 -38 -23 -124 -73 -190 -110 -66 -38
+-139 -81 -162 -97 -23 -15 -45 -28 -48 -28 -4 0 -35 -17 -69 -37 -91 -56 -142
+-73 -220 -73 -61 0 -77 4 -135 37 -84 46 -353 202 -451 261 -41 25 -100 59
+-130 75 -30 17 -98 56 -151 88 -53 33 -99 59 -103 59 -3 0 -23 11 -44 23 -20
+13 -77 47 -127 76 -49 29 -97 56 -105 61 -8 5 -49 28 -90 51 -41 23 -86 50
+-100 59 -14 10 -41 26 -60 36 -110 60 -186 131 -191 180 -6 56 -8 1721 -3
+1734 4 8 6 23 5 33 -1 9 3 17 8 17 6 0 11 6 11 13 0 21 53 73 105 101 28 16
+79 45 115 66 36 20 86 49 112 63 26 15 84 47 128 72 43 25 84 45 90 45 5 0 10
+5 10 10 0 6 7 10 15 10 8 0 15 5 15 10 0 6 6 10 14 10 8 0 21 6 28 13 15 13
+52 34 133 76 28 14 52 29 55 32 3 3 32 21 65 39 33 18 65 36 70 40 9 7 26 17
+153 86 26 14 54 31 62 38 8 7 40 25 70 41 30 16 75 41 99 57 25 15 50 28 57
+28 7 0 14 3 16 8 4 9 49 36 118 70 30 15 57 30 58 35 2 4 36 7 76 7 67 0 80
+-4 146 -40z"/>
+<path d="M2452 3552 c-13 -37 -24 -71 -26 -77 -8 -30 -18 -62 -26 -80 -14 -31
+-146 -417 -154 -450 -2 -5 -6 -19 -10 -30 -35 -93 -54 -146 -116 -330 -39
+-115 -82 -245 -96 -287 -14 -43 -40 -106 -59 -141 l-34 -63 129 2 c70 1 133 5
+138 8 6 3 13 25 17 49 4 23 11 47 15 52 4 6 24 63 44 128 l38 117 292 -2 291
+-3 18 -60 c10 -33 22 -69 27 -80 14 -33 60 -183 60 -197 0 -10 30 -13 125 -14
+69 0 125 0 125 0 -3 16 -49 148 -53 153 -4 3 -7 15 -7 25 0 15 -98 327 -120
+383 -15 36 -23 60 -25 70 -7 40 -19 76 -26 81 -5 3 -9 14 -9 25 0 10 -4 27 -9
+37 -5 9 -23 62 -41 117 -17 55 -35 109 -39 120 -16 36 -151 460 -151 471 0 7
+-11 19 -24 28 -20 12 -51 16 -148 15 l-123 0 -23 -67z m247 33 c23 -5 34 -17
+50 -55 12 -27 21 -57 21 -67 0 -11 4 -23 9 -29 4 -5 23 -56 40 -114 18 -58 39
+-122 47 -142 7 -21 16 -51 19 -69 3 -17 12 -40 19 -52 7 -12 21 -49 30 -82 10
+-33 22 -68 27 -78 5 -10 7 -22 4 -27 -3 -5 -1 -17 4 -27 19 -35 40 -89 56
+-148 9 -33 20 -64 25 -70 4 -5 11 -26 15 -45 3 -19 13 -49 21 -66 7 -18 15
+-42 16 -55 2 -13 9 -30 16 -37 6 -7 12 -23 12 -36 0 -12 4 -26 9 -31 14 -16
+64 -215 55 -224 -7 -8 -90 -11 -131 -6 -34 5 -42 10 -48 33 -21 89 -89 283
+-105 297 -15 14 -54 16 -306 16 l-289 0 -27 -32 c-14 -17 -24 -38 -21 -45 3
+-8 0 -14 -7 -14 -7 0 -10 -7 -6 -15 3 -8 2 -15 -3 -15 -5 0 -11 -12 -14 -27
+-12 -61 -63 -188 -77 -192 -8 -2 -43 -6 -78 -8 -83 -5 -98 8 -72 63 20 43 68
+170 75 200 6 25 53 164 65 189 8 18 51 146 56 170 6 22 106 312 118 340 7 17
+37 102 66 190 71 217 98 288 114 300 16 12 154 19 195 10z"/>
+<path d="M2578 3328 c-10 -15 -18 -36 -18 -47 0 -11 -7 -26 -15 -34 -8 -8 -12
+-17 -9 -20 3 -2 -3 -24 -12 -48 -9 -24 -19 -53 -23 -64 -34 -90 -131 -397
+-131 -413 0 -12 5 -24 10 -27 6 -4 8 -10 6 -14 -6 -10 -15 -9 204 -11 240 -1
+226 -2 244 15 17 17 13 71 -10 122 -8 17 -14 38 -14 48 0 9 -7 29 -15 45 -9
+17 -15 31 -14 32 1 2 -13 50 -31 108 -19 58 -33 111 -32 118 2 6 -2 12 -8 12
+-5 0 -10 9 -10 20 0 11 -4 20 -10 20 -5 0 -10 12 -10 28 0 28 -47 139 -55 130
+-7 -6 56 -230 86 -303 4 -11 15 -45 24 -75 9 -30 20 -63 26 -72 5 -10 9 -26 9
+-36 0 -10 5 -23 12 -30 7 -7 9 -12 5 -12 -4 0 4 -30 18 -66 14 -37 25 -69 25
+-73 0 -4 -99 -7 -220 -6 -140 0 -220 4 -220 10 0 14 67 205 74 212 3 4 6 17 6
+29 0 13 4 25 9 28 5 3 12 23 16 43 4 21 10 43 15 48 4 6 11 24 15 40 5 17 9
+32 10 35 1 3 5 19 10 35 4 17 11 35 15 40 5 6 11 28 15 50 4 22 12 45 17 52 5
+7 8 22 6 35 -3 22 -3 22 -20 -4z"/>
+<path d="M3271 2857 l2 -763 120 -1 119 -2 -3 764 -4 765 -118 0 -118 0 2
+-763z m189 720 c22 -18 28 -1418 6 -1440 -9 -8 -39 -15 -79 -16 -57 -2 -67 1
+-76 18 -8 13 -11 246 -11 725 0 801 -9 725 90 725 30 0 62 -5 70 -12z"/>
+<path d="M1645 3439 c-61 -7 -146 -27 -155 -38 -3 -3 -17 -12 -33 -20 -56 -29
+-158 -141 -128 -141 5 0 35 25 66 55 32 30 64 55 72 55 7 0 13 5 13 10 0 6 7
+10 15 10 9 0 29 7 45 15 16 8 64 20 106 26 263 36 412 -105 402 -382 -2 -86
+-9 -122 -38 -209 -19 -58 -38 -107 -43 -108 -4 -2 -5 -8 -2 -12 3 -5 2 -17 -4
+-27 -9 -19 -42 -127 -42 -140 0 -5 -7 -18 -15 -31 -8 -12 -12 -28 -7 -35 4 -7
+-2 -5 -12 3 -17 14 -18 14 -7 -7 16 -29 15 -36 -2 -21 -12 11 -15 62 -15 299
+0 263 -1 290 -20 344 -39 110 -107 155 -243 159 -76 3 -88 0 -148 -29 -36 -18
+-82 -50 -102 -70 -71 -72 -69 -54 -68 -560 l0 -455 -32 -2 c-53 -2 -161 2
+-166 6 -6 7 -3 1226 3 1237 4 5 46 9 94 9 l89 0 6 -31 c3 -17 6 -41 6 -53 0
+-12 6 -30 13 -39 10 -14 13 -2 15 71 l3 87 -130 0 -131 0 -1 -647 c-1 -357 -2
+-653 -3 -659 -1 -7 44 -11 137 -12 133 -2 138 -1 133 18 -10 42 -9 920 2 945
+31 78 154 151 264 158 79 5 127 -9 173 -50 72 -63 70 -45 73 -525 1 -238 6
+-433 10 -433 4 0 13 19 20 43 45 152 55 184 63 202 4 11 16 45 25 75 9 30 38
+123 65 205 27 83 52 161 57 175 16 50 15 234 -2 284 -67 198 -190 269 -421
+245z"/>
+      </g>
+    </svg>
+  </div>
+
+  <!-- Texto del logo -->
+  <a href="#hero" class="text-2xl font-bold gradient-text">
+    nextAI
+  </a>
+</div>
+
+      <!-- Navegación Escritorio -->
+      <div class="hidden md:flex items-center space-x-8 relative" id="nav-wrapper">
+        <div id="nav-indicator" class="absolute bottom-0 h-full rounded-full z-0 transition-all duration-500 ease-in-out pointer-events-none bg-gradient-to-r from-cyan-400 via-violet-500 to-cyan-400 bg-[length:400%_400%] animate-[gradientFlow_10s_ease_infinite]"></div>
+
+        <a href="#hero" class="nav-link relative z-10 px-3 py-2 rounded-full dark:text-white transition-colors">Inicio</a>
+        <a href="#services" class="nav-link relative z-10 px-3 py-2 rounded-full dark:text-white transition-colors">Servicios</a>
+        <a href="#about" class="nav-link relative z-10 px-3 py-2 rounded-full dark:text-white transition-colors">Nosotros</a>
+        <a href="#contact" class="nav-link relative z-10 px-3 py-2 rounded-full dark:text-white transition-colors">Contacto</a>
+
+<button onclick="scrollToSection('contact')"
+  class="relative z-10 px-4 py-2 rounded-full border-2 border-primary-violet text-primary-violet hover:bg-primary-cyan hover:text-white hover:border-primary-cyan transition-colors duration-300 font-semibold">
+  Contáctanos
+</button>
+
+      </div>
+
+      <!-- Toggle dark mode + menú mobile -->
+      <div class="flex items-center space-x-2">
+        <button id="toggleDarkMode"
+          class="z-40 bg-primary-blue text-white px-2 py-2 rounded-full shadow-md hover:bg-primary-violet transition"
+          aria-label="Alternar modo oscuro">
+        </button>
+        <button id="menuToggle"
+          class="md:hidden text-gray-800 dark:text-white text-xl p-2 focus:outline-none"
+          aria-label="Abrir menú de navegación">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+<!-- Menú mobile -->
+<!-- Menú mobile -->
+<div
+  id="mobileMenu"
+  class="hidden w-full bg-white/90 dark:bg-[#0f0f0f]/90 md:hidden p-6
+         space-y-4 border-t border-primary-blue/10 backdrop-blur-md"
+>
+  <div class="flex flex-col items-center space-y-4">
+    <a
+      href="#hero"
+      class="inline-block w-max nav-link rounded-full px-4 py-2 text-center"
+    >
+      Inicio
+    </a>
+    <a
+      href="#services"
+      class="inline-block w-max nav-link rounded-full px-4 py-2 text-center"
+    >
+      Servicios
+    </a>
+    <a
+      href="#about"
+      class="inline-block w-max nav-link rounded-full px-4 py-2 text-center"
+    >
+      Nosotros
+    </a>
+    <a
+      href="#contact"
+      class="inline-block w-max nav-link rounded-full px-4 py-2 text-center"
+    >
+      Contacto
+    </a>
+
+    <!-- Consultar -->
+    <button
+      onclick="scrollToSection('contact')"
+      class="inline-block w-max bg-primary-violet text-white px-6 py-2
+             rounded-full hover:bg-primary-cyan transition-colors font-semibold"
+    >
+      Consultar
+    </button>
+  </div>
+</div>
+
+
+
+
+</header>
+
+
+
+
+    <!-- Hero Section -->
+     <section id="hero" class="py-20 bg-gray-50 dark:bg-dark-800 md:py-32 bg-grid-pattern relative overflow-hidden">
+        <div class="absolute -top-20 -left-20 w-64 h-64 rounded-full bg-primary-blue/10 filter blur-3xl"></div>
+        <div class="absolute -bottom-20 -right-20 w-64 h-64 rounded-full bg-primary-violet/10 filter blur-3xl"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0 animate-fade-in">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+                        <span class="gradient-text fade-in-down">Soluciones tecnológicas</span> para tu negocio
+                    </h1>
+                    <p class="text-xl text-gray-700 dark:text-sky-400 mb-8">
+                        Impulsamos la transformación digital con inteligencia artificial personalizada y soluciones
+                        innovadoras.
+                    </p>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        <button onclick="event.preventDefault(); scrollToSection('services')"
+                            class="gradient-bg text-white px-6 py-3 rounded-full-lg hover:opacity-90 transition-all shadow-lg shadow-primary-blue/30 font-medium">
+                            Nuestros servicios
+                        </button>
+                        <button onclick="event.preventDefault(); scrollToSection('contact')"
+                            class="bg-gray-800 text-white hover:bg-gray-700 px-8 py-3 rounded-full-lg font-medium shadow-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary-blue">
+                            Contactar ahora
+                        </button>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <div class="relative w-full max-w-md">
+                        <div
+                            class="absolute -top-5 -left-5 w-32 h-32 bg-primary-blue rounded-full mix-blend-screen filter blur-xl opacity-20 animate-float">
+                        </div>
+                        <div
+                            class="absolute -bottom-5 -right-5 w-32 h-32 bg-primary-violet rounded-full mix-blend-screen filter blur-xl opacity-20 animate-float animation-delay-2000">
+                        </div>
+                        <div
+                            class="relative bg-white dark:bg-dark-800 rounded-full-2xl shadow-xl overflow-hidden border-glow transition-slow hover:shadow-primary-violet/30">
+                            <img src="assets/images/hero/nextAI_main.avif" alt="Inteligencia Artificial"
+                                class="rounded-full-2xl shadow-xl overflow-hidden border-glow transition-transform duration-700 transform hover:scale-110 object-cover opacity-70 hover:opacity-100"
+                                loading="lazy">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-gray-50 dark:bg-dark-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Nuestros <span class="gradient-text">Servicios</span>
+                </h2>
+                <p class="text-xl text-gray-700 dark:text-primary-cyan max-w-3xl mx-auto">
+                    Soluciones innovadoras con inteligencia artificial diseñadas para transformar la experiencia del
+                    usuario
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Proyecto 1: Virtual Room -->
+                <div class="bg-white dark:bg-dark-800 p-8 rounded-full-xl border-glow transition-slow service-card">
+                    <div class="w-16 h-16 bg-primary-cyan/10 rounded-full-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-tshirt text-3xl text-primary-cyan"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Virtual Room</h3>
+                    <p class="text-gray-700 dark:text-light-plasma/80 mb-4">
+                        Plataforma de fitting digital impulsada por IA que permite a los usuarios visualizar cómo se
+                        vería la ropa en su cuerpo.
+                    </p>
+                    <ul class="space-y-2 text-sm">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle mt-1 mr-2 text-xs text-primary-cyan"></i>
+                            <span class="text-gray-900 dark:text-light-plasma">Estimación automática de medidas
+                                corporales</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle mt-1 mr-2 text-xs text-primary-cyan"></i>
+                            <span class="text-gray-900 dark:text-light-plasma">Comparación con talles reales de
+                                tiendas</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle mt-1 mr-2 text-xs text-primary-cyan"></i>
+                            <span class="text-gray-900 dark:text-light-plasma">Probadors 3D virtuales con experiencia
+                                inmersiva</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Proyecto 2: App de Inversiones -->
+                <div
+                    class="bg-white dark:bg-dark-800 p-8 rounded-full-xl border-glow border-gradient-inversiones transition-slow service-card">
+                    <div class="w-16 h-16 bg-primary-violet/10 rounded-full-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-chart-line text-3xl text-primary-violet"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">App de Inversiones</h3>
+                    <p class="text-gray-700 dark:text-light-plasma/80 mb-4">
+                        Aplicación con IA que monitorea el comportamiento de grandes inversionistas, y genera alertas
+                        inteligentes.
+                    </p>
+                    <ul class="space-y-2 text-sm">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle mt-1 mr-2 text-xs text-primary-violet"></i>
+                            <span class="text-gray-900 dark:text-light-plasma">Seguimiento en tiempo real de wallets
+                                relevantes</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle mt-1 mr-2 text-xs text-primary-violet"></i>
+                            <span class="text-gray-900 dark:text-light-plasma">Alertas automáticas de movimientos
+                                significativos</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle mt-1 mr-2 text-xs text-primary-violet"></i>
+                            <span class="text-gray-900 dark:text-light-plasma">IA para análisis y predicción de
+                                tendencias</span>
+                        </li>
+                    </ul>
+                </div>
+
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="bg-white dark:bg-dark-800 py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">Sobre <span class="gradient-text">nextAI</span></h2>
+                    <p class="text-gray-700 dark:text-light-plasma/80 mb-6">
+                        Somos un equipo de expertos en inteligencia artificial apasionados por crear soluciones
+                        tecnológicas que transforman negocios. Combinamos conocimiento técnico avanzado con una profunda
+                        comprensión de las necesidades empresariales.
+                    </p>
+                    <p class="text-gray-700 dark:text-light-plasma/80 mb-6">
+                        Nuestra misión es impulsar el acceso de herramientas basadas en IA, ofreciendo herramientas
+                        poderosas pero
+                        accesibles para empresas de todos los tamaños.
+                    </p>
+                    <button onclick="event.preventDefault(); scrollToSection('contact')"
+                        class="gradient-bg text-white px-6 py-3 rounded-full-lg hover:opacity-90 transition-all font-medium shadow-lg shadow-primary-blue/30">
+                        Conoce más
+                    </button>
+                </div>
+                <div class="md:w-1/2">
+                    <div class="relative rounded-full-2xl overflow-hidden shadow-xl border-glow">
+                        <img src="assets/images/about/nextAI_2.avif" alt="Equipo de nextAI"
+                            class="w-full h-auto object-cover opacity-90 hover:opacity-100 transition-slow"
+                            loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 relative overflow-hidden gradient-bg">
+        <div class="absolute inset-0 bg-grid-pattern"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6 text-white">¿Listo para transformar tu negocio con IA?</h2>
+            <p class="text-xl text-white/90 mb-8 max-w-3xl mx-auto">
+                Agenda una consultoría gratuita con nuestros expertos y descubre cómo podemos ayudarte.
+            </p>
+            <button onclick="event.preventDefault(); scrollToSection('contact')"
+                class="bg-white text-gray-800 px-8 py-3 rounded-full-lg font-medium shadow-lg transition-colors duration-200 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-primary-blue">
+                Contactar ahora
+            </button>
+            <div style="max-width:560px; margin:auto; position:relative;">
+                <a href="https://youtu.be/531lpkjp9lc" target="_blank" rel="noopener noreferrer"
+                    style="display:block; position:relative; border-radius:1rem; overflow:hidden; box-shadow:0 2px 18px #0001;">
+                    <img src="assets/images/videos/hqdefault.jpg" alt="Miniatura del video"
+                        style="width:100%; display:block; filter:brightness(0.86);">
+                    <div style="
+      position:absolute; top:0; left:0; width:100%; height:100%;
+      background:rgba(0,0,0,0.29); display:flex; flex-direction:column;
+      align-items:center; justify-content:center;">
+                        <span style="
+        background:rgba(255,255,255,0.95); border-radius:100%; width:64px; height:64px;
+        display:flex; align-items:center; justify-content:center; font-size:2.2rem; color:#C500F5;
+        box-shadow:0 1px 12px #0002; margin-bottom:14px;">
+                            ▶
+                        </span>
+                        <span style="
+        color:#fff; background:rgba(0,0,0,0.34); font-size:1rem;
+        padding:6px 18px; border-radius:7px; font-weight:500;">
+                            Haz clic para ver el video en YouTube
+                        </span>
+                    </div>
+                </a>
+            </div>
+
+
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white dark:bg-dark-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">Contáctanos</h2>
+                    <p class="text-gray-700 dark:text-light-plasma/80 mb-8">
+                        Completa el formulario y nos pondremos en contacto contigo a la brevedad. También puedes
+                        escribirnos directamente a nuestro correo.
+                    </p>
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 bg-primary-blue/10 rounded-full-lg p-3 mr-4">
+                                <i class="fas fa-envelope text-primary-blue text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg mb-1 text-gray-800 dark:text-light-plasma">Correo
+                                    Electrónico</h3>
+                                <p class="text-gray-600 dark:text-light-plasma/80">contacto@nextAI.com</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 bg-primary-violet/10 rounded-full-lg p-3 mr-4">
+                                <i class="fas fa-phone-alt text-primary-violet text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg mb-1 text-gray-800 dark:text-light-plasma">Teléfono</h3>
+                                <p class="text-gray-600 dark:text-light-plasma/80">+54 11 1234-5678</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 bg-primary-cyan/10 rounded-full-lg p-3 mr-4">
+                                <i class="fas fa-map-marker-alt text-primary-cyan text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg mb-1 text-gray-800 dark:text-light-plasma">Oficinas</h3>
+                                <p class="text-gray-600 dark:text-light-plasma/80">Av. Corrientes 1234, Buenos Aires,
+                                    Argentina</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <form class="bg-white dark:bg-dark-800 p-8 rounded-full-xl border-glow shadow-sm">
+                        <div class="mb-6">
+                            <label for="name" class="block text-gray-800 dark:text-light-plasma mb-2">Nombre</label>
+                            <input type="text" id="name"
+                                class="w-full px-4 py-3 rounded-full-lg bg-gray-50 dark:bg-dark-900 border-glow focus:outline-none focus:ring-2 focus:ring-primary-blue text-gray-800 dark:text-light-plasma">
+                        </div>
+                        <div class="mb-6">
+                            <label for="email" class="block text-gray-800 dark:text-light-plasma mb-2">Correo
+                                Electrónico</label>
+                            <input type="email" id="email"
+                                class="w-full px-4 py-3 rounded-full-lg bg-gray-50 dark:bg-dark-900 border-glow focus:outline-none focus:ring-2 focus:ring-primary-blue text-gray-800 dark:text-light-plasma">
+                        </div>
+                        <div class="mb-6">
+                            <label for="subject" class="block text-gray-800 dark:text-light-plasma mb-2">Asunto</label>
+                            <select id="subject"
+                                class="w-full px-4 py-3 rounded-full-lg bg-gray-50 dark:bg-dark-900 border-glow focus:outline-none focus:ring-2 focus:ring-primary-blue text-gray-800 dark:text-light-plasma">
+                                <option value="">Selecciona un tema</option>
+                                <option value="consult">Consultoría</option>
+                                <option value="service">Servicios</option>
+                                <option value="other">Otro</option>
+                            </select>
+                        </div>
+                        <div class="mb-6">
+                            <label for="message" class="block text-gray-800 dark:text-light-plasma mb-2">Mensaje</label>
+                            <textarea id="message" rows="4"
+                                class="w-full px-4 py-3 rounded-full-lg bg-gray-50 dark:bg-dark-900 border-glow focus:outline-none focus:ring-2 focus:ring-primary-blue text-gray-800 dark:text-light-plasma"></textarea>
+                        </div>
+                        <button type="submit"
+                            class="w-full gradient-bg text-white py-3 rounded-full-lg hover:opacity-90 transition-all font-medium shadow-lg shadow-primary-blue/30">
+                            Enviar Mensaje
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-gray-300 py-12 border-t border-primary-blue/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="md:col-span-2">
+                    <a href="#" class="text-2xl font-bold gradient-text"
+                        onclick="event.preventDefault(); scrollToSection('hero')">nextAI</a>
+                    <p class="mt-4">
+                        Soluciones tecnológicas avanzadas de inteligencia artificial para impulsar tu negocio.
+                    </p>
+                    <div class="flex space-x-4 mt-6">
+                        <a href="#" class="hover:text-primary-blue transition-colors" aria-label="Ir a Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="hover:text-primary-violet transition-colors" aria-label="Ir a Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="hover:text-primary-blue transition-colors" aria-label="Ir a LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="hover:text-primary-cyan transition-colors" aria-label="Ir a Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-white font-bold text-lg mb-4">Enlaces</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-primary-blue transition-colors"
+                                onclick="event.preventDefault(); scrollToSection('services')">Servicios</a></li>
+                        <li><a href="#" class="hover:text-primary-violet transition-colors"
+                                onclick="event.preventDefault(); scrollToSection('about')">Nosotros</a></li>
+                        <li><a href="#" class="hover:text-primary-cyan transition-colors"
+                                onclick="event.preventDefault(); scrollToSection('contact')">Contacto</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-white font-bold text-lg mb-4">Legal</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-primary-blue transition-colors"
+                                onclick="event.preventDefault(); showModal('privacy')">Privacidad</a></li>
+                        <li><a href="#" class="hover:text-primary-violet transition-colors"
+                                onclick="event.preventDefault(); showModal('terms')">Términos</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-12 pt-8 text-center text-sm">
+                <p>&copy; 2023 nextAI. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==== JS FINAL (solo uno) ==== -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // --- Toggle dark mode ---
+    const toggle = document.getElementById('toggleDarkMode');
+    const html = document.documentElement;
+
+    function setDarkMode(dark) {
+      if (dark) {
+        html.classList.add('dark');
+        toggle.innerHTML = '<i data-lucide="moon"></i>';
+        localStorage.setItem('theme', 'dark');
+      } else {
+        html.classList.remove('dark');
+        toggle.innerHTML = '<i data-lucide="sun"></i>';
+        localStorage.setItem('theme', 'light');
+      }
+      lucide.createIcons();
+    }
+
+    (function initTheme() {
+      const storedTheme = localStorage.getItem('theme');
+      if (storedTheme === 'dark') setDarkMode(true);
+      else if (storedTheme === 'light') setDarkMode(false);
+      else setDarkMode(window.matchMedia('(prefers-color-scheme: dark)').matches);
+    })();
+
+    toggle.addEventListener('click', () => setDarkMode(!html.classList.contains('dark')));
+
+    // --- Menú móvil ---
+    const menuToggle = document.getElementById('menuToggle');
+    const menu = document.getElementById('mobileMenu');
+    menuToggle.addEventListener('click', () => menu.classList.toggle('hidden'));
+    menu.querySelectorAll('a, button').forEach(el =>
+      el.addEventListener('click', () => menu.classList.add('hidden'))
+    );
+
+    // --- Scroll suave personalizado ---
+    window.scrollToSection = function (sectionId) {
+      const element = document.getElementById(sectionId);
+      if (element) element.scrollIntoView({ behavior: 'smooth' });
+    };
+
+    // --- Nav eléctrico deslizante (desktop) ---
+    const links = document.querySelectorAll(".nav-link");
+    const indicator = document.getElementById("nav-indicator");
+    const navWrapper = document.getElementById("nav-wrapper");
+
+    function updateIndicator() {
+      const currentLink = document.querySelector(".nav-link.nav-active");
+      if (!currentLink || !navWrapper || !indicator) return;
+
+      const linkRect = currentLink.getBoundingClientRect();
+      const wrapperRect = navWrapper.getBoundingClientRect();
+
+      indicator.style.width = `${linkRect.width}px`;
+      indicator.style.height = `${linkRect.height}px`;
+      indicator.style.transform = `translateX(${linkRect.left - wrapperRect.left}px)`;
+    }
+
+    // --- Scroll dinámico para detectar sección activa ---
+    const observerOptions = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.7,
+    };
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    const id = entry.target.getAttribute("id");
+    const links = document.querySelectorAll(`.nav-link[href="#${id}"]`);
+
+    if (entry.isIntersecting && links.length) {
+      document.querySelectorAll(".nav-link").forEach(el => {
+        el.classList.remove("nav-active", "bg-gradient-to-r", "from-cyan-400", "via-fuchsia-500", "to-cyan-400", "animate-gradientFlow", "shadow-cyan");
+      });
+
+      links.forEach(link => {
+        link.classList.add("nav-active");
+
+        if (menu.contains(link)) {
+          link.classList.add("bg-gradient-to-r", "from-cyan-400", "via-fuchsia-500", "to-cyan-400", "animate-gradientFlow", "shadow-cyan");
+        }
+      });
+
+      updateIndicator();
+    }
+  });
+}, observerOptions);
+
+
+    document.querySelectorAll("section[id]").forEach(section => observer.observe(section));
+
+    // --- Scroll suave al hacer clic en nav-link ---
+    links.forEach(function (link) {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        const href = link.getAttribute('href');
+        const id = href && href.startsWith('#') ? href.slice(1) : null;
+        if (id) {
+          const section = document.getElementById(id);
+          if (section) {
+            section.scrollIntoView({ behavior: 'smooth' });
+            history.pushState(null, null, `#${id}`);
+          }
+        }
+      });
+    });
+
+    window.addEventListener("resize", updateIndicator);
+    updateIndicator();
+  });
+</script>
+
+
+
+<script src="https://unpkg.com/lucide@latest" defer></script>
+
+
+
+
+</body>
+
+</html>
