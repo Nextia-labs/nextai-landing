@@ -1,6 +1,6 @@
 /* Card Styles */
 .card-container {
-    background: rgba(0, 0, 0, 0.95);
+    background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(5px);
     padding: 2rem;
     border-radius: 1.25rem;
@@ -14,9 +14,9 @@
 .card-container::before {
     content: '';
     position: absolute;
-    inset: 0;
+    inset: -2px; /* ← Ajustado para coincidir con el border nativo de los botones */
     border-radius: inherit;
-    padding: 1px;
+    padding: 2px; /* ← Aquí controlas el grosor del borde */
     background: linear-gradient(90deg,
             rgb(0, 255, 224),
             rgb(197, 0, 245));
@@ -34,15 +34,25 @@
 }
 
 .card-container:hover {
-    transform: scale(1.01);
+    transform: scale(1.05);
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.3),
                 0 0 10px rgba(0, 255, 224, 0.2),
                 0 0 10px rgba(197, 0, 245, 0.2);
 }
 
+/* Hover específico para modo light */
+.card-container:hover {
+    background: rgba(255, 255, 255, 0.98); /* Mantener blanco en modo light */
+}
+
+/* Hover específico para modo dark */
+.dark .card-container:hover {
+    background: rgba(0, 0, 0, 0.95) !important; /* Forzar negro en modo dark */
+}
+
 .card-container:hover::before {
     opacity: 1;
-    padding: 1.5px;
+    padding: 3px; /* ← Grosor del borde en hover (proporcional al normal) */
 }
 
 .border-glow {
@@ -98,6 +108,27 @@
 
 /* Aplicar animación a elementos con borde neón en modo oscuro */
 .dark .card-container::before,
-.dark .border-glow {
+.dark .border-glow,
+.dark .btn-agendar-navbar,
+.dark .btn-agendar-section {
     animation: pulse-border 3s infinite;
+}
+
+/* Efectos hover para botones de agendar - consistentes con cards */
+.dark .btn-agendar-navbar:hover,
+.dark .btn-agendar-section:hover {
+    background-color: rgba(0, 0, 0, 0.95) !important;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3),
+                0 0 10px rgba(0, 255, 224, 0.2),
+                0 0 10px rgba(197, 0, 245, 0.2) !important;
+    transform: scale(1.05); /* ← Cambiado para igualar con las cards */
+}
+
+/* Estilos para contenedores de iconos en cards */
+.card-container .w-16.h-16 {
+    background-color: rgba(0, 0, 0, 0.8) !important; /* Negro en modo claro */
+}
+
+.dark .card-container .w-16.h-16 {
+    background-color: rgba(255, 255, 255, 0.15) !important; /* Blanco semi-transparente en modo oscuro */
 }

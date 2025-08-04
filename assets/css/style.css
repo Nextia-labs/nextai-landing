@@ -613,8 +613,11 @@ section {
 
 /* Botón agendar en navbar - MODO OSCURO hover */
 .dark .btn-agendar-navbar:hover {
-  background-color: #00ff0d;
+  background-color: rgba(0, 0, 0, 0.95);
   /* Modo oscuro hover */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3),
+              0 0 10px rgba(0, 255, 224, 0.2),
+              0 0 10px rgba(197, 0, 245, 0.2);
 }
 
 /* Botón agendar en secciones - BASE */
@@ -662,8 +665,11 @@ section {
 
 /* Botón agendar en secciones - MODO OSCURO hover */
 .dark .btn-agendar-section:hover {
-  background-color: #000000;
+  background-color: rgba(0, 0, 0, 0.95);
   /* Modo oscuro hover */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3),
+              0 0 10px rgba(0, 255, 224, 0.2),
+              0 0 10px rgba(197, 0, 245, 0.2);
 }
 
 /* Pseudo-elemento para gradiente de texto - Ambos botones */
@@ -770,7 +776,7 @@ section {
 
   .nav-active {
     margin: 0;
-    border-radius: 6px;
+    border-radius: 9999px;
   }
 }
 
