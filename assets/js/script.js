@@ -7,6 +7,50 @@
 document.addEventListener('DOMContentLoaded', function () {
   
   // ==========================================================================
+  // SMOOTH SCROLL LIBRARY INITIALIZATION
+  // ==========================================================================
+  
+  // Inicializar Smooth Scroll con configuración optimizada
+  if (typeof SmoothScroll !== 'undefined') {
+    const scroll = new SmoothScroll('a[href*="#"]', {
+      speed: 40000,                    // Velocidad de scroll (ms)
+      speedAsDuration: true,         // Velocidad como duración fija
+      offset: 60,                    // Offset para navbar fijo
+      easing: 'easeInOutCubic',     // Tipo de easing suave
+      updateURL: true,               // Actualizar URL con hash
+      popstate: true,                // Manejar botón atrás del navegador
+      emitEvents: true               // Emitir eventos personalizados
+    });
+    
+    console.log('✅ Smooth Scroll inicializado correctamente');
+    
+    // Event listeners para debugging
+    document.addEventListener('scrollStart', function (event) {
+      console.log('🚀 Scroll iniciado hacia:', event.detail.anchor.getAttribute('href'));
+    });
+    
+    document.addEventListener('scrollStop', function (event) {
+      console.log('🎯 Scroll completado a:', event.detail.anchor.getAttribute('href'));
+    });
+    
+    // Test inmediato
+    setTimeout(() => {
+      console.log('🧪 Test disponible: scroll.animateScroll(document.getElementById("services"))');
+    }, 2000);
+    
+  } else {
+    console.log('❌ Smooth Scroll library no cargada');
+    
+    // Fallback temporal
+    setTimeout(() => {
+      if (typeof SmoothScroll !== 'undefined') {
+        console.log('🔄 Reiniciando Smooth Scroll...');
+        location.reload();
+      }
+    }, 1000);
+  }
+  
+  // ==========================================================================
   // MODO OSCURO
   // ==========================================================================
   
@@ -64,60 +108,20 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   // ==========================================================================
-  // NAVEGACIÓN SUAVE
+  // NAVEGACIÓN SUAVE - COMPLETAMENTE NATIVA
   // ==========================================================================
   
-  // Función global para scroll suave
-  window.scrollToSection = function (sectionId) {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      // Actualizar URL sin recargar la página
-      history.pushState(null, null, `#${sectionId}`);
-    }
-  };
+  // Sin funciones personalizadas - solo CSS y HTML nativo
+  console.log('Navegación: usando scroll-behavior CSS nativo');
 
   // ==========================================================================
-  // TÍTULOS CLICABLES ADICIONALES
+  // TÍTULOS CLICABLES ADICIONALES - COMPLETAMENTE NATIVO
   // ==========================================================================
   
-  // Inicializar eventos de clic para títulos clicables después de que se cargue el DOM
   function initClickableTitles() {
-    // Texto animado del hero
-    const heroTitle = document.querySelector('.gradient-text.cursor-pointer');
-    if (heroTitle) {
-      heroTitle.addEventListener('click', function(e) {
-        e.preventDefault();
-        scrollToSection('services');
-      });
-    }
-
-    // Enlaces del logo hacia "about"
-    const logoLinks = document.querySelectorAll('a[href="#about"]');
-    logoLinks.forEach(link => {
-      link.addEventListener('click', function(e) {
-        e.preventDefault();
-        scrollToSection('about');
-      });
-    });
-
-    // Títulos de secciones con cursor pointer
-    const clickableTitles = document.querySelectorAll('h2.cursor-pointer');
-    clickableTitles.forEach(title => {
-      title.addEventListener('click', function(e) {
-        e.preventDefault();
-        // Extraer el ID de la sección del onclick si existe
-        const onclickAttr = this.getAttribute('onclick');
-        if (onclickAttr) {
-          const match = onclickAttr.match(/scrollToSection\('([^']+)'\)/);
-          if (match) {
-            scrollToSection(match[1]);
-          }
-        }
-      });
-    });
-
-    console.log('🖱️ Títulos clicables inicializados');
+    // Remover cualquier event listener personalizado del título del hero
+    // Dejar que funcione completamente con el href nativo
+    console.log('Títulos clicables: usando navegación nativa');
   }
 
   // Inicializar títulos clicables
@@ -132,17 +136,14 @@ document.addEventListener('DOMContentLoaded', function () {
   const navWrapper = document.getElementById("nav-wrapper");
 
   function updateIndicator() {
-    // Verificar si la sección activa es CTA
-    const ctaLink = document.querySelector(".nav-link.nav-active.btn-agendar-navbar");
-    if (ctaLink) {
-      // Si estamos en la sección CTA, desvanecer el indicador
-      indicator.style.opacity = '0';
-      indicator.style.transition = 'opacity 0.3s ease-in-out';
-      return;
-    }
-
+    // Buscar el enlace activo que NO sea el botón agendar
+    // El indicador debe mostrarse para: Inicio, Servicios, Nosotros, Contacto
+    // Solo debe ocultarse para el botón "Agendar reunión"
     const currentLink = document.querySelector(".nav-link.nav-active:not(.btn-agendar-navbar):not(.btn-agendar-section)");
+    
     if (!currentLink || !navWrapper || !indicator) {
+      // Si no hay enlace activo válido, ocultar indicador
+      indicator.style.opacity = '0';
       return;
     }
 
@@ -152,7 +153,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Calcular la posición del indicador con una transición suave
     const targetX = linkRect.left - wrapperRect.left;
     
-    // Aplicar la transición suave sin reiniciar la posición
+    // Mostrar y posicionar el indicador
     indicator.style.opacity = '1';
     indicator.style.width = `${linkRect.width}px`;
     indicator.style.height = `${linkRect.height}px`;
@@ -222,27 +223,38 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   // ==========================================================================
-  // NAVEGACIÓN CON SCROLL SUAVE AL HACER CLIC
+  // NAVEGACIÓN CON SMOOTH SCROLL LIBRARY
   // ==========================================================================
   
-  links.forEach(function (link) {
-    link.addEventListener('click', function (e) {
-      e.preventDefault();
-      const href = link.getAttribute('href');
-      const id = href && href.startsWith('#') ? href.slice(1) : null;
-      
-      if (id) {
-        const section = document.getElementById(id);
-        if (section) {
-          // No ocultamos el indicador al hacer clic en el botón agendar
-          // para mantener una transición suave
-          section.scrollIntoView({ behavior: 'smooth' });
-          // Actualizar URL sin recargar la página
-          history.pushState(null, null, `#${id}`);
+  // Completamente delegado a la librería Smooth Scroll
+  function initNavigation() {
+    const mobileMenu = document.getElementById('mobileMenu');
+    const allNavLinks = document.querySelectorAll('.nav-link[href^="#"]');
+
+    // Solo manejar el cierre del menú móvil - Smooth Scroll maneja el resto
+    allNavLinks.forEach(function (link) {
+      link.addEventListener('click', function (e) {
+        // Cerrar menú móvil si está abierto
+        if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+          mobileMenu.classList.add('hidden');
         }
-      }
+        
+        // No preventDefault - dejar que Smooth Scroll maneje el scroll
+        console.log('🔗 Navegando con Smooth Scroll a:', link.getAttribute('href'));
+      });
     });
-  });
+    
+    // También manejar enlaces del footer y otros elementos
+    const footerLinks = document.querySelectorAll('footer a[href^="#"]');
+    footerLinks.forEach(function (link) {
+      link.addEventListener('click', function () {
+        console.log('📄 Footer navigation a:', link.getAttribute('href'));
+      });
+    });
+  }
+
+  // Inicializar navegación
+  initNavigation();
 
   // ==========================================================================
   // EVENTOS DE REDIMENSIONAMIENTO
@@ -259,17 +271,113 @@ document.addEventListener('DOMContentLoaded', function () {
   
   // Función para mostrar modales (si se implementan en el futuro)
   window.showModal = function(modalType) {
-    console.log(`Modal ${modalType} - Funcionalidad a implementar`);
+    // Funcionalidad a implementar
   };
 
-  // Manejar formulario de contacto (básico)
-  const contactForm = document.querySelector('form');
+  // ==========================================================================
+  // FORMULARIO DE CONTACTO CON PASOS
+  // ==========================================================================
+  
+  let currentStep = 1;
+  const totalSteps = 3;
+
+  // Función para avanzar al siguiente paso
+  window.nextStep = function() {
+    if (validateCurrentStep()) {
+      if (currentStep < totalSteps) {
+        showStep(currentStep + 1);
+      }
+    }
+  };
+
+  // Función para retroceder al paso anterior
+  window.prevStep = function() {
+    if (currentStep > 1) {
+      showStep(currentStep - 1);
+    }
+  };
+
+  // Función para mostrar un paso específico
+  function showStep(step) {
+    // Ocultar todos los pasos
+    document.querySelectorAll('.form-step').forEach(stepEl => {
+      stepEl.style.display = 'none';
+    });
+
+    // Mostrar el paso actual
+    const targetStep = document.querySelector(`[data-step="${step}"]`);
+    if (targetStep && targetStep.classList.contains('form-step')) {
+      targetStep.style.display = 'block';
+    }
+
+    // Actualizar indicadores
+    document.querySelectorAll('.step-indicator').forEach((indicator, index) => {
+      const stepNum = index + 1;
+      const circle = indicator.querySelector('div');
+      
+      if (stepNum <= step) {
+        indicator.classList.add('active');
+        circle.classList.remove('bg-gray-300', 'dark:bg-gray-600', 'text-gray-600', 'dark:text-gray-300');
+        circle.classList.add('bg-primary-blue', 'text-white');
+      } else {
+        indicator.classList.remove('active');
+        circle.classList.remove('bg-primary-blue', 'text-white');
+        circle.classList.add('bg-gray-300', 'dark:bg-gray-600', 'text-gray-600', 'dark:text-gray-300');
+      }
+    });
+
+    currentStep = step;
+  }
+
+  // Función para validar el paso actual
+  function validateCurrentStep() {
+    const currentStepEl = document.querySelector(`[data-step="${currentStep}"].form-step`);
+    const requiredFields = currentStepEl.querySelectorAll('input[required], select[required], textarea[required]');
+    
+    let isValid = true;
+    requiredFields.forEach(field => {
+      if (!field.value.trim()) {
+        field.classList.add('border-red-500');
+        isValid = false;
+      } else {
+        field.classList.remove('border-red-500');
+      }
+    });
+
+    if (!isValid) {
+      alert('Por favor completa todos los campos requeridos.');
+    }
+
+    return isValid;
+  }
+
+  // Manejar envío del formulario
+  const contactForm = document.getElementById('contactForm');
   if (contactForm) {
     contactForm.addEventListener('submit', function(e) {
       e.preventDefault();
-      // Aquí puedes agregar la lógica de envío del formulario
-      console.log('Formulario enviado - Integrar con backend');
-      alert('¡Gracias por tu mensaje! Nos pondremos en contacto contigo pronto.');
+      
+      if (validateCurrentStep()) {
+        // Recopilar todos los datos del formulario
+        const formData = {
+          name: document.getElementById('name').value,
+          email: document.getElementById('email').value,
+          phone: document.getElementById('phone').value,
+          company: document.getElementById('company').value,
+          subject: document.getElementById('subject').value,
+          budget: document.getElementById('budget').value,
+          message: document.getElementById('message').value
+        };
+
+        console.log('Datos del formulario:', formData);
+        
+        // Aquí puedes agregar la lógica para enviar los datos
+        alert('¡Gracias por tu mensaje! Nos pondremos en contacto contigo pronto.');
+        
+        // Resetear formulario
+        contactForm.reset();
+        showStep(1);
+      }
     });
   }
 
@@ -317,7 +425,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // Función para reiniciar las animaciones (útil si se quiere repetir)
+  // Función para reiniciar las animaciones
   window.restartLetterAnimations = function() {
     const letterElements = document.querySelectorAll('.letter-stream');
     letterElements.forEach(letter => {
@@ -352,21 +460,15 @@ document.addEventListener('DOMContentLoaded', function () {
   // Función para revelar elementos cuando entran en viewport
   function initRevealAnimations() {
     const revealElements = document.querySelectorAll('.reveal');
-    console.log('🔍 Elementos .reveal encontrados:', revealElements.length);
     
     if (revealElements.length === 0) {
-      console.warn('⚠️ No se encontraron elementos con clase .reveal');
       return;
     }
 
-    // Crear el observer con configuración más permisiva
+    // Crear el observer
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        console.log('📦 Observando:', entry.target.className, 'Visible:', entry.isIntersecting);
-        
         if (entry.isIntersecting) {
-          console.log('✨ Revelando elemento');
-          
           // Agregar un delay basado en el índice del elemento
           const elementIndex = Array.from(revealElements).indexOf(entry.target);
           const delay = elementIndex * 200; // 200ms de delay entre cada elemento
@@ -375,18 +477,17 @@ document.addEventListener('DOMContentLoaded', function () {
             entry.target.classList.add('reveal-visible');
           }, delay);
           
-          // Opcional: dejar de observar después de revelar
+          // Dejar de observar después de revelar
           observer.unobserve(entry.target);
         }
       });
     }, {
       threshold: 0.05, // Se activa cuando el 5% del elemento es visible
-      rootMargin: '0px 0px -10px 0px' // Margen más permisivo
+      rootMargin: '0px 0px -10px 0px'
     });
 
     // Observar cada elemento
     revealElements.forEach((element, index) => {
-      console.log(`👁️ Observando elemento ${index + 1}:`, element);
       observer.observe(element);
     });
   }
@@ -395,17 +496,64 @@ document.addEventListener('DOMContentLoaded', function () {
   initRevealAnimations();
 
   // ==========================================================================
-  // PERFORMANCE Y DEBUGGING
+  // MODAL DE CALENDLY
   // ==========================================================================
-  
-  // Solo en desarrollo - eliminar en producción
-  if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-    console.log('🚀 NextIA Landing - Scripts cargados correctamente');
-    console.log('📱 Modo oscuro:', html.classList.contains('dark') ? 'Activado' : 'Desactivado');
-    console.log('✨ Animaciones de letras inicializadas');
-    console.log('🖱️ Títulos clicables activados');
-    
-    // Agregar funcionalidad de debugging para las animaciones
-    console.log('🎬 Para reiniciar animaciones de letras: restartLetterAnimations()');
+
+  // Event listener para cerrar modal con Escape
+  document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+      const calendlyModal = document.getElementById('calendlyModal');
+      if (calendlyModal && !calendlyModal.classList.contains('hidden')) {
+        calendlyModal.classList.add('hidden');
+        document.body.style.overflow = 'auto';
+      }
+    }
+  });
+
+  const calendlyModal = document.getElementById('calendlyModal');
+  const closeModalBtn = document.getElementById('closeModalBtn');
+  const calendlyEmbed = document.getElementById('calendly-embed');
+
+  // Función para abrir el modal
+  window.openCalendlyModal = function() {
+    if (calendlyModal) {
+      calendlyModal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+
+      // Solo cargar Calendly si no está ya cargado
+      if (calendlyEmbed && !calendlyEmbed.hasChildNodes()) {
+        calendlyEmbed.innerHTML = `
+          <iframe src="https://calendly.com/rodrigoaunins/30min?hide_landing_page_details=1&hide_gdpr_banner=1" 
+                  width="100%" 
+                  height="100%" 
+                  frameborder="0"
+                  style="border-radius: 8px; background: white;">
+          </iframe>
+        `;
+      }
+    }
+  };
+
+  // Función para cerrar el modal
+  function closeCalendlyModal() {
+    if (calendlyModal) {
+      calendlyModal.classList.add('hidden');
+      document.body.style.overflow = 'auto';
+    }
   }
+
+  // Event listeners para cerrar el modal
+  if (closeModalBtn) {
+    closeModalBtn.addEventListener('click', closeCalendlyModal);
+  }
+
+  // Cerrar modal al hacer clic en el fondo
+  if (calendlyModal) {
+    calendlyModal.addEventListener('click', function(e) {
+      if (e.target === calendlyModal) {
+        closeCalendlyModal();
+      }
+    });
+  }
+
 });

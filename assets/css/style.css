@@ -21,12 +21,9 @@
    BASE STYLES
    ========================================================================== */
 
-html {
-  scroll-behavior: smooth;
-}
-
+/* Scroll suave manejado por librería Smooth Scroll */
 section {
-  scroll-margin-top: 100px;
+  scroll-margin-top: 60px;
 }
 
 /* ==========================================================================
@@ -233,20 +230,40 @@ section {
 
 /* Animation utility classes */
 .animate-gradientFlow {
-  animation: gradientFlow 6s ease infinite;
+  animation: gradientFlow 4s ease infinite;
   background-size: 400% 400%;
 }
 
+.bg-cta-animated {
+  background: linear-gradient(135deg, 
+    rgba(0, 207, 255, 0.12) 0%, 
+    rgba(197, 0, 245, 0.08) 25%, 
+    rgba(0, 255, 224, 0.15) 50%, 
+    rgba(0, 207, 255, 0.10) 75%, 
+    rgba(197, 0, 245, 0.06) 100%);
+  background-size: 200% 200%;
+  animation: gradientFlow 4s ease infinite;
+}
+
+.dark .bg-cta-animated {
+  background: linear-gradient(15deg, 
+    rgba(0, 207, 255, 0.06) 0%, 
+    rgba(197, 0, 245, 0.04) 25%, 
+    rgba(0, 255, 224, 0.08) 50%, 
+    rgba(0, 207, 255, 0.05) 75%, 
+    rgba(197, 0, 245, 0.03) 100%);
+}
+
 .hover\:pulse-glow:hover {
-  animation: pulse-glow 2s ease-in-out infinite;
+  animation: pulse-glow 3s ease-in-out infinite;
 }
 
 .animate-fade-in {
-  animation: fadeIn 1s ease-in-out forwards;
+  animation: fadeIn 2s ease-in-out forwards;
 }
 
 .animate-float {
-  animation: float 3s ease-in-out infinite;
+  animation: float 4s ease-in-out infinite;
 }
 
 .animation-delay-1500 {
@@ -264,7 +281,7 @@ section {
   display: inline-block;
   position: relative;
   opacity: 0;
-  animation-duration: 0.8s;
+  animation-duration: 3.8s;
   animation-fill-mode: forwards;
   animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
   /* Aplicar directamente el efecto gradient-text */
@@ -272,9 +289,9 @@ section {
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  background-size: 140% 140%;
+  background-size: 200% 205%;
   animation-name: fadeInDown, gradientFlow;
-  animation-duration: 0.8s, 12s;
+  animation-duration: 4s, 8s;
   animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55), ease;
   animation-iteration-count: 1, infinite;
   animation-fill-mode: forwards, none;
@@ -365,6 +382,24 @@ section {
   background: linear-gradient(135deg, #00CFFF 0%, #C500F5 50%, #00FFE0 100%);
 }
 
+.cta-background {
+  background: linear-gradient(135deg, 
+    rgb(0, 208, 255) 0%, 
+    rgb(196, 0, 245) 30%, 
+    rgb(0, 255, 225) 70%, 
+    rgb(0, 208, 255) 100%);
+  backdrop-filter: blur(12px);
+  position: relative;
+}
+
+.dark .cta-background {
+  background: linear-gradient(135deg, 
+    rgba(0, 207, 255, 0.08) 0%, 
+    rgba(197, 0, 245, 0.05) 30%, 
+    rgba(0, 255, 224, 0.06) 70%, 
+    rgba(0, 207, 255, 0.04) 100%);
+}
+
 .bg-grid-pattern {
   background-image:
     linear-gradient(rgba(0, 207, 255, 0.05) 1px, transparent 1px),
@@ -372,30 +407,67 @@ section {
   background-size: 30px 30px;
 }
 
+/* Grid pattern específico para CTA con mayor visibilidad */
+.bg-grid-pattern-cta {
+  position: relative;
+  background: linear-gradient(45deg, #00d0ff4d 0%, #8a5cf646 25%, #00d0ff57 50%, #8a5cf65d 75%, rgba(53, 72, 77, 0.425) 100%);
+  background-size: 400% 400%;
+  animation: ctaGradientFlow 6s ease infinite;
+}
+
+.bg-grid-pattern-cta::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 20px 20px;
+  pointer-events: none;
+  z-index: 5;
+}
+
+@keyframes ctaGradientFlow {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
 /* ==========================================================================
    BORDER EFFECTS - SIMPLIFICADOS
    ========================================================================== */
 
 .card-container {
-  background: rgba(255, 255, 255, 0.02);
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(0, 0, 0, 0.05);
   border-radius: 1rem;
   padding: 2rem;
   position: relative;
   backdrop-filter: blur(12px);
-  background: linear-gradient(135deg,
-      rgba(255, 255, 255, 0.05),
-      rgba(255, 255, 255, 0.03));
-  border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow:
     0 0 20px rgba(0, 207, 255, 0.15),
     0 0 40px rgba(197, 0, 245, 0.1),
     inset 0 0 1px rgba(0, 255, 224, 0.05);
-  transition: all 0.3s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
 
 .dark .card-container {
-  background: rgba(0, 0, 0, 0.85);
+  background: rgba(0, 0, 0, 0.95);
   border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.card-container:hover {
+  transform: scale(1.02) translateZ(0);
+}
+
+.dark .card-container:hover {
+  background: rgba(0, 0, 0, 0.98);
 }
 
 .qorder-glow {
@@ -408,12 +480,12 @@ section {
 .border-glow::before {
   content: "";
   position: absolute;
-  inset: 2px; /* ✅ reemplaza padding */
+  inset: 2px; 
   border-radius: inherit;
   background: linear-gradient(90deg,
-      rgba(0, 255, 224, 0.5),
-      rgba(197, 0, 245, 0.5),
-      rgba(0, 207, 255, 0.5));
+      rgb(0, 255, 225),
+      rgba(197, 0, 245, 0.2),
+      rgba(0, 207, 255, 0.2));
   background-size: 10% 10%;
   animation: gradientFlow 8s ease infinite;
   filter: none;
@@ -425,8 +497,8 @@ section {
 
   pointer-events: none;
   z-index: -1;
-  opacity: 0.5;
-  filter: blur(1px);
+  opacity: 0.8;
+  filter: blur(0.5px);
   transition:
     inset var(--transition-standard),
     background var(--transition-standard),
@@ -440,9 +512,9 @@ section {
   0%,
   100% {
     box-shadow:
-      0 0 20px rgba(0, 207, 255, 0.15),
-      0 0 40px rgba(197, 0, 245, 0.1),
-      inset 0 0 30px rgba(0, 255, 224, 0.05);
+      0 0 20px rgb(0, 208, 255),
+      0 0 40px rgb(196, 0, 245),
+      inset 0 0 30px rgb(0, 255, 225);
   }
 
   50% {
@@ -453,47 +525,71 @@ section {
   }
 }
 
-.card-container {
-  background: rgba(15, 15, 15, 0.6);
-  backdrop-filter: blur(10px);
-  transform: translateZ(0);
-  transition: all 0.5s ease-in-out;
-}
-
-.card-container:hover {
-  transform: scale(1.02) translateZ(0);
-  background: rgba(20, 20, 20, 0.8);
-}
-
 @keyframes borderGlow {
   0% {
     border-image: linear-gradient(90deg,
-        rgba(0, 207, 255, 0.8),
-        rgba(197, 0, 245, 0.8),
-        rgba(0, 255, 224, 0.8)) 1;
+        rgb(0, 208, 255),
+        rgb(196, 0, 245),
+        rgb(0, 255, 225)) 1;
   }
 
   50% {
     border-image: linear-gradient(180deg,
-        rgba(197, 0, 245, 0.8),
-        rgba(0, 255, 224, 0.8),
-        rgba(0, 207, 255, 0.8)) 1;
+        rgb(196, 0, 245),
+        rgb(0, 255, 225),
+        rgb(0, 208, 255)) 1;
   }
 
   100% {
     border-image: linear-gradient(270deg,
-        rgba(0, 255, 224, 0.8),
-        rgba(0, 207, 255, 0.8),
-        rgba(197, 0, 245, 0.8)) 1;
+        rgb(0, 255, 225),
+        rgb(8, 74, 88),
+        rgb(196, 0, 245)) 1;
   }
 }
 
 .border-glow {
   position: relative;
-  border-radius: 1rem;
   z-index: 0;
   overflow: hidden;
 }
+
+.border-glow.rounded {
+  border-radius: 1rem;
+}
+
+.border-glow.rounded-xl {
+  border-radius: 0.75rem;
+}
+
+.border-glow.rounded-2xl {
+  border-radius: 1rem;
+}
+
+.border-glow-cta {
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+  background: linear-gradient(90deg, 
+    rgba(0, 208, 255, 0.452) 0%, 
+    rgba(196, 0, 245, 0.541) 30%, 
+    rgba(0, 255, 225, 0.5) 70%, 
+    rgba(0, 208, 255, 0.479) 100%);
+  background-size: 150% 150%;
+  animation: gradientFlow 4s ease infinite;
+}
+
+.dark .border-glow-cta {
+  background: linear-gradient(90deg, 
+    rgba(0, 208, 255, 0.541) 0%, 
+    rgba(196, 0, 245, 0.575) 30%, 
+    rgba(0, 255, 225, 0.582) 70%, 
+    rgba(0, 208, 255, 0.562) 100%);
+  background-size: 150% 150%;
+  animation: gradientFlow 4s ease infinite;
+}
+
+/* Bordes eliminados del CTA */
 
 /* ==========================================================================
    NAVIGATION
@@ -535,7 +631,7 @@ section {
 .nav-active {
   background-color: #00FFE0;
   color: black;
-  border-radius: 999px;
+  border-radius: 9999px;
   padding: 0.5rem 1rem;
   font-weight: 700;
   transition: all 0.4s ease;
@@ -776,7 +872,13 @@ section {
 
   .nav-active {
     margin: 0;
-    border-radius: 9999px;
+    border-radius: 9999px !important;
+    padding: 0.75rem 1.75rem !important;
+    background: linear-gradient(90deg, #00FFE0, #C500F5);
+    box-shadow:
+      0 0 10px rgba(0, 255, 224, 0.5),
+      0 0 10px rgba(197, 0, 245, 0.5);
+    color: white !important;
   }
 }
 
@@ -811,37 +913,6 @@ h2.cursor-pointer:hover {
 /* ==========================================================================
    TRANSICIONES ESTANDARIZADAS
    ========================================================================== */
-
-.border-glow::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  padding: 2px; /* simula grosor del borde */
-  background: linear-gradient(270deg,
-    rgba(0, 255, 224, 0.8),
-    rgba(197, 0, 245, 0.8),
-    rgba(0, 207, 255, 0.8));
-  background-size: 400% 400%;
-  animation: gradientFlow 8s linear infinite;
-
-  /* Para crear el efecto borde sin cubrir el contenido */
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-
-  pointer-events: none;
-  z-index: -1;
-}
-
-.card-container {
-  /* ...existing properties... */
-  transition:
-    all 0.6s ease,
-    box-shadow var(--transition-standard),
-    transform var(--transition-fast);
-}
 
 .service-card {
   transition:
@@ -1029,55 +1100,13 @@ h2.cursor-pointer:hover {
 
   .nav-active {
     margin: 0;
-    border-radius: 6px;
+    border-radius: 9999px !important;
+    padding: 0.75rem 1.75rem !important;
+    background: linear-gradient(90deg, #00FFE0, #C500F5);
+    box-shadow:
+      0 0 10px rgba(0, 255, 224, 0.5),
+      0 0 10px rgba(197, 0, 245, 0.5);
+    color: white !important;
   }
-}
-
-/* Eliminada la duplicación de .nav-active */
-
-/* ==========================================================================
-   TÍTULOS CLICABLES - CONSOLIDADAS
-   ========================================================================== */
-
-.clickable-title,
-h2.cursor-pointer,
-.gradient-text.cursor-pointer {
-  cursor: pointer;
-  user-select: none;
-  transition: opacity var(--transition-standard), transform 0.2s ease;
-}
-
-.clickable-title:hover,
-h2.cursor-pointer:hover {
-  opacity: 0.8;
-  transform: translateY(-1px);
-}
-
-.gradient-text.cursor-pointer:hover {
-  transform: translateY(-2px);
-}
-
-.gradient-text.cursor-pointer .letter-stream {
-  cursor: pointer;
-}
-
-/* ==========================================================================
-   TRANSICIONES ESTANDARIZADAS
-   ========================================================================== */
-
-
-.card-container {
-  /* ...existing properties... */
-  transition:
-    all 0.6s ease,
-    box-shadow var(--transition-standard),
-    transform var(--transition-fast);
-}
-
-.service-card {
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease,
-    border-color var(--transition-standard);
 }
 
