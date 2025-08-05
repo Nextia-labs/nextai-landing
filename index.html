@@ -20,19 +20,22 @@
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/cards.css">
   <link rel="stylesheet" href="assets/css/modal.css">
+  <link rel="stylesheet" href="assets/css/hero-responsive.css">
+  <link rel="stylesheet" href="assets/css/contact-form.css">
   
   <!-- Favicon general -->
-  <link rel="icon" href="assets/images/favicon/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="assets/images/favicon/android-chrome-512x512.png" type="image/x-icon">
 
-  <!-- Para navegadores modernos -->
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon/favicon-16x16.png">
+<!-- Favicon general -->
+<link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon/favicon-32x32.png">
 
-  <!-- Para dispositivos Apple -->
-  <link rel="apple-touch-icon" href="assets/images/favicon/favicon-apple-touch-icon.png" sizes="180x180">
+<!-- Apple Touch -->
+<link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
 
-  <!-- Manifest (para PWA, Android) -->
-  <link rel="manifest" href="assets/images/favicon/site.webmanifest">
+<!-- Manifest para PWA -->
+<link rel="manifest" href="site.webmanifest.json">
+
 
 </head>
 
@@ -74,7 +77,7 @@
             class="nav-link relative z-10 px-2 md-lg:px-3 py-2 rounded-full dark:text-white transition-colors text-sm md-lg:text-base">Servicios</a>
           <a href="#about"
             class="nav-link relative z-10 px-2 md-lg:px-3 py-2 rounded-full dark:text-white transition-colors text-sm md-lg:text-base">Nosotros</a>
-          <a href="#contact"
+          <a href="#cta"
             class="nav-link btn-agendar-navbar"
             data-text="Agendar reunión">
             <span class="hidden md-lg:inline">Agendar reunión</span>
@@ -115,7 +118,7 @@
         </a>
 
         <!-- Agendar reunión -->
-        <a href="#contact"
+        <a href="#cta"
            class="inline-block w-max btn-agendar-section nav-link rounded-full px-4 py-2 text-center" 
            data-text="Agendar reunión">
           Agendar reunión
@@ -168,10 +171,10 @@
             Usamos inteligencia artificial para crear soluciones de software innovadoras que ayudan a personas y organizaciones a crecer y transformar su futuro.
           </p>
           <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-            <a href="#services" class="btn-primary bg-primary-blue text-white hover:bg-primary-violet">
+            <a href="#services" class="btn-primary bg-primary-blue text-white hover:bg-primary-violet text-center">
               Nuestros servicios
             </a>
-            <a href="#contact" class="btn-agendar-section" data-text="Agendar reunión">
+            <a href="#cta" class="btn-agendar-section" data-text="Agendar reunión">
               Agendar reunión
             </a>
           </div>
@@ -184,12 +187,10 @@
             <div
               class="absolute -bottom-5 -right-5 w-32 h-32 bg-primary-violet rounded-full mix-blend-screen filter blur-xl opacity-20 animate-float animation-delay-2000">
             </div>
-            <div
-              class="relative bg-white dark:bg-dark-800 rounded-2xl shadow-xl overflow-hidden border-glow rounded-2xl transition-slow hover:shadow-primary-violet/30">
-              <img src="assets/images/hero/brain_digital.webp" alt="Inteligencia Artificial"
-                class="rounded-2xl shadow-xl overflow-hidden border-glow rounded-2xl transition-transform duration-700 transform hover:scale-110 object-cover opacity-70 hover:opacity-100"
-                loading="lazy">
-            </div>
+            <img src="assets/images/hero/brain_digital.webp" 
+                 alt="Cerebro digital - Inteligencia Artificial"
+                 class="hero-image"
+                 loading="lazy">
           </div>
         </div>
       </div>
@@ -318,13 +319,13 @@
 Creamos software personalizado para resolver desafíos reales, optimizar procesos y acompañar el crecimiento de personas y organizaciones.
 Nuestra prioridad es ofrecer tecnología innovadora capaz de resolver problemas reales.
           </p>
-          <a href="#contact" class="gradient-bg text-white px-6 py-3 rounded-lg hover:opacity-90 transition-all font-medium shadow-lg shadow-primary-blue/30">
+          <a href="#cta" class="btn-agendar-section" data-text="Conoce más">
             Conoce más
           </a>
         </div>
         <div class="md:w-1/2">
-          <div class="relative rounded-2xl overflow-hidden shadow-xl border-glow rounded-2xl">
-            <img src="assets/images/about/nextAI_2.avif" alt="Equipo de nextAI"
+          <div class="relative overflow-hidden shadow-xl border-glow">
+            <img src="assets/images/about/converge.webp" alt="Equipo de nextAI"
               class="w-full h-auto object-cover opacity-90 hover:opacity-100 transition-slow" loading="lazy">
           </div>
         </div>
@@ -395,120 +396,36 @@ Nuestra prioridad es ofrecer tecnología innovadora capaz de resolver problemas 
               </div>
             </div>
             <div class="flex items-start">
-              <div class="flex-shrink-0 bg-primary-cyan/10 rounded-lg p-3 mr-4">
-                <i class="fas fa-map-marker-alt text-primary-cyan text-xl"></i>
-              </div>
-              <div>
-                <h3 class="font-bold text-lg mb-1 text-gray-800 dark:text-light-plasma">Oficinas</h3>
-                <p class="text-gray-600 dark:text-light-plasma/80">Av. Corrientes 1234, Buenos Aires,
-                  Argentina</p>
-              </div>
             </div>
           </div>
         </div>
         <div class="md:w-1/2">
-          <form class="bg-white dark:bg-dark-800 p-8 rounded-xl border-glow rounded-xl shadow-sm" id="contactForm">
-            
-            <!-- Indicador de pasos -->
-            <div class="flex justify-between items-center mb-8">
-              <div class="flex space-x-4">
-                <div class="step-indicator active" data-step="1">
-                  <div class="w-8 h-8 rounded-full bg-primary-blue text-white flex items-center justify-center text-sm font-bold">1</div>
-                  <span class="text-xs mt-1 text-gray-600 dark:text-gray-300">Info Personal</span>
-                </div>
-                <div class="step-indicator" data-step="2">
-                  <div class="w-8 h-8 rounded-full bg-gray-300 dark:bg-gray-600 text-gray-600 dark:text-gray-300 flex items-center justify-center text-sm font-bold">2</div>
-                  <span class="text-xs mt-1 text-gray-600 dark:text-gray-300">Proyecto</span>
-                </div>
-                <div class="step-indicator" data-step="3">
-                  <div class="w-8 h-8 rounded-full bg-gray-300 dark:bg-gray-600 text-gray-600 dark:text-gray-300 flex items-center justify-center text-sm font-bold">3</div>
-                  <span class="text-xs mt-1 text-gray-600 dark:text-gray-300">Mensaje</span>
-                </div>
-              </div>
+          <form id="contactForm" class="contact-form-cta p-8 rounded-xl shadow-sm space-y-6 max-w-xl mx-auto">
+            <h3 class="contact-title text-xl font-bold text-center">Contanos sobre tu proyecto</h3>
+
+            <!-- Información Personal -->
+            <div>
+              <label for="name" class="contact-label block mb-2 text-sm font-semibold">Nombre</label>
+              <input type="text" id="name" name="name" required
+                class="contact-input w-full px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-blue">
             </div>
 
-            <!-- Paso 1: Información Personal -->
-            <div class="form-step active" data-step="1">
-              <h3 class="text-lg font-bold mb-4 text-gray-800 dark:text-light-plasma">Información Personal</h3>
-              <div class="mb-4">
-                <label for="name" class="block text-gray-800 dark:text-light-plasma mb-2">Nombre</label>
-                <input type="text" id="name" required
-                  class="w-full px-4 py-3 rounded-lg bg-gray-50 dark:bg-dark-900 border-glow focus:outline-none focus:ring-2 focus:ring-primary-blue text-gray-800 dark:text-light-plasma">
-              </div>
-              <div class="mb-4">
-                <label for="email" class="block text-gray-800 dark:text-light-plasma mb-2">Correo Electrónico</label>
-                <input type="email" id="email" required
-                  class="w-full px-4 py-3 rounded-lg bg-gray-50 dark:bg-dark-900 border-glow focus:outline-none focus:ring-2 focus:ring-primary-blue text-gray-800 dark:text-light-plasma">
-              </div>
-              <div class="mb-6">
-                <label for="phone" class="block text-gray-800 dark:text-light-plasma mb-2">Teléfono (opcional)</label>
-                <input type="tel" id="phone"
-                  class="w-full px-4 py-3 rounded-lg bg-gray-50 dark:bg-dark-900 border-glow focus:outline-none focus:ring-2 focus:ring-primary-blue text-gray-800 dark:text-light-plasma">
-              </div>
-              <button type="button" class="btn-primary btn-gradient w-full" onclick="nextStep()">
-                Siguiente
-              </button>
+            <div>
+              <label for="email" class="contact-label block mb-2 text-sm font-semibold">Correo electrónico</label>
+              <input type="email" id="email" name="email" required
+                class="contact-input w-full px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-blue">
             </div>
 
-            <!-- Paso 2: Información del Proyecto -->
-            <div class="form-step" data-step="2" style="display: none;">
-              <h3 class="text-lg font-bold mb-4 text-gray-800 dark:text-light-plasma">Sobre tu Proyecto</h3>
-              <div class="mb-4">
-                <label for="company" class="block text-gray-800 dark:text-light-plasma mb-2">Empresa/Organización</label>
-                <input type="text" id="company"
-                  class="w-full px-4 py-3 rounded-lg bg-gray-50 dark:bg-dark-900 border-glow focus:outline-none focus:ring-2 focus:ring-primary-blue text-gray-800 dark:text-light-plasma">
-              </div>
-              <div class="mb-4">
-                <label for="subject" class="block text-gray-800 dark:text-light-plasma mb-2">Tipo de Proyecto</label>
-                <select id="subject" required
-                  class="w-full px-4 py-3 rounded-lg bg-gray-50 dark:bg-dark-900 border-glow focus:outline-none focus:ring-2 focus:ring-primary-blue text-gray-800 dark:text-light-plasma">
-                  <option value="">Selecciona un tipo</option>
-                  <option value="ia-automation">Automatización con IA</option>
-                  <option value="computer-vision">Visión por Computadora</option>
-                  <option value="web-development">Desarrollo Web</option>
-                  <option value="consulting">Consultoría</option>
-                  <option value="other">Otro</option>
-                </select>
-              </div>
-              <div class="mb-6">
-                <label for="budget" class="block text-gray-800 dark:text-light-plasma mb-2">Presupuesto Estimado</label>
-                <select id="budget"
-                  class="w-full px-4 py-3 rounded-lg bg-gray-50 dark:bg-dark-900 border-glow focus:outline-none focus:ring-2 focus:ring-primary-blue text-gray-800 dark:text-light-plasma">
-                  <option value="">Selecciona un rango</option>
-                  <option value="under-5k">Menos de $5,000 USD</option>
-                  <option value="5k-15k">$5,000 - $15,000 USD</option>
-                  <option value="15k-50k">$15,000 - $50,000 USD</option>
-                  <option value="over-50k">Más de $50,000 USD</option>
-                  <option value="discuss">Prefiero discutirlo</option>
-                </select>
-              </div>
-              <div class="flex space-x-4">
-                <button type="button" class="btn-primary bg-gray-500 text-white hover:bg-gray-600 flex-1" onclick="prevStep()">
-                  Anterior
-                </button>
-                <button type="button" class="btn-primary btn-gradient flex-1" onclick="nextStep()">
-                  Siguiente
-                </button>
-              </div>
+            <!-- Mensaje -->
+            <div>
+              <label for="message" class="contact-label block mb-2 text-sm font-semibold">Contanos brevemente qué necesitás</label>
+              <textarea id="message" name="message" rows="4" required
+                placeholder="Ej: Estoy buscando implementar IA para automatizar tareas en mi negocio..."
+                class="contact-input w-full px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-blue"></textarea>
             </div>
 
-            <!-- Paso 3: Mensaje -->
-            <div class="form-step" data-step="3" style="display: none;">
-              <h3 class="text-lg font-bold mb-4 text-gray-800 dark:text-light-plasma">Cuéntanos sobre tu proyecto</h3>
-              <div class="mb-6">
-                <label for="message" class="block text-gray-800 dark:text-light-plasma mb-2">Descripción del Proyecto</label>
-                <textarea id="message" rows="6" required placeholder="Describe tu proyecto, objetivos, timeline, o cualquier detalle que consideres importante..."
-                  class="w-full px-4 py-3 rounded-lg bg-gray-50 dark:bg-dark-900 border-glow focus:outline-none focus:ring-2 focus:ring-primary-blue text-gray-800 dark:text-light-plasma"></textarea>
-              </div>
-              <div class="flex space-x-4">
-                <button type="button" class="btn-primary bg-gray-500 text-white hover:bg-gray-600 flex-1" onclick="prevStep()">
-                  Anterior
-                </button>
-                <button type="submit" class="btn-primary btn-gradient flex-1">
-                  Enviar Mensaje
-                </button>
-              </div>
-            </div>
+            <!-- Botón de Envío -->
+            <button type="submit" class="btn-agendar-section w-full" data-text="Enviar Mensaje">Enviar Mensaje</button>
           </form>
         </div>
       </div>
@@ -559,7 +476,7 @@ Nuestra prioridad es ofrecer tecnología innovadora capaz de resolver problemas 
         </div>
       </div>
       <div class="border-t dark:border-gray-800 mt-12 pt-8 text-center text-sm">
-        <p>&copy; 2023 nextAI. Todos los derechos reservados.</p>
+        <p>&copy; 2025 nextAI. Todos los derechos reservados.</p>
       </div>
     </div>
   </footer>
@@ -574,7 +491,7 @@ Nuestra prioridad es ofrecer tecnología innovadora capaz de resolver problemas 
             Agenda tu <span class="gradient-text">reunión</span>
           </h3>
           <p class="text-gray-600 dark:text-gray-300">
-            Selecciona el día y horario que mejor te convenga
+            Selecciona el día y horario que más te convenga
           </p>
         </div>
         <div id="calendly-embed" style="min-width:320px;height:530px;"></div>
@@ -586,6 +503,25 @@ Nuestra prioridad es ofrecer tecnología innovadora capaz de resolver problemas 
   <script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@15.0.0/dist/smooth-scroll.polyfills.min.js"></script>
   <script src="assets/js/script.js"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Manejo del formulario simplificado -->
+  <script>
+    document.getElementById("contactForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const formData = {
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        message: document.getElementById("message").value,
+      };
+
+      // Aquí podés usar fetch para enviar los datos a un backend o API externa
+      console.log("Formulario enviado:", formData);
+
+      alert("¡Gracias por contactarnos!");
+      e.target.reset(); // Opcional: limpia el formulario
+    });
+  </script>
 
 </body>
 

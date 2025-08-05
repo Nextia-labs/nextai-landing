@@ -1,0 +1,66 @@
+/* Estilos simples para el formulario de contacto */
+.contact-form-cta {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(5px);
+  position: relative;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2),
+              0 0 5px rgba(0, 255, 224, 0.1),
+              0 0 5px rgba(197, 0, 245, 0.1);
+  color: black;
+}
+
+/* Borde igual al de las cards */
+.contact-form-cta::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(90deg,
+          rgb(0, 255, 224),
+          rgb(197, 0, 245));
+  -webkit-mask: 
+      linear-gradient(#fff 0 0) content-box, 
+      linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask: 
+      linear-gradient(#fff 0 0) content-box, 
+      linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.dark .contact-form-cta {
+  background: rgba(0, 0, 0, 0.95);
+  color: white;
+}
+
+.contact-form-cta .contact-title {
+  color: inherit;
+}
+
+.contact-form-cta .contact-label {
+  color: inherit;
+}
+
+.contact-form-cta .contact-input {
+  background: inherit;
+  border: 1px solid rgba(0, 207, 255, 0.3);
+  color: inherit;
+}
+
+.contact-form-cta .contact-input::placeholder {
+  color: rgba(128, 128, 128, 0.7);
+}
+
+.contact-form-cta .contact-input:focus {
+  border-color: #00cfff;
+  outline: none;
+}
+
+.dark .contact-form-cta .contact-input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}

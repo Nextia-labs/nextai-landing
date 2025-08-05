@@ -1,0 +1,50 @@
+/* ==========================================================================
+   HERO IMAGE RESPONSIVE
+   ========================================================================== */
+
+/* Imagen del hero - comportamiento base */
+.hero-image {
+  width: 100%;
+  border-radius: 1rem;
+  transition: transform 0.7s ease, box-shadow 0.3s ease;
+  object-fit: cover;
+  opacity: 0.7;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.hero-image:hover {
+  transform: scale(1.1);
+  opacity: 1;
+  box-shadow: 0 20px 40px rgba(128, 90, 213, 0.3);
+  border-radius: 1rem; /* Asegurar que mantenga border radius en hover */
+}
+
+/* Optimización para dispositivos móviles */
+@media (max-width: 768px) {
+  .hero-image {
+    max-width: 50%;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+  }
+  
+  .hero-image:hover {
+    transform: scale(1.05); /* Menor escala en móvil para mejor UX */
+  }
+}
+
+/* Optimización para tablets pequeñas */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .hero-image {
+    max-width: 75%;
+    margin: 0 auto;
+  }
+}
+
+/* Optimización para pantallas grandes */
+@media (min-width: 1025px) {
+  .hero-image {
+    max-width: 100%;
+  }
+}
