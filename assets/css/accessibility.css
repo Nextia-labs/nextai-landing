@@ -1,0 +1,131 @@
+/* ==========================================================================
+   MEJORAS DE ACCESIBILIDAD - CONTRASTE Y LIGHTHOUSE
+   ========================================================================== */
+
+/* Asegurar contraste suficiente para botones primarios */
+.btn-primary.bg-primary-blue {
+  background-color: #0066A0 !important; /* Color más oscuro para mejor contraste con texto blanco */
+  color: white !important;
+}
+
+.btn-primary.bg-primary-blue:hover {
+  background-color: #004477 !important; /* Aún más oscuro en hover */
+}
+
+/* Mejorar contraste para texto gris en modo claro */
+html:not(.dark) .text-gray-700 {
+  color: #374151 !important;
+}
+
+html:not(.dark) .text-gray-600 {
+  color: #4b5563 !important;
+}
+
+html:not(.dark) .text-gray-800 {
+  color: #1f2937 !important;
+}
+
+/* Asegurar contraste en enlaces de navegación */
+html:not(.dark) .nav-link {
+  color: #1f2937 !important;
+}
+
+html:not(.dark) .nav-link:hover {
+  color: #0f172a !important;
+}
+
+/* Mejorar visibilidad del botón de menú móvil */
+html:not(.dark) #menuToggle {
+  color: #1f2937 !important;
+}
+
+/* Asegurar contraste en formularios */
+html:not(.dark) input,
+html:not(.dark) textarea {
+  color: #1f2937 !important;
+  border-color: #6b7280 !important;
+}
+
+html:not(.dark) input:focus,
+html:not(.dark) textarea:focus {
+  border-color: #0066A0 !important;
+  color: #0f172a !important;
+}
+
+/* Mejorar contraste de etiquetas de formulario */
+html:not(.dark) .contact-label {
+  color: #1f2937 !important;
+}
+
+/* Asegurar que los iconos tengan buen contraste, excepto los que tienen colores específicos */
+html:not(.dark) .fas:not(.text-primary-cyan):not(.text-primary-violet):not(.text-primary-blue),
+html:not(.dark) .fab:not(.text-primary-cyan):not(.text-primary-violet):not(.text-primary-blue) {
+  color: inherit;
+}
+
+/* Asegurar que los colores primarios se mantengan en modo claro con mejor contraste */
+html:not(.dark) .text-primary-cyan {
+  color: #00D4C4 !important; /* Cyan un poco más oscuro para mejor contraste */
+}
+
+html:not(.dark) .text-primary-violet {
+  color: #B000D8 !important; /* Violeta un poco más oscuro para mejor contraste */
+}
+
+html:not(.dark) .text-primary-blue {
+  color: #0099CC !important;
+}
+
+/* Estilos específicos para iconos de servicios en modo claro */
+html:not(.dark) .card-container .fas.fa-tshirt {
+  color: #00D4C4 !important; /* Cyan brillante pero legible para SnapAI */
+}
+
+html:not(.dark) .card-container .fas.fa-chart-line {
+  color: #B000D8 !important; /* Violeta brillante pero legible para App de Inversiones */
+}
+
+/* Asegurar que los iconos de check también mantengan sus colores */
+html:not(.dark) .fas.fa-check-circle.text-primary-cyan {
+  color: #00D4C4 !important;
+}
+
+html:not(.dark) .fas.fa-check-circle.text-primary-violet {
+  color: #B000D8 !important;
+}
+
+/* Asegurar visibilidad de botones agendar en modo claro */
+html:not(.dark) .btn-agendar-navbar,
+html:not(.dark) .btn-agendar-section {
+  color: #1f2937 !important;
+  background-color: #ffffff !important;
+}
+
+html:not(.dark) .btn-agendar-navbar:hover,
+html:not(.dark) .btn-agendar-section:hover {
+  color: #0f172a !important;
+  background-color: #f8fafc !important;
+}
+
+/* Desactivar pseudo-elementos en modo claro */
+html:not(.dark) .btn-agendar-navbar[data-text]::before,
+html:not(.dark) .btn-agendar-section[data-text]::before {
+  display: none !important;
+}
+
+/* Asegurar que el texto sea visible incluso con data-text */
+html:not(.dark) .btn-agendar-navbar[data-text],
+html:not(.dark) .btn-agendar-section[data-text] {
+  color: #1f2937 !important;
+}
+
+/* Mejorar el borde en modo claro para mejor visibilidad */
+html:not(.dark) .btn-agendar-navbar,
+html:not(.dark) .btn-agendar-section {
+  border-color: #0066A0 !important; /* Borde más oscuro para mejor contraste */
+}
+
+/* Estilos específicos para modales */
+.dark .dark\:bg-dark-800 {
+  background-color: #1A1A1A !important;
+}

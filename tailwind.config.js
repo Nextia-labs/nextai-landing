@@ -14,7 +14,7 @@ module.exports = {
     extend: {
       colors: {
         primary: { 
-          blue: '#00CFFF', 
+          blue: '#0099CC', // Color más oscuro para mejor contraste
           violet: '#C500F5', 
           cyan: '#00FFE0' 
         },

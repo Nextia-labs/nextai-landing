@@ -7,7 +7,7 @@
    ========================================================================== */
 
 :root {
-  --color-primary-blue: 0, 207, 255;
+  --color-primary-blue: 0, 153, 204;
   --color-primary-violet: 197, 0, 245;
   --color-primary-cyan: 0, 255, 224;
 
@@ -615,7 +615,7 @@ textarea.border-glow {
   padding: 0.5rem 1rem;
   font-weight: 600;
   transition: color 0.3s ease;
-  color: black;
+  color: #1f2937; /* Color más oscuro para mejor contraste */
   background-color: transparent !important;
 }
 
@@ -636,9 +636,10 @@ textarea.border-glow {
   font-weight: 600;
 }
 
+/* Mejoras de contraste para modo claro */
 .nav-active {
   background-color: #00FFE0;
-  color: black;
+  color: #0f172a; /* Color más oscuro para mejor contraste */
   border-radius: 9999px;
   padding: 0.5rem 1rem;
   font-weight: 700;
@@ -675,9 +676,10 @@ textarea.border-glow {
 /* Botón agendar en navbar - BASE */
 .btn-agendar-navbar {
   /* Estados base */
-  background-color: #ff0000;
+  background-color: #ffffff;
   /* Modo claro idle */
-  color: transparent;
+  color: #1f2937 !important;
+  /* Color del texto visible en modo claro */
 
   /* Propiedades estructurales */
   position: relative;
@@ -702,8 +704,10 @@ textarea.border-glow {
 
 /* Botón agendar en navbar - HOVER modo claro */
 .btn-agendar-navbar:hover {
-  background-color: #0059ff;
+  background-color: #f8fafc;
   /* Modo claro hover */
+  color: #0f172a;
+  /* Color más oscuro en hover para mejor contraste */
   box-shadow: 0 0 32px 0 rgba(0, 255, 224, 0.45), 0 0 12px 0 rgba(197, 0, 245, 0.28);
   border-color: #C500F5;
   transform: scale(1.05);
@@ -711,8 +715,10 @@ textarea.border-glow {
 
 /* Botón agendar en navbar - MODO OSCURO idle */
 .dark .btn-agendar-navbar {
-  background-color: #d0ff00;
+  background-color: #1e293b;
   /* Modo oscuro idle */
+  color: transparent !important;
+  /* En modo oscuro usamos el gradiente */
 }
 
 /* Botón agendar en navbar - MODO OSCURO hover */
@@ -727,9 +733,10 @@ textarea.border-glow {
 /* Botón agendar en secciones - BASE */
 .btn-agendar-section {
   /* Estados base */
-  background-color: rgb(245, 245, 245);
+  background-color: #ffffff;
   /* Modo claro idle */
-  color: transparent;
+  color: #1f2937 !important;
+  /* Color del texto visible en modo claro */
 
   /* Propiedades estructurales */
   position: relative;
@@ -754,8 +761,10 @@ textarea.border-glow {
 
 /* Botón agendar en secciones - HOVER modo claro */
 .btn-agendar-section:hover {
-  background-color: #ffffff;
+  background-color: #f8fafc;
   /* Modo claro hover */
+  color: #0f172a;
+  /* Color más oscuro en hover para mejor contraste */
   box-shadow: 0 0 32px 0 rgba(0, 255, 224, 0.45), 0 0 12px 0 rgba(197, 0, 245, 0.28);
   border-color: #C500F5;
   transform: scale(1.05);
@@ -765,6 +774,8 @@ textarea.border-glow {
 .dark .btn-agendar-section {
   background-color: rgb(24, 24, 24);
   /* Modo oscuro idle */
+  color: transparent !important;
+  /* En modo oscuro usamos el gradiente */
 }
 
 /* Botón agendar en secciones - MODO OSCURO hover */
@@ -776,9 +787,9 @@ textarea.border-glow {
               0 0 10px rgba(197, 0, 245, 0.2);
 }
 
-/* Pseudo-elemento para gradiente de texto - Ambos botones */
-.btn-agendar-navbar[data-text]::before,
-.btn-agendar-section[data-text]::before {
+/* Pseudo-elemento para gradiente de texto - Solo en modo oscuro */
+.dark .btn-agendar-navbar[data-text]::before,
+.dark .btn-agendar-section[data-text]::before {
   content: attr(data-text);
   position: absolute;
   top: 0;
@@ -800,9 +811,9 @@ textarea.border-glow {
   font-size: inherit;
 }
 
-/* Efectos hover en pseudo-elemento */
-.btn-agendar-navbar:hover::before,
-.btn-agendar-section:hover::before {
+/* Efectos hover en pseudo-elemento - Solo en modo oscuro */
+.dark .btn-agendar-navbar:hover::before,
+.dark .btn-agendar-section:hover::before {
   background-position: 100% 0;
 }
 

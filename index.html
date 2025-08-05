@@ -22,6 +22,7 @@
   <link rel="stylesheet" href="assets/css/modal.css">
   <link rel="stylesheet" href="assets/css/hero-responsive.css">
   <link rel="stylesheet" href="assets/css/contact-form.css">
+  <link rel="stylesheet" href="assets/css/accessibility.css">
   
   <!-- Favicon general -->
   <link rel="icon" href="assets/images/favicon/android-chrome-512x512.png" type="image/x-icon">
@@ -56,7 +57,9 @@
 
             <!-- SVG animado sobre el PNG -->
             <object data="assets/images/logo/logo_nextia_glow.svg" type="image/svg+xml"
-              class="absolute inset-0 w-full h-full z-10 pointer-events-none"></object>
+              class="absolute inset-0 w-full h-full z-10 pointer-events-none"
+              title="Logo nextAI con efecto de brillo animado"
+              aria-label="Logo nextAI con efecto de brillo animado"></object>
           </a>
 
           <!-- Texto del logo -->
@@ -93,6 +96,8 @@
           <button id="toggleDarkMode"
             class="z-40 bg-primary-blue text-white px-2 py-2 rounded-full shadow-md hover:bg-primary-violet transition focus:gradient-text hover:gradient-text"
             aria-label="Alternar modo oscuro">
+            <i class="fas fa-moon dark:hidden" aria-hidden="true"></i>
+            <i class="fas fa-sun hidden dark:block" aria-hidden="true"></i>
           </button>
           <button id="menuToggle" class="lg:hidden text-gray-800 dark:text-white text-xl p-2 focus:outline-none"
             aria-label="Abrir menú de navegación">
@@ -167,7 +172,7 @@
               </h1>
             </h1>
           </a>
-          <p class="text-xl text-gray-700 dark:text-sky-400 mb-8">
+          <p class="text-xl text-gray-800 dark:text-sky-400 mb-8">
             Usamos inteligencia artificial para crear soluciones de software innovadoras que ayudan a personas y organizaciones a crecer y transformar su futuro.
           </p>
           <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
@@ -204,7 +209,7 @@
         <h2 class="text-3xl md:text-4xl font-bold mb-4 cursor-pointer hover:opacity-80 transition-opacity">
           Nuestros <span class="gradient-text">servicios</span>
         </h2>
-        <p class="text-xl text-gray-700 dark:text-primary-cyan max-w-3xl mx-auto">
+        <p class="text-xl text-gray-800 dark:text-primary-cyan max-w-3xl mx-auto">
           Creamos experiencias fluidas, eficientes y personalizadas a través de IA.
         </p>
       </div>
@@ -314,7 +319,7 @@
           <h2 class="text-3xl md:text-4xl font-bold mb-6 cursor-pointer hover:opacity-80 transition-opacity">
             Sobre <span class="gradient-text">nextAI</span>
           </h2>
-          <p class="text-gray-700 dark:text-light-plasma/80 mb-6">
+          <p class="text-gray-800 dark:text-light-plasma/80 mb-6">
             Somos un equipo de desarrolladores de soluciones tecnológicas impulsadas por inteligencia artificial.
 Creamos software personalizado para resolver desafíos reales, optimizar procesos y acompañar el crecimiento de personas y organizaciones.
 Nuestra prioridad es ofrecer tecnología innovadora capaz de resolver problemas reales.
@@ -371,7 +376,7 @@ Nuestra prioridad es ofrecer tecnología innovadora capaz de resolver problemas 
           <h2 class="text-3xl md:text-4xl font-bold mb-6 cursor-pointer hover:opacity-80 transition-opacity">
             Contáctanos
           </h2>
-          <p class="text-gray-700 dark:text-light-plasma/80 mb-8">
+          <p class="text-gray-800 dark:text-light-plasma/80 mb-8">
             Completa este formulario y nos pondremos en contacto. También puedes
             escribirnos directamente a nuestro correo.
           </p>
@@ -383,7 +388,7 @@ Nuestra prioridad es ofrecer tecnología innovadora capaz de resolver problemas 
               <div>
                 <h3 class="font-bold text-lg mb-1 text-gray-800 dark:text-light-plasma">Correo
                   Electrónico</h3>
-                <p class="text-gray-600 dark:text-light-plasma/80">contacto@nextAI.com</p>
+                <p class="text-gray-700 dark:text-light-plasma/80">contacto@nextAI.com</p>
               </div>
             </div>
             <div class="flex items-start">
@@ -392,7 +397,7 @@ Nuestra prioridad es ofrecer tecnología innovadora capaz de resolver problemas 
               </div>
               <div>
                 <h3 class="font-bold text-lg mb-1 text-gray-800 dark:text-light-plasma">Teléfono</h3>
-                <p class="text-gray-600 dark:text-light-plasma/80">+54 11 1234-5678</p>
+                <p class="text-gray-700 dark:text-light-plasma/80">+54 11 1234-5678</p>
               </div>
             </div>
             <div class="flex items-start">
@@ -468,10 +473,8 @@ Nuestra prioridad es ofrecer tecnología innovadora capaz de resolver problemas 
         <div>
           <h3 class="text-white font-bold text-lg mb-4">Legal</h3>
           <ul class="space-y-2">
-            <li><a href="#" class="hover:text-primary-blue transition-colors"
-                onclick="event.preventDefault(); showModal('privacy')">Privacidad</a></li>
-            <li><a href="#" class="hover:text-primary-violet transition-colors"
-                onclick="event.preventDefault(); showModal('terms')">Términos</a></li>
+            <li><button onclick="openModal('privacidadModal')" class="text-left hover:text-primary-blue transition-colors">Privacidad</button></li>
+            <li><button onclick="openModal('terminosModal')" class="text-left hover:text-primary-violet transition-colors">Términos</button></li>
           </ul>
         </div>
       </div>
@@ -499,6 +502,42 @@ Nuestra prioridad es ofrecer tecnología innovadora capaz de resolver problemas 
     </div>
   </div>
 
+  <!-- Modal de Privacidad -->
+  <div id="privacidadModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50">
+    <div class="bg-white dark:bg-dark-800 text-gray-900 dark:text-white p-6 rounded-lg max-w-xl w-full mx-4">
+      <h2 class="text-xl font-bold mb-4">Política de Privacidad</h2>
+      <p class="mb-4 text-sm">
+        En nextAI valoramos tu privacidad. Recopilamos datos personales solo cuando es necesario para brindarte nuestros servicios, mejorar tu experiencia o cumplir con obligaciones legales.
+        <br><br>
+        Los datos pueden incluir nombre, correo electrónico, uso del sitio y preferencias. Nunca vendemos tu información a terceros. Utilizamos medidas técnicas y organizativas para protegerla.
+        <br><br>
+        Al utilizar nuestro sitio o servicios, aceptás nuestra política de privacidad. Podés contactarnos para consultar, modificar o eliminar tus datos cuando lo desees.
+      </p>
+      <div class="text-right">
+        <button onclick="closeModal('privacidadModal')" class="text-primary-blue hover:underline">Cerrar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de Términos -->
+  <div id="terminosModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50">
+    <div class="bg-white dark:bg-dark-800 text-gray-900 dark:text-white p-6 rounded-lg max-w-xl w-full mx-4">
+      <h2 class="text-xl font-bold mb-4">Términos y Condiciones</h2>
+      <p class="mb-4 text-sm">
+        Al acceder o utilizar los productos y servicios de nextAI, aceptás los siguientes términos y condiciones:
+        <br><br>
+        1. El contenido del sitio es propiedad de nextAI y está protegido por derechos de autor.<br>
+        2. No se permite el uso indebido, reproducción no autorizada o distribución sin permiso.<br>
+        3. Nos reservamos el derecho de actualizar o modificar estos términos sin previo aviso.<br>
+        4. El uso de nuestras soluciones debe respetar las leyes locales y no podrá tener fines maliciosos.<br><br>
+        El uso continuado del sitio implica la aceptación de estos términos.
+      </p>
+      <div class="text-right">
+        <button onclick="closeModal('terminosModal')" class="text-primary-blue hover:underline">Cerrar</button>
+      </div>
+    </div>
+  </div>
+
   <!-- ==== SCRIPTS ==== -->
   <script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@15.0.0/dist/smooth-scroll.polyfills.min.js"></script>
   <script src="assets/js/script.js"></script>
@@ -520,6 +559,38 @@ Nuestra prioridad es ofrecer tecnología innovadora capaz de resolver problemas 
 
       alert("¡Gracias por contactarnos!");
       e.target.reset(); // Opcional: limpia el formulario
+    });
+
+    // Funciones para los modales de Privacidad y Términos
+    function openModal(id) {
+      document.getElementById(id).classList.remove('hidden');
+    }
+
+    function closeModal(id) {
+      document.getElementById(id).classList.add('hidden');
+    }
+
+    // Cerrar modal al hacer clic fuera del contenido
+    document.addEventListener('click', function(event) {
+      const modals = ['privacidadModal', 'terminosModal'];
+      modals.forEach(modalId => {
+        const modal = document.getElementById(modalId);
+        if (modal && !modal.classList.contains('hidden')) {
+          if (event.target === modal) {
+            closeModal(modalId);
+          }
+        }
+      });
+    });
+
+    // Cerrar modales con la tecla Escape
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape') {
+        const modals = ['privacidadModal', 'terminosModal'];
+        modals.forEach(modalId => {
+          closeModal(modalId);
+        });
+      }
     });
   </script>
 
