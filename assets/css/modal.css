@@ -151,3 +151,107 @@
     display: none !important;
   }
 }
+
+/* ==========================================================================
+   LEGAL MODALS ENHANCED STYLES
+   ========================================================================== */
+
+/* Enhanced modal animations */
+.modal {
+  backdrop-filter: blur(10px);
+  animation: fadeIn 0.3s ease-out;
+}
+
+.modal-content {
+  animation: slideInUp 0.3s ease-out;
+  transform-origin: center bottom;
+}
+
+/* Animation keyframes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Legal modal section hover effects */
+.legal-modal-section {
+  transition: all 0.2s ease;
+}
+
+.legal-modal-section:hover {
+  transform: translateX(2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Enhanced scrollbar styling */
+.modal-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+  background: rgba(0, 153, 204, 0.5);
+  border-radius: 3px;
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 153, 204, 0.8);
+}
+
+/* Close button enhanced styles */
+.modal-close-btn {
+  transition: all 0.2s ease;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-close-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: rotate(90deg);
+}
+
+/* Action button enhancements */
+.modal-action-btn {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.modal-action-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.modal-action-btn:active {
+  transform: translateY(0);
+}
+
+/* Mobile responsiveness for legal modals */
+@media (max-width: 640px) {
+  .modal-content {
+    margin: 1rem;
+    max-height: 85vh;
+  }
+}

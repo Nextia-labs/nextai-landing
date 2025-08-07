@@ -1,4 +1,50 @@
-/* ==========================================================================
+/* ========================================
+   MOBILE NAVIGATION FIXES
+======================================== */
+
+/* Ensure mobile menu doesn't interfere with content */
+@media (max-width: 1024px) {
+  body {
+    padding-top: 4rem; /* 64px = h-16 */
+  }
+  
+  /* Ensure header is always visible on mobile */
+  header {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+  }
+  
+  /* Mobile menu positioning */
+  #mobileMenu {
+    position: fixed;
+    top: 4rem; /* Below header */
+    left: 0;
+    right: 0;
+    z-index: 40;
+    max-height: calc(100vh - 4rem);
+    overflow-y: auto;
+  }
+}
+
+/* Desktop keeps sticky behavior */
+@media (min-width: 1025px) {
+  body {
+    padding-top: 0;
+  }
+  
+  header {
+    position: sticky !important;
+  }
+}
+
+/* ========================================
+   EXISTING STYLES
+======================================== */
+
+/* ========================================
    MEJORAS DE ACCESIBILIDAD - CONTRASTE Y LIGHTHOUSE
    ========================================================================== */
 
@@ -117,6 +163,40 @@ html:not(.dark) .btn-agendar-section[data-text]::before {
 html:not(.dark) .btn-agendar-navbar[data-text],
 html:not(.dark) .btn-agendar-section[data-text] {
   color: #1f2937 !important;
+}
+
+/* Asegurar que el texto dentro de spans sea visible en navbar */
+html:not(.dark) .btn-agendar-navbar span,
+html:not(.dark) .btn-agendar-section span {
+  color: #1f2937 !important;
+  opacity: 1 !important;
+  display: inline !important;
+}
+
+html:not(.dark) .btn-agendar-navbar:hover span,
+html:not(.dark) .btn-agendar-section:hover span {
+  color: #0f172a !important;
+}
+
+/* Específico para menú móvil - forzar visibilidad del texto */
+html:not(.dark) #mobileMenu .btn-agendar-section {
+  color: #1f2937 !important;
+  background-color: #ffffff !important;
+  -webkit-text-fill-color: #1f2937 !important;
+}
+
+html:not(.dark) #mobileMenu .btn-agendar-section:hover {
+  color: #0f172a !important;
+  background-color: #f8fafc !important;
+  -webkit-text-fill-color: #0f172a !important;
+}
+
+/* Estados activos para botones agendar */
+html:not(.dark) .btn-agendar-navbar.nav-active,
+html:not(.dark) .btn-agendar-section.nav-active {
+  background-color: #00FFE0 !important;
+  color: #0f172a !important;
+  -webkit-text-fill-color: #0f172a !important;
 }
 
 /* Mejorar el borde en modo claro para mejor visibilidad */

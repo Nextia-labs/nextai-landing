@@ -21,9 +21,12 @@
   <!-- Preload recursos críticos -->
   <link rel="preload" href="dist/output.css" as="style">
   <link rel="preload" href="assets/images/hero/brain_digital.webp" as="image">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://unpkg.com">
   
   <link rel="stylesheet" href="dist/output.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/cards.css">
   <link rel="stylesheet" href="assets/css/modal.css">
@@ -48,10 +51,10 @@
 </head>
 
 
-<body class="bg-white text-gray-900 dark:bg-black dark:text-light-plasma">
+<body class="bg-white text-gray-900 dark:bg-black dark:text-light-plasma pt-16 lg:pt-0">
   <!-- ==== HEADER ==== -->
   <header
-    class="sticky top-0 z-50 backdrop-blur-md border-b border-white/10 bg-white/60 dark:bg-black/50 transition-colors duration-300">
+    class="fixed lg:sticky top-0 z-50 backdrop-blur-md border-b border-white/10 bg-white/60 dark:bg-black/50 transition-colors duration-300 w-full">
     <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
       <div class="flex justify-between h-16 items-center">
         <!-- Logo + Marca -->
@@ -88,10 +91,11 @@
           <a href="#about"
             class="nav-link relative z-10 px-2 md-lg:px-3 py-2 rounded-full dark:text-white transition-colors text-sm md-lg:text-base">Nosotros</a>
           <a href="#cta"
-            class="nav-link btn-agendar-navbar"
-            data-text="Agendar reunión">
+            id="navbar-agendar-btn"
+            class="btn-agendar-navbar"
+            data-text="Agendar reunión"
+            onclick="handleNavbarAgendarClick(event)">
             <span class="hidden md-lg:inline">Agendar reunión</span>
-            <span class="md-lg:hidden">Agendar</span>
           </a>
           <a href="#contact"
             class="nav-link relative z-10 px-2 md-lg:px-3 py-2 rounded-full dark:text-white transition-colors text-sm md-lg:text-base">Contacto</a>
@@ -115,8 +119,8 @@
     </nav>
 
     <!-- Menú mobile -->
-    <div id="mobileMenu" class="hidden w-full bg-white/90 dark:bg-black/50 lg:hidden p-6
-         space-y-4 border-t border-primary-blue/10 backdrop-blur-md">
+    <div id="mobileMenu" class="hidden fixed top-16 left-0 right-0 w-full bg-white/95 dark:bg-black/95 lg:hidden p-6
+         space-y-4 border-t border-primary-blue/10 backdrop-blur-md z-40 shadow-lg">
       <div class="flex flex-col items-center space-y-4">
         <a href="#hero"
           class="inline-block w-max nav-link rounded-full px-4 py-2 text-center hover:gradient-text-animated ">
@@ -131,8 +135,9 @@
 
         <!-- Agendar reunión -->
         <a href="#cta"
-           class="inline-block w-max btn-agendar-section nav-link rounded-full px-4 py-2 text-center" 
-           data-text="Agendar reunión">
+           class="inline-block w-max btn-agendar-section rounded-full px-4 py-2 text-center" 
+           data-text="Agendar reunión"
+           onclick="handleMobileAgendarClick(event)">
           Agendar reunión
         </a>
 
@@ -351,14 +356,14 @@ Nuestra prioridad es ofrecer tecnología innovadora capaz de resolver problemas 
   </section>
 
   <!-- CTA Section -->
-  <section id="cta" class="py-20 relative overflow-hidden bg-grid-pattern-cta border-glow-cta">
+  <section id="cta" class="py-32 relative overflow-hidden bg-grid-pattern-cta border-glow-cta">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
       <a href="#cta">
         <h2 class="text-3xl md:text-4xl font-bold mb-6 text-white cursor-pointer hover:opacity-90 transition-opacity gradient-text">
           Soluciones con IA hechas para vos
         </h2>
       </a>
-      <p class="text-xl text-white/90 mb-8 max-w-3xl mx-auto">
+      <p class="text-xl text-white/90 mb-12 max-w-3xl mx-auto">
         Agendá una reunión gratuita y descubrí cómo aplicarlas en lo que hacés.
       </p>
       <button onclick="openCalendlyModal();"
@@ -368,8 +373,8 @@ Nuestra prioridad es ofrecer tecnología innovadora capaz de resolver problemas 
       </button>
       
       <!-- Alternativa WhatsApp -->
-      <div class="mt-8">
-        <p class="text-lg text-white/80 mb-4">
+      <div class="mt-16">
+        <p class="text-lg text-white/80 mb-6">
           Si preferís, dejanos un mensaje por WhatsApp
         </p>
         <a href="https://wa.me/5491123456789?text=Hola,%20me%20interesa%20conocer%20más%20sobre%20sus%20soluciones%20con%20IA"
@@ -525,37 +530,139 @@ Nuestra prioridad es ofrecer tecnología innovadora capaz de resolver problemas 
   </div>
 
   <!-- Modal de Privacidad -->
-  <div id="privacidadModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50">
-    <div class="bg-white dark:bg-dark-800 text-gray-900 dark:text-white p-6 rounded-lg max-w-xl w-full mx-4">
-      <h2 class="text-xl font-bold mb-4">Política de Privacidad</h2>
-      <p class="mb-4 text-sm">
-        En nextAI valoramos tu privacidad. Recopilamos datos personales solo cuando es necesario para brindarte nuestros servicios, mejorar tu experiencia o cumplir con obligaciones legales.
-        <br><br>
-        Los datos pueden incluir nombre, correo electrónico, uso del sitio y preferencias. Nunca vendemos tu información a terceros. Utilizamos medidas técnicas y organizativas para protegerla.
-        <br><br>
-        Al utilizar nuestro sitio o servicios, aceptás nuestra política de privacidad. Podés contactarnos para consultar, modificar o eliminar tus datos cuando lo desees.
-      </p>
-      <div class="text-right">
-        <button onclick="closeModal('privacidadModal')" class="text-primary-blue hover:underline">Cerrar</button>
+  <div id="privacidadModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center hidden z-50 p-4">
+    <div class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-hidden border border-gray-200 dark:border-gray-700">
+      <!-- Header del modal -->
+      <div class="bg-gradient-to-r from-primary-blue to-primary-violet p-6 text-white">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center space-x-3">
+            <i class="fas fa-shield-alt text-2xl"></i>
+            <h2 class="text-2xl font-bold">Política de Privacidad</h2>
+          </div>
+          <button onclick="closeModal('privacidadModal')" 
+                  class="text-white/80 hover:text-white hover:bg-white/20 rounded-full p-2 transition-all duration-200"
+                  aria-label="Cerrar modal">
+            <i class="fas fa-times text-lg"></i>
+          </button>
+        </div>
+      </div>
+      
+      <!-- Contenido del modal -->
+      <div class="p-6 overflow-y-auto max-h-[calc(90vh-120px)]">
+        <div class="prose prose-gray dark:prose-invert max-w-none">
+          <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
+            En <strong class="text-primary-blue">nextAI</strong> valoramos tu privacidad y nos comprometemos a proteger tu información personal.
+          </p>
+          
+          <div class="space-y-4 text-sm leading-relaxed text-gray-600 dark:text-gray-400">
+            <div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-4 border-l-4 border-primary-blue">
+              <h3 class="font-semibold text-gray-900 dark:text-white mb-2">🔒 Recopilación de Datos</h3>
+              <p>Recopilamos datos personales solo cuando es necesario para brindarte nuestros servicios, mejorar tu experiencia o cumplir con obligaciones legales.</p>
+            </div>
+            
+            <div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-4 border-l-4 border-primary-violet">
+              <h3 class="font-semibold text-gray-900 dark:text-white mb-2">📊 Tipos de Datos</h3>
+              <p>Los datos pueden incluir nombre, correo electrónico, información de uso del sitio y preferencias personales.</p>
+            </div>
+            
+            <div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-4 border-l-4 border-primary-cyan">
+              <h3 class="font-semibold text-gray-900 dark:text-white mb-2">🛡️ Protección</h3>
+              <p>Nunca vendemos tu información a terceros. Utilizamos medidas técnicas y organizativas avanzadas para proteger tus datos.</p>
+            </div>
+            
+            <div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-4 border-l-4 border-green-500">
+              <h3 class="font-semibold text-gray-900 dark:text-white mb-2">⚖️ Tus Derechos</h3>
+              <p>Podés contactarnos en cualquier momento para consultar, modificar o eliminar tus datos personales.</p>
+            </div>
+          </div>
+          
+          <p class="text-xs text-gray-500 dark:text-gray-400 mt-6 text-center">
+            Al utilizar nuestro sitio o servicios, aceptás nuestra política de privacidad.
+          </p>
+        </div>
+      </div>
+      
+      <!-- Footer del modal -->
+      <div class="bg-gray-50 dark:bg-gray-800 px-6 py-4 flex justify-end space-x-3 border-t border-gray-200 dark:border-gray-700">
+        <button onclick="closeModal('privacidadModal')" 
+                class="px-6 py-2 bg-primary-blue hover:bg-primary-violet text-white rounded-lg font-medium transition-all duration-200 hover:scale-105 shadow-md">
+          Entendido
+        </button>
       </div>
     </div>
   </div>
 
   <!-- Modal de Términos -->
-  <div id="terminosModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50">
-    <div class="bg-white dark:bg-dark-800 text-gray-900 dark:text-white p-6 rounded-lg max-w-xl w-full mx-4">
-      <h2 class="text-xl font-bold mb-4">Términos y Condiciones</h2>
-      <p class="mb-4 text-sm">
-        Al acceder o utilizar los productos y servicios de nextAI, aceptás los siguientes términos y condiciones:
-        <br><br>
-        1. El contenido del sitio es propiedad de nextAI y está protegido por derechos de autor.<br>
-        2. No se permite el uso indebido, reproducción no autorizada o distribución sin permiso.<br>
-        3. Nos reservamos el derecho de actualizar o modificar estos términos sin previo aviso.<br>
-        4. El uso de nuestras soluciones debe respetar las leyes locales y no podrá tener fines maliciosos.<br><br>
-        El uso continuado del sitio implica la aceptación de estos términos.
-      </p>
-      <div class="text-right">
-        <button onclick="closeModal('terminosModal')" class="text-primary-blue hover:underline">Cerrar</button>
+  <div id="terminosModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center hidden z-50 p-4">
+    <div class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-hidden border border-gray-200 dark:border-gray-700">
+      <!-- Header del modal -->
+      <div class="bg-gradient-to-r from-primary-violet to-primary-cyan p-6 text-white">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center space-x-3">
+            <i class="fas fa-file-contract text-2xl"></i>
+            <h2 class="text-2xl font-bold">Términos y Condiciones</h2>
+          </div>
+          <button onclick="closeModal('terminosModal')" 
+                  class="text-white/80 hover:text-white hover:bg-white/20 rounded-full p-2 transition-all duration-200"
+                  aria-label="Cerrar modal">
+            <i class="fas fa-times text-lg"></i>
+          </button>
+        </div>
+      </div>
+      
+      <!-- Contenido del modal -->
+      <div class="p-6 overflow-y-auto max-h-[calc(90vh-120px)]">
+        <div class="prose prose-gray dark:prose-invert max-w-none">
+          <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
+            Al acceder o utilizar los productos y servicios de <strong class="text-primary-violet">nextAI</strong>, aceptás los siguientes términos y condiciones:
+          </p>
+          
+          <div class="space-y-4 text-sm leading-relaxed text-gray-600 dark:text-gray-400">
+            <div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-4 border-l-4 border-primary-violet">
+              <h3 class="font-semibold text-gray-900 dark:text-white mb-2 flex items-center">
+                <span class="bg-primary-violet text-white rounded-full w-6 h-6 flex items-center justify-center text-xs mr-2">1</span>
+                Propiedad Intelectual
+              </h3>
+              <p>El contenido del sitio es propiedad de nextAI y está protegido por derechos de autor.</p>
+            </div>
+            
+            <div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-4 border-l-4 border-primary-cyan">
+              <h3 class="font-semibold text-gray-900 dark:text-white mb-2 flex items-center">
+                <span class="bg-primary-cyan text-white rounded-full w-6 h-6 flex items-center justify-center text-xs mr-2">2</span>
+                Uso Permitido
+              </h3>
+              <p>No se permite el uso indebido, reproducción no autorizada o distribución sin permiso expreso.</p>
+            </div>
+            
+            <div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-4 border-l-4 border-orange-500">
+              <h3 class="font-semibold text-gray-900 dark:text-white mb-2 flex items-center">
+                <span class="bg-orange-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs mr-2">3</span>
+                Modificaciones
+              </h3>
+              <p>Nos reservamos el derecho de actualizar o modificar estos términos sin previo aviso.</p>
+            </div>
+            
+            <div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-4 border-l-4 border-red-500">
+              <h3 class="font-semibold text-gray-900 dark:text-white mb-2 flex items-center">
+                <span class="bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs mr-2">4</span>
+                Uso Responsable
+              </h3>
+              <p>El uso de nuestras soluciones debe respetar las leyes locales y no podrá tener fines maliciosos o ilegales.</p>
+            </div>
+          </div>
+          
+          <p class="text-xs text-gray-500 dark:text-gray-400 mt-6 text-center">
+            El uso continuado del sitio implica la aceptación de estos términos y condiciones.
+          </p>
+        </div>
+      </div>
+      
+      <!-- Footer del modal -->
+      <div class="bg-gray-50 dark:bg-gray-800 px-6 py-4 flex justify-end space-x-3 border-t border-gray-200 dark:border-gray-700">
+        <button onclick="closeModal('terminosModal')" 
+                class="px-6 py-2 bg-primary-violet hover:bg-primary-cyan text-white rounded-lg font-medium transition-all duration-200 hover:scale-105 shadow-md">
+          Acepto
+        </button>
       </div>
     </div>
   </div>

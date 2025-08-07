@@ -63,12 +63,12 @@ document.addEventListener('DOMContentLoaded', function () {
   // INDICADOR DE NAVEGACIÓN ACTIVA (DESKTOP)
   // ==========================================================================
   
-  const links = document.querySelectorAll(".nav-link");
+  const links = document.querySelectorAll(".nav-link, .btn-agendar-navbar, .btn-agendar-section");
   const indicator = document.getElementById("nav-indicator");
   const navWrapper = document.getElementById("nav-wrapper");
 
   function updateIndicator() {
-    const currentLink = document.querySelector(".nav-link.nav-active:not(.btn-agendar-navbar):not(.btn-agendar-section)");
+    const currentLink = document.querySelector(".nav-link.nav-active, .btn-agendar-navbar.nav-active, .btn-agendar-section.nav-active");
     
     if (!currentLink || !navWrapper || !indicator) {
       indicator.style.opacity = '0';
@@ -86,6 +86,45 @@ document.addEventListener('DOMContentLoaded', function () {
     indicator.style.transition = 'all 0.3s ease-in-out';
   }
 
+  // Smart behavior for navbar "Agendar reunión" button
+  function handleNavbarAgendarClick(event) {
+    const button = document.getElementById('navbar-agendar-btn');
+    if (button && button.classList.contains('nav-active')) {
+      // Button is active (user is in CTA section), open Calendly modal
+      event.preventDefault();
+      openCalendlyModal();
+    } else {
+      // Button is not active, scroll to CTA section normally
+      // Let the default href behavior happen
+    }
+  }
+
+  // Smart behavior for mobile menu "Agendar reunión" button  
+  function handleMobileAgendarClick(event) {
+    // Find the mobile menu "Agendar reunión" item
+    const mobileNavItems = document.querySelectorAll('#mobileMenu .btn-agendar-section');
+    const mobileAgendarItem = Array.from(mobileNavItems).find(item => 
+      item.getAttribute('href') === '#cta'
+    );
+    
+    if (mobileAgendarItem && mobileAgendarItem.classList.contains('nav-active')) {
+      // Prevent default scrolling
+      event.preventDefault();
+      // Close mobile menu first
+      const mobileMenu = document.getElementById('mobileMenu');
+      if (mobileMenu) {
+        mobileMenu.classList.add('hidden');
+      }
+      // Then open Calendly modal
+      setTimeout(() => {
+        openCalendlyModal();
+      }, 200);
+    } else {
+      // Let the normal href behavior happen (scroll to section)
+      // Mobile menu will close automatically due to existing logic
+    }
+  }
+
   // ==========================================================================
   // DETECCIÓN DE SECCIÓN ACTIVA CON INTERSECTION OBSERVER
   // ==========================================================================
@@ -99,10 +138,10 @@ document.addEventListener('DOMContentLoaded', function () {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       const id = entry.target.getAttribute("id");
-      const navLinks = document.querySelectorAll(`.nav-link[href="#${id}"]`);
+      const navLinks = document.querySelectorAll(`.nav-link[href="#${id}"], .btn-agendar-navbar[href="#${id}"], .btn-agendar-section[href="#${id}"]`);
 
       if (entry.isIntersecting && navLinks.length) {
-        document.querySelectorAll(".nav-link").forEach(el => {
+        document.querySelectorAll(".nav-link, .btn-agendar-navbar, .btn-agendar-section").forEach(el => {
           el.classList.remove(
             "nav-active", 
             "bg-gradient-to-r", 
@@ -372,5 +411,9 @@ document.addEventListener('DOMContentLoaded', function () {
   window.showModal = function(modalType) {
     // Funcionalidad para modales futuros
   };
+
+  // Make smart navbar functions globally available
+  window.handleNavbarAgendarClick = handleNavbarAgendarClick;
+  window.handleMobileAgendarClick = handleMobileAgendarClick;
 
 });

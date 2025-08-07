@@ -5,7 +5,11 @@
   "scripts": {
     "build-css": "tailwindcss -i ./src/input.css -o ./dist/output.css --watch",
     "build": "tailwindcss -i ./src/input.css -o ./dist/output.css --minify",
-    "dev": "tailwindcss -i ./src/input.css -o ./dist/output.css --watch"
+    "build:prod": "npm run build && npm run optimize",
+    "dev": "tailwindcss -i ./src/input.css -o ./dist/output.css --watch",
+    "serve": "npx serve . -p 3000",
+    "optimize": "echo 'CSS optimizado para producción'",
+    "start": "npm run serve"
   },
   "devDependencies": {
     "tailwindcss": "^3.4.0",

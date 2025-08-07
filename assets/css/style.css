@@ -675,15 +675,16 @@ textarea.border-glow {
 
 /* Botón agendar en navbar - BASE */
 .btn-agendar-navbar {
-  /* Estados base */
-  background-color: #ffffff;
-  /* Modo claro idle */
+  /* Estados base - MODO CLARO */
+  background-color: #ffffff !important;
   color: #1f2937 !important;
-  /* Color del texto visible en modo claro */
-
+  
   /* Propiedades estructurales */
   position: relative;
   z-index: 10;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   outline: none;
   cursor: pointer;
   overflow: hidden;
@@ -695,30 +696,43 @@ textarea.border-glow {
     box-shadow var(--transition-standard),
     border-color var(--transition-standard),
     transform var(--transition-fast),
-    background-color var(--transition-standard);
+    background-color var(--transition-standard),
+    color var(--transition-standard);
   padding: 0.5rem 1.5rem;
   font-size: 0.875rem;
   width: auto;
   text-align: center;
+  text-decoration: none;
+}
+
+/* Asegurar que los spans dentro del botón sean visibles */
+.btn-agendar-navbar span {
+  color: inherit !important;
+  opacity: 1 !important;
 }
 
 /* Botón agendar en navbar - HOVER modo claro */
 .btn-agendar-navbar:hover {
-  background-color: #f8fafc;
-  /* Modo claro hover */
-  color: #0f172a;
-  /* Color más oscuro en hover para mejor contraste */
+  background-color: #f8fafc !important;
+  color: #0f172a !important;
   box-shadow: 0 0 32px 0 rgba(0, 255, 224, 0.45), 0 0 12px 0 rgba(197, 0, 245, 0.28);
   border-color: #C500F5;
   transform: scale(1.05);
 }
 
+/* Asegurar que los spans mantengan el color en hover */
+.btn-agendar-navbar:hover span {
+  color: inherit !important;
+}
+
 /* Botón agendar en navbar - MODO OSCURO idle */
 .dark .btn-agendar-navbar {
-  background-color: #1e293b;
-  /* Modo oscuro idle */
-  color: transparent !important;
-  /* En modo oscuro usamos el gradiente */
+  background-color: #1e293b !important;
+  color: transparent !important; /* En modo oscuro usamos el gradiente */
+}
+
+.dark .btn-agendar-navbar span {
+  color: transparent !important; /* Ocultar spans en modo oscuro */
 }
 
 /* Botón agendar en navbar - MODO OSCURO hover */
@@ -849,16 +863,17 @@ textarea.border-glow {
 /* Estados activos para navegación */
 .btn-agendar-navbar.nav-active,
 .btn-agendar-section.nav-active {
-  color: transparent;
-  -webkit-text-fill-color: transparent;
+  background-color: #00FFE0 !important;
+  color: #0f172a !important;
+  border-color: #00FFE0 !important;
+  box-shadow: 0 0 20px rgba(0, 255, 224, 0.5) !important;
 }
 
-.dark .btn-agendar-navbar.nav-active {
-  background-color: #e0e0e0;
-}
-
+.dark .btn-agendar-navbar.nav-active,
 .dark .btn-agendar-section.nav-active {
-  background-color: #e0e0e0;
+  background-color: #00FFE0 !important;
+  color: #0f172a !important;
+  border-color: #00FFE0 !important;
 }
 
 /* ==========================================================================
