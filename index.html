@@ -6,15 +6,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description"
     content="Soluciones avanzadas de inteligencia artificial, automatización y visión por computadora para empresas.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.nextai.com/" />
   <meta property="og:title" content="NextAI - Impulsa tu negocio con soluciones tecnológicas">
   <meta property="og:description"
     content="Impulsamos la transformación digital con IA personalizada y consultoría experta.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="URL_DE_IMAGEN_DESTACADA">
+  <meta property="og:image" content="assets/images/logo/logo1.webp">
   <meta name="theme-color" content="#00CFFF">
 
   <title>nextAI - Soluciones Inteligencia Artificial</title>
   <base target="_self">
+  
+  <!-- Preload recursos críticos -->
+  <link rel="preload" href="dist/output.css" as="style">
+  <link rel="preload" href="assets/images/hero/brain_digital.webp" as="image">
+  
   <link rel="stylesheet" href="dist/output.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="assets/css/style.css">
@@ -53,7 +60,7 @@
           <a href="#about" class="relative w-12 h-12 md-lg:w-16 md-lg:h-16 shrink-0 cursor-pointer transition-transform hover:scale-110">
             <!-- Imagen base -->
             <img src="assets/images/logo/logo_nextai.png" alt="Logo sólido"
-              class="w-full h-full select-none pointer-events-none" />
+              class="w-full h-full select-none pointer-events-none" loading="lazy" />
 
             <!-- SVG animado sobre el PNG -->
             <object data="assets/images/logo/logo_nextia_glow.svg" type="image/svg+xml"
@@ -206,9 +213,11 @@
   <section id="services" class="py-20 bg-gray-50 dark:bg-black">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
-        <h2 class="text-3xl md:text-4xl font-bold mb-4 cursor-pointer hover:opacity-80 transition-opacity">
-          Nuestros <span class="gradient-text">servicios</span>
-        </h2>
+        <a href="#services">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4 cursor-pointer hover:opacity-80 transition-opacity">
+            Nuestros <span class="gradient-text">servicios</span>
+          </h2>
+        </a>
         <p class="text-xl text-gray-800 dark:text-primary-cyan max-w-3xl mx-auto">
           Creamos experiencias fluidas, eficientes y personalizadas a través de IA.
         </p>
@@ -216,15 +225,15 @@
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         <!-- Proyecto 1: Virtual Room -->
-        <div class="card-container">
+        <div class="card-container cursor-pointer">
           <div class="w-16 h-16 mb-6 rounded-2xl bg-dark-800/50 flex items-center justify-center">
             <i class="fas fa-tshirt text-3xl text-primary-cyan"></i>
           </div>
-          <h3 class="text-xl font-bold text-white mb-4 gradient-text-animated">SnapAI</h3>
+          <h3 class="text-xl font-bold text-white mb-4 gradient-text-animated">Tailora</h3>
           <p class="dark:text-white mb-6">
             Aplicación de fitting digital impulsada por IA que se integra fácilmente en tiendas online a través de un
             widget interactivo. <br>
-            Permite a los usuarios de un e-commerce, a través de solo dos fotos, conocer sus medidas
+            Permite a los usuarios de un e-commerce, a través de la cámaras de sus propios teléfonos, conocer sus medidas
             corporales. <br> Nuestra app le sugiere al usuario automáticamente la talla más adecuada, reduciendo así las
             tasas de devolución.
           </p>
@@ -243,7 +252,7 @@
             <li class="flex items-start">
               <i class="fas fa-check-circle mt-1 mr-2 text-xs text-primary-cyan"></i>
               <span class="text-gray-900 dark:text-light-plasma">Calculo automático de medidas corporales a partir de
-                una imagen.</span>
+                la cámara del usuario.</span>
             </li>
             <li class="flex items-start">
               <i class="fas fa-check-circle mt-1 mr-2 text-xs text-primary-cyan"></i>
@@ -270,6 +279,7 @@
             <i class="fas fa-chart-line text-3xl text-primary-violet"></i>
           </div>
           <h3 class="text-xl font-bold text-white mb-4 gradient-text-animated">App de Inversiones</h3>
+          <h4 class="text-m font-bold text-gray-700 mb-4 gradient">En desarrollo</h3>
           <p class="dark:text-white mb-6">
             Aplicación potenciada por IA que monitorea en tiempo real la actividad de grandes inversionistas y genera
             alertas personalizadas para ayudarte a anticiparte a movimientos clave del mercado.
@@ -316,9 +326,11 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex flex-col md:flex-row items-center">
         <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
-          <h2 class="text-3xl md:text-4xl font-bold mb-6 cursor-pointer hover:opacity-80 transition-opacity">
-            Sobre <span class="gradient-text">nextAI</span>
-          </h2>
+          <a href="#about">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6 cursor-pointer hover:opacity-80 transition-opacity">
+              Sobre <span class="gradient-text">nextAI</span>
+            </h2>
+          </a>
           <p class="text-gray-800 dark:text-light-plasma/80 mb-6">
             Somos un equipo de desarrolladores de soluciones tecnológicas impulsadas por inteligencia artificial.
 Creamos software personalizado para resolver desafíos reales, optimizar procesos y acompañar el crecimiento de personas y organizaciones.
@@ -341,9 +353,11 @@ Nuestra prioridad es ofrecer tecnología innovadora capaz de resolver problemas 
   <!-- CTA Section -->
   <section id="cta" class="py-20 relative overflow-hidden bg-grid-pattern-cta border-glow-cta">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-      <h2 class="text-3xl md:text-4xl font-bold mb-6 text-white cursor-pointer hover:opacity-90 transition-opacity gradient-text">
-        Soluciones con IA hechas para vos
-      </h2>
+      <a href="#cta">
+        <h2 class="text-3xl md:text-4xl font-bold mb-6 text-white cursor-pointer hover:opacity-90 transition-opacity gradient-text">
+          Soluciones con IA hechas para vos
+        </h2>
+      </a>
       <p class="text-xl text-white/90 mb-8 max-w-3xl mx-auto">
         Agendá una reunión gratuita y descubrí cómo aplicarlas en lo que hacés.
       </p>
@@ -373,9 +387,11 @@ Nuestra prioridad es ofrecer tecnología innovadora capaz de resolver problemas 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex flex-col md:flex-row">
         <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
-          <h2 class="text-3xl md:text-4xl font-bold mb-6 cursor-pointer hover:opacity-80 transition-opacity">
-            Contáctanos
-          </h2>
+          <a href="#contact">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6 cursor-pointer hover:opacity-80 transition-opacity gradient-text-animated">
+              Contáctanos
+            </h2>
+          </a>
           <p class="text-gray-800 dark:text-light-plasma/80 mb-8">
             Completa este formulario y nos pondremos en contacto. También puedes
             escribirnos directamente a nuestro correo.
@@ -410,23 +426,29 @@ Nuestra prioridad es ofrecer tecnología innovadora capaz de resolver problemas 
 
             <!-- Información Personal -->
             <div>
-              <label for="name" class="contact-label block mb-2 text-sm font-semibold">Nombre</label>
+              <label for="name" class="contact-label block mb-2 text-sm font-semibold">Nombre completo</label>
               <input type="text" id="name" name="name" required
+                aria-describedby="name-help"
                 class="contact-input w-full px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-blue">
+              <p id="name-help" class="text-xs text-gray-500 dark:text-gray-400 mt-1">Ingresa tu nombre y apellido</p>
             </div>
 
             <div>
               <label for="email" class="contact-label block mb-2 text-sm font-semibold">Correo electrónico</label>
               <input type="email" id="email" name="email" required
+                aria-describedby="email-help"
                 class="contact-input w-full px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-blue">
+              <p id="email-help" class="text-xs text-gray-500 dark:text-gray-400 mt-1">Te contactaremos a esta dirección</p>
             </div>
 
             <!-- Mensaje -->
             <div>
-              <label for="message" class="contact-label block mb-2 text-sm font-semibold">Contanos brevemente qué necesitás</label>
+              <label for="message" class="contact-label block mb-2 text-sm font-semibold">Descripción de tu proyecto</label>
               <textarea id="message" name="message" rows="4" required
+                aria-describedby="message-help"
                 placeholder="Ej: Estoy buscando implementar IA para automatizar tareas en mi negocio..."
                 class="contact-input w-full px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-blue"></textarea>
+              <p id="message-help" class="text-xs text-gray-500 dark:text-gray-400 mt-1">Contanos brevemente qué tipo de solución necesitás</p>
             </div>
 
             <!-- Botón de Envío -->
@@ -445,7 +467,7 @@ Nuestra prioridad es ofrecer tecnología innovadora capaz de resolver problemas 
         <div class="md:col-span-2">
           <a href="#hero" class="text-2xl font-bold gradient-text">nextAI</a>
           <p class="mt-4">
-            Soluciones tecnológicas avanzadas de inteligencia artificial para impulsar tu negocio.
+            Soluciones tecnológicas avanzadas con inteligencia artificial.
           </p>
           <div class="flex space-x-4 mt-6">
             <a href="#" class="hover:text-primary-blue transition-colors" aria-label="Ir a Facebook">
@@ -539,9 +561,9 @@ Nuestra prioridad es ofrecer tecnología innovadora capaz de resolver problemas 
   </div>
 
   <!-- ==== SCRIPTS ==== -->
-  <script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@15.0.0/dist/smooth-scroll.polyfills.min.js"></script>
-  <script src="assets/js/script.js"></script>
-  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@15.0.0/dist/smooth-scroll.polyfills.min.js" defer></script>
+  <script src="assets/js/script.js" defer></script>
+  <script src="https://unpkg.com/lucide@latest" defer></script>
 
   <!-- Manejo del formulario simplificado -->
   <script>
