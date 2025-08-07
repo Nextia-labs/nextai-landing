@@ -1,6 +1,6 @@
 # nextAI Landing Page
 
-Bienvenido al repositorio de la **Landing Page de nextAI** — soluciones avanzadas de inteligencia artificial, automatización y visión por computadora para empresas.
+Bienvenido al repositorio de la **Landing Page de nextAI** — soluciones avanzada de software con inteligencia artificial.
 
 <div align="center">
   <img src="assets/images/logo/logo_nextai.png" alt="nextAI Logo" width="120" />
