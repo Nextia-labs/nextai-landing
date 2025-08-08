@@ -161,3 +161,22 @@ git push origin main
 6. **Performance monitoring**
 
 ¡El proyecto está listo para producción! 🚀
+
+## ⚙️ Configuración de Calendly
+
+### 📅 Usuario Configurado
+- **Usuario**: `bruno-fernandez-paolini`
+- **Evento**: `reunion-nextai`
+- **URL Completa**: https://calendly.com/bruno-fernandez-paolini/reunion-nextai
+
+### 🔧 Personalización
+El archivo `assets/js/calendly-config.js` contiene toda la configuración:
+- Fácil cambio de usuario o evento
+- Parámetros personalizables
+- Generación automática de URL y HTML
+
+### 🎯 Integración
+El modal de Calendly se activa mediante:
+- Botón "Agendar reunión" en navbar (comportamiento inteligente)
+- Botón "Agendar reunión" en sección CTA  
+- Botón "Agendar reunión" en menú móvil

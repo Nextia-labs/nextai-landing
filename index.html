@@ -7,46 +7,44 @@
   <meta name="description"
     content="Soluciones avanzadas de inteligencia artificial, automatización y visión por computadora para empresas.">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://www.nextai.com/" />
+  <link rel="canonical" href="https://www.nextai.com.ar/">
   <meta property="og:title" content="NextAI - Impulsa tu negocio con soluciones tecnológicas">
   <meta property="og:description"
     content="Impulsamos la transformación digital con IA personalizada y consultoría experta.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="assets/images/logo/logo1.webp">
+  <meta property="og:url" content="https://www.nextai.com.ar/">
+  <meta property="og:image" content="https://www.nextai.com.ar/assets/images/logo/logo1.webp">
   <meta name="theme-color" content="#00CFFF">
 
   <title>nextAI - Soluciones Inteligencia Artificial</title>
   <base target="_self">
-  
+
   <!-- Preload recursos críticos -->
   <link rel="preload" href="dist/output.css" as="style">
   <link rel="preload" href="assets/images/hero/brain_digital.webp" as="image">
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-  <link rel="preconnect" href="https://unpkg.com">
-  
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="preconnect" href="https://unpkg.com" crossorigin>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print"
+    onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  </noscript>
   <link rel="stylesheet" href="dist/output.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
-  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/cards.css">
   <link rel="stylesheet" href="assets/css/modal.css">
   <link rel="stylesheet" href="assets/css/hero-responsive.css">
   <link rel="stylesheet" href="assets/css/contact-form.css">
   <link rel="stylesheet" href="assets/css/accessibility.css">
-  
-  <!-- Favicon general -->
-  <link rel="icon" href="assets/images/favicon/android-chrome-512x512.png" type="image/x-icon">
 
-<!-- Favicon general -->
-<link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon/favicon-32x32.png">
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="512x512" href="/assets/images/favicon/android-chrome-512x512.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon/apple-touch-icon-180x180.png">
 
-<!-- Apple Touch -->
-<link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
-
-<!-- Manifest para PWA -->
-<link rel="manifest" href="site.webmanifest.json">
-
+  <!-- Manifest -->
+  <link rel="manifest" href="/site.webmanifest">
 
 </head>
 
@@ -60,7 +58,8 @@
         <!-- Logo + Marca -->
         <div class="flex items-center space-x-2 md-lg:space-x-3">
           <!-- Logo compuesto: PNG base + SVG animado externo -->
-          <a href="#about" class="relative w-12 h-12 md-lg:w-16 md-lg:h-16 shrink-0 cursor-pointer transition-transform hover:scale-110">
+          <a href="#about"
+            class="relative w-12 h-12 md-lg:w-16 md-lg:h-16 shrink-0 cursor-pointer transition-transform hover:scale-110">
             <!-- Imagen base -->
             <img src="assets/images/logo/logo_nextai.png" alt="Logo sólido"
               class="w-full h-full select-none pointer-events-none" loading="lazy" />
@@ -73,7 +72,8 @@
           </a>
 
           <!-- Texto del logo -->
-          <a href="#about" class="text-xl md-lg:text-2xl font-bold gradient-text cursor-pointer transition-transform hover:scale-105">
+          <a href="#about"
+            class="text-xl md-lg:text-2xl font-bold gradient-text cursor-pointer transition-transform hover:scale-105">
             nextAI
           </a>
         </div>
@@ -90,10 +90,7 @@
             class="nav-link relative z-10 px-2 md-lg:px-3 py-2 rounded-full dark:text-white transition-colors text-sm md-lg:text-base">Servicios</a>
           <a href="#about"
             class="nav-link relative z-10 px-2 md-lg:px-3 py-2 rounded-full dark:text-white transition-colors text-sm md-lg:text-base">Nosotros</a>
-          <a href="#cta"
-            id="navbar-agendar-btn"
-            class="btn-agendar-navbar"
-            data-text="Agendar reunión"
+          <a href="#cta" id="navbar-agendar-btn" class="btn-agendar-navbar" data-text="Agendar reunión"
             onclick="handleNavbarAgendarClick(event)">
             <span class="hidden md-lg:inline">Agendar reunión</span>
           </a>
@@ -134,10 +131,8 @@
         </a>
 
         <!-- Agendar reunión -->
-        <a href="#cta"
-           class="inline-block w-max btn-agendar-section rounded-full px-4 py-2 text-center" 
-           data-text="Agendar reunión"
-           onclick="handleMobileAgendarClick(event)">
+        <a href="#cta" class="inline-block w-max btn-agendar-section rounded-full px-4 py-2 text-center"
+          data-text="Agendar reunión" onclick="handleMobileAgendarClick(event)">
           Agendar reunión
         </a>
 
@@ -185,7 +180,8 @@
             </h1>
           </a>
           <p class="text-xl text-gray-800 dark:text-sky-400 mb-8">
-            Usamos inteligencia artificial para crear soluciones de software innovadoras que ayudan a personas y organizaciones a crecer y transformar su futuro.
+            Usamos inteligencia artificial para crear soluciones de software innovadoras que ayudan a personas y
+            organizaciones a crecer y transformar su futuro.
           </p>
           <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
             <a href="#services" class="btn-primary bg-primary-blue text-white hover:bg-primary-violet text-center">
@@ -204,10 +200,8 @@
             <div
               class="absolute -bottom-5 -right-5 w-32 h-32 bg-primary-violet rounded-full mix-blend-screen filter blur-xl opacity-20 animate-float animation-delay-2000">
             </div>
-            <img src="assets/images/hero/brain_digital.webp" 
-                 alt="Cerebro digital - Inteligencia Artificial"
-                 class="hero-image"
-                 loading="lazy">
+            <img src="assets/images/hero/brain_digital.webp" alt="Cerebro digital - Inteligencia Artificial"
+              class="hero-image" loading="lazy">
           </div>
         </div>
       </div>
@@ -238,7 +232,8 @@
           <p class="dark:text-white mb-6">
             Aplicación de fitting digital impulsada por IA que se integra fácilmente en tiendas online a través de un
             widget interactivo. <br>
-            Permite a los usuarios de un e-commerce, a través de la cámaras de sus propios teléfonos, conocer sus medidas
+            Permite a los usuarios de un e-commerce, a través de la cámaras de sus propios teléfonos, conocer sus
+            medidas
             corporales. <br> Nuestra app le sugiere al usuario automáticamente la talla más adecuada, reduciendo así las
             tasas de devolución.
           </p>
@@ -285,43 +280,44 @@
           </div>
           <h3 class="text-xl font-bold text-white mb-4 gradient-text-animated">App de Inversiones</h3>
           <h4 class="text-m font-bold text-gray-700 mb-4 gradient">En desarrollo</h3>
-          <p class="dark:text-white mb-6">
-            Aplicación potenciada por IA que monitorea en tiempo real la actividad de grandes inversionistas y genera
-            alertas personalizadas para ayudarte a anticiparte a movimientos clave del mercado.
-          </p>
-                    <h3 class="font-bold mb-3 gradient-text-animated">Beneficios clave</h3>
-          <ul class="space-y-2 text-sm">
-            <li class="flex items-start">
-              <i class="fas fa-check-circle mt-1 mr-2 text-xs text-primary-violet"></i>
-              <span class="text-gray-900 dark:text-light-plasma">Seguimiento en tiempo real de wallets relevantes y
-                ballenas.</span>
-            </li>
-            <li class="flex items-start">
-              <i class="fas fa-check-circle mt-1 mr-2 text-xs text-primary-violet"></i>
-              <span class="text-gray-900 dark:text-light-plasma">Detección automatizada de movimientos significativos en
-                cripto y acciones.</span>
-            </li>
-            <li class="flex items-start">
-              <i class="fas fa-check-circle mt-1 mr-2 text-xs text-primary-violet"></i>
-              <span class="text-gray-900 dark:text-light-plasma">Algoritmos de IA que analizan patrones de
-                comportamiento para predecir tendencias.</span>
-            </li>
-            <li class="flex items-start">
-              <i class="fas fa-check-circle mt-1 mr-2 text-xs text-primary-violet"></i>
-              <span class="text-gray-900 dark:text-light-plasma">Alertas inteligentes configurables según intereses y
-                umbrales definidos por el usuario.</span>
-            </li>
-            <li class="flex items-start">
-              <i class="fas fa-check-circle mt-1 mr-2 text-xs text-primary-violet"></i>
-              <span class="text-gray-900 dark:text-light-plasma">Interfaz intuitiva y fácil de usar para usuarios de
-                todos los niveles.</span>
-            </li>
-            <li class="flex items-start">
-              <i class="fas fa-check-circle mt-1 mr-2 text-xs text-primary-violet"></i>
-              <span class="text-gray-900 dark:text-light-plasma">Panel de análisis con visualización de métricas y
-                señales de inversión.</span>
-            </li>
-          </ul>
+            <p class="dark:text-white mb-6">
+              Aplicación potenciada por IA que monitorea en tiempo real la actividad de grandes inversionistas y genera
+              alertas personalizadas para ayudarte a anticiparte a movimientos clave del mercado.
+            </p>
+            <h3 class="font-bold mb-3 gradient-text-animated">Beneficios clave</h3>
+            <ul class="space-y-2 text-sm">
+              <li class="flex items-start">
+                <i class="fas fa-check-circle mt-1 mr-2 text-xs text-primary-violet"></i>
+                <span class="text-gray-900 dark:text-light-plasma">Seguimiento en tiempo real de wallets relevantes y
+                  ballenas.</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle mt-1 mr-2 text-xs text-primary-violet"></i>
+                <span class="text-gray-900 dark:text-light-plasma">Detección automatizada de movimientos significativos
+                  en
+                  cripto y acciones.</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle mt-1 mr-2 text-xs text-primary-violet"></i>
+                <span class="text-gray-900 dark:text-light-plasma">Algoritmos de IA que analizan patrones de
+                  comportamiento para predecir tendencias.</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle mt-1 mr-2 text-xs text-primary-violet"></i>
+                <span class="text-gray-900 dark:text-light-plasma">Alertas inteligentes configurables según intereses y
+                  umbrales definidos por el usuario.</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle mt-1 mr-2 text-xs text-primary-violet"></i>
+                <span class="text-gray-900 dark:text-light-plasma">Interfaz intuitiva y fácil de usar para usuarios de
+                  todos los niveles.</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle mt-1 mr-2 text-xs text-primary-violet"></i>
+                <span class="text-gray-900 dark:text-light-plasma">Panel de análisis con visualización de métricas y
+                  señales de inversión.</span>
+              </li>
+            </ul>
         </div>
 
   </section>
@@ -338,8 +334,9 @@
           </a>
           <p class="text-gray-800 dark:text-light-plasma/80 mb-6">
             Somos un equipo de desarrolladores de soluciones tecnológicas impulsadas por inteligencia artificial.
-Creamos software personalizado para resolver desafíos reales, optimizar procesos y acompañar el crecimiento de personas y organizaciones.
-Nuestra prioridad es ofrecer tecnología innovadora capaz de resolver problemas reales.
+            Creamos software personalizado para resolver desafíos reales, optimizar procesos y acompañar el crecimiento
+            de personas y organizaciones.
+            Nuestra prioridad es ofrecer tecnología innovadora capaz de resolver problemas reales.
           </p>
           <a href="#cta" class="btn-agendar-section" data-text="Conoce más">
             Conoce más
@@ -359,27 +356,26 @@ Nuestra prioridad es ofrecer tecnología innovadora capaz de resolver problemas 
   <section id="cta" class="py-32 relative overflow-hidden bg-grid-pattern-cta border-glow-cta">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
       <a href="#cta">
-        <h2 class="text-3xl md:text-4xl font-bold mb-6 text-white cursor-pointer hover:opacity-90 transition-opacity gradient-text">
+        <h2
+          class="text-3xl md:text-4xl font-bold mb-6 text-white cursor-pointer hover:opacity-90 transition-opacity gradient-text">
           Soluciones con IA hechas para vos
         </h2>
       </a>
       <p class="text-xl text-white/90 mb-12 max-w-3xl mx-auto">
         Agendá una reunión gratuita y descubrí cómo aplicarlas en lo que hacés.
       </p>
-      <button onclick="openCalendlyModal();"
-              class="btn-agendar-section" 
-              data-text="Agendar reunión">
+      <button onclick="openCalendlyModal();" class="btn-agendar-section" data-text="Agendar reunión">
         Agendar reunión
       </button>
-      
+
       <!-- Alternativa WhatsApp -->
       <div class="mt-16">
         <p class="text-lg text-white/80 mb-6">
           Si preferís, dejanos un mensaje por WhatsApp
         </p>
-        <a href="https://wa.me/5491123456789?text=Hola,%20me%20interesa%20conocer%20más%20sobre%20sus%20soluciones%20con%20IA"
-           target="_blank"
-           class="inline-flex items-center justify-center px-6 py-3 bg-green-500 hover:bg-green-600 text-white font-semibold rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg">
+        <a href="https://wa.me/5493815139043?text=Hola,%20me%20interesa%20conocer%20más%20sobre%20sus%20soluciones%20con%20IA"
+          target="_blank"
+          class="inline-flex items-center justify-center px-6 py-3 bg-green-500 hover:bg-green-600 text-white font-semibold rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg">
           <i class="fab fa-whatsapp text-2xl mr-2"></i>
           Escribinos por WhatsApp
         </a>
@@ -393,7 +389,8 @@ Nuestra prioridad es ofrecer tecnología innovadora capaz de resolver problemas 
       <div class="flex flex-col md:flex-row">
         <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
           <a href="#contact">
-            <h2 class="text-3xl md:text-4xl font-bold mb-6 cursor-pointer hover:opacity-80 transition-opacity gradient-text-animated">
+            <h2
+              class="text-3xl md:text-4xl font-bold mb-6 cursor-pointer hover:opacity-80 transition-opacity gradient-text-animated">
               Contáctanos
             </h2>
           </a>
@@ -409,7 +406,7 @@ Nuestra prioridad es ofrecer tecnología innovadora capaz de resolver problemas 
               <div>
                 <h3 class="font-bold text-lg mb-1 text-gray-800 dark:text-light-plasma">Correo
                   Electrónico</h3>
-                <p class="text-gray-700 dark:text-light-plasma/80">contacto@nextAI.com</p>
+                <p class="text-gray-700 dark:text-light-plasma/80">contacto@nextai.com.ar</p>
               </div>
             </div>
             <div class="flex items-start">
@@ -418,7 +415,7 @@ Nuestra prioridad es ofrecer tecnología innovadora capaz de resolver problemas 
               </div>
               <div>
                 <h3 class="font-bold text-lg mb-1 text-gray-800 dark:text-light-plasma">Teléfono</h3>
-                <p class="text-gray-700 dark:text-light-plasma/80">+54 11 1234-5678</p>
+                <p class="text-gray-700 dark:text-light-plasma/80">+54 381 513 9043</p>
               </div>
             </div>
             <div class="flex items-start">
@@ -432,28 +429,28 @@ Nuestra prioridad es ofrecer tecnología innovadora capaz de resolver problemas 
             <!-- Información Personal -->
             <div>
               <label for="name" class="contact-label block mb-2 text-sm font-semibold">Nombre completo</label>
-              <input type="text" id="name" name="name" required
-                aria-describedby="name-help"
+              <input type="text" id="name" name="name" required aria-describedby="name-help"
                 class="contact-input w-full px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-blue">
               <p id="name-help" class="text-xs text-gray-500 dark:text-gray-400 mt-1">Ingresa tu nombre y apellido</p>
             </div>
 
             <div>
               <label for="email" class="contact-label block mb-2 text-sm font-semibold">Correo electrónico</label>
-              <input type="email" id="email" name="email" required
-                aria-describedby="email-help"
+              <input type="email" id="email" name="email" required aria-describedby="email-help"
                 class="contact-input w-full px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-blue">
-              <p id="email-help" class="text-xs text-gray-500 dark:text-gray-400 mt-1">Te contactaremos a esta dirección</p>
+              <p id="email-help" class="text-xs text-gray-500 dark:text-gray-400 mt-1">Te contactaremos a esta dirección
+              </p>
             </div>
 
             <!-- Mensaje -->
             <div>
-              <label for="message" class="contact-label block mb-2 text-sm font-semibold">Descripción de tu proyecto</label>
-              <textarea id="message" name="message" rows="4" required
-                aria-describedby="message-help"
+              <label for="message" class="contact-label block mb-2 text-sm font-semibold">Descripción de tu
+                proyecto</label>
+              <textarea id="message" name="message" rows="4" required aria-describedby="message-help"
                 placeholder="Ej: Estoy buscando implementar IA para automatizar tareas en mi negocio..."
                 class="contact-input w-full px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-blue"></textarea>
-              <p id="message-help" class="text-xs text-gray-500 dark:text-gray-400 mt-1">Contanos brevemente qué tipo de solución necesitás</p>
+              <p id="message-help" class="text-xs text-gray-500 dark:text-gray-400 mt-1">Contanos brevemente qué tipo de
+                solución necesitás</p>
             </div>
 
             <!-- Botón de Envío -->
@@ -500,8 +497,10 @@ Nuestra prioridad es ofrecer tecnología innovadora capaz de resolver problemas 
         <div>
           <h3 class="text-white font-bold text-lg mb-4">Legal</h3>
           <ul class="space-y-2">
-            <li><button onclick="openModal('privacidadModal')" class="text-left hover:text-primary-blue transition-colors">Privacidad</button></li>
-            <li><button onclick="openModal('terminosModal')" class="text-left hover:text-primary-violet transition-colors">Términos</button></li>
+            <li><button onclick="openModal('privacidadModal')"
+                class="text-left hover:text-primary-blue transition-colors">Privacidad</button></li>
+            <li><button onclick="openModal('terminosModal')"
+                class="text-left hover:text-primary-violet transition-colors">Términos</button></li>
           </ul>
         </div>
       </div>
@@ -530,8 +529,10 @@ Nuestra prioridad es ofrecer tecnología innovadora capaz de resolver problemas 
   </div>
 
   <!-- Modal de Privacidad -->
-  <div id="privacidadModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center hidden z-50 p-4">
-    <div class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-hidden border border-gray-200 dark:border-gray-700">
+  <div id="privacidadModal"
+    class="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center hidden z-50 p-4">
+    <div
+      class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-hidden border border-gray-200 dark:border-gray-700">
       <!-- Header del modal -->
       <div class="bg-gradient-to-r from-primary-blue to-primary-violet p-6 text-white">
         <div class="flex items-center justify-between">
@@ -539,53 +540,58 @@ Nuestra prioridad es ofrecer tecnología innovadora capaz de resolver problemas 
             <i class="fas fa-shield-alt text-2xl"></i>
             <h2 class="text-2xl font-bold">Política de Privacidad</h2>
           </div>
-          <button onclick="closeModal('privacidadModal')" 
-                  class="text-white/80 hover:text-white hover:bg-white/20 rounded-full p-2 transition-all duration-200"
-                  aria-label="Cerrar modal">
+          <button onclick="closeModal('privacidadModal')"
+            class="text-white/80 hover:text-white hover:bg-white/20 rounded-full p-2 transition-all duration-200"
+            aria-label="Cerrar modal">
             <i class="fas fa-times text-lg"></i>
           </button>
         </div>
       </div>
-      
+
       <!-- Contenido del modal -->
       <div class="p-6 overflow-y-auto max-h-[calc(90vh-120px)]">
         <div class="prose prose-gray dark:prose-invert max-w-none">
           <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
-            En <strong class="text-primary-blue">nextAI</strong> valoramos tu privacidad y nos comprometemos a proteger tu información personal.
+            En <strong class="text-primary-blue">nextAI</strong> valoramos tu privacidad y nos comprometemos a proteger
+            tu información personal.
           </p>
-          
+
           <div class="space-y-4 text-sm leading-relaxed text-gray-600 dark:text-gray-400">
             <div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-4 border-l-4 border-primary-blue">
               <h3 class="font-semibold text-gray-900 dark:text-white mb-2">🔒 Recopilación de Datos</h3>
-              <p>Recopilamos datos personales solo cuando es necesario para brindarte nuestros servicios, mejorar tu experiencia o cumplir con obligaciones legales.</p>
+              <p>Recopilamos datos personales solo cuando es necesario para brindarte nuestros servicios, mejorar tu
+                experiencia o cumplir con obligaciones legales.</p>
             </div>
-            
+
             <div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-4 border-l-4 border-primary-violet">
               <h3 class="font-semibold text-gray-900 dark:text-white mb-2">📊 Tipos de Datos</h3>
-              <p>Los datos pueden incluir nombre, correo electrónico, información de uso del sitio y preferencias personales.</p>
+              <p>Los datos pueden incluir nombre, correo electrónico, información de uso del sitio y preferencias
+                personales.</p>
             </div>
-            
+
             <div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-4 border-l-4 border-primary-cyan">
               <h3 class="font-semibold text-gray-900 dark:text-white mb-2">🛡️ Protección</h3>
-              <p>Nunca vendemos tu información a terceros. Utilizamos medidas técnicas y organizativas avanzadas para proteger tus datos.</p>
+              <p>Nunca vendemos tu información a terceros. Utilizamos medidas técnicas y organizativas avanzadas para
+                proteger tus datos.</p>
             </div>
-            
+
             <div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-4 border-l-4 border-green-500">
               <h3 class="font-semibold text-gray-900 dark:text-white mb-2">⚖️ Tus Derechos</h3>
               <p>Podés contactarnos en cualquier momento para consultar, modificar o eliminar tus datos personales.</p>
             </div>
           </div>
-          
+
           <p class="text-xs text-gray-500 dark:text-gray-400 mt-6 text-center">
             Al utilizar nuestro sitio o servicios, aceptás nuestra política de privacidad.
           </p>
         </div>
       </div>
-      
+
       <!-- Footer del modal -->
-      <div class="bg-gray-50 dark:bg-gray-800 px-6 py-4 flex justify-end space-x-3 border-t border-gray-200 dark:border-gray-700">
-        <button onclick="closeModal('privacidadModal')" 
-                class="px-6 py-2 bg-primary-blue hover:bg-primary-violet text-white rounded-lg font-medium transition-all duration-200 hover:scale-105 shadow-md">
+      <div
+        class="bg-gray-50 dark:bg-gray-800 px-6 py-4 flex justify-end space-x-3 border-t border-gray-200 dark:border-gray-700">
+        <button onclick="closeModal('privacidadModal')"
+          class="px-6 py-2 bg-primary-blue hover:bg-primary-violet text-white rounded-lg font-medium transition-all duration-200 hover:scale-105 shadow-md">
           Entendido
         </button>
       </div>
@@ -593,8 +599,10 @@ Nuestra prioridad es ofrecer tecnología innovadora capaz de resolver problemas 
   </div>
 
   <!-- Modal de Términos -->
-  <div id="terminosModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center hidden z-50 p-4">
-    <div class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-hidden border border-gray-200 dark:border-gray-700">
+  <div id="terminosModal"
+    class="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center hidden z-50 p-4">
+    <div
+      class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-hidden border border-gray-200 dark:border-gray-700">
       <!-- Header del modal -->
       <div class="bg-gradient-to-r from-primary-violet to-primary-cyan p-6 text-white">
         <div class="flex items-center justify-between">
@@ -602,65 +610,72 @@ Nuestra prioridad es ofrecer tecnología innovadora capaz de resolver problemas 
             <i class="fas fa-file-contract text-2xl"></i>
             <h2 class="text-2xl font-bold">Términos y Condiciones</h2>
           </div>
-          <button onclick="closeModal('terminosModal')" 
-                  class="text-white/80 hover:text-white hover:bg-white/20 rounded-full p-2 transition-all duration-200"
-                  aria-label="Cerrar modal">
+          <button onclick="closeModal('terminosModal')"
+            class="text-white/80 hover:text-white hover:bg-white/20 rounded-full p-2 transition-all duration-200"
+            aria-label="Cerrar modal">
             <i class="fas fa-times text-lg"></i>
           </button>
         </div>
       </div>
-      
+
       <!-- Contenido del modal -->
       <div class="p-6 overflow-y-auto max-h-[calc(90vh-120px)]">
         <div class="prose prose-gray dark:prose-invert max-w-none">
           <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
-            Al acceder o utilizar los productos y servicios de <strong class="text-primary-violet">nextAI</strong>, aceptás los siguientes términos y condiciones:
+            Al acceder o utilizar los productos y servicios de <strong class="text-primary-violet">nextAI</strong>,
+            aceptás los siguientes términos y condiciones:
           </p>
-          
+
           <div class="space-y-4 text-sm leading-relaxed text-gray-600 dark:text-gray-400">
             <div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-4 border-l-4 border-primary-violet">
               <h3 class="font-semibold text-gray-900 dark:text-white mb-2 flex items-center">
-                <span class="bg-primary-violet text-white rounded-full w-6 h-6 flex items-center justify-center text-xs mr-2">1</span>
+                <span
+                  class="bg-primary-violet text-white rounded-full w-6 h-6 flex items-center justify-center text-xs mr-2">1</span>
                 Propiedad Intelectual
               </h3>
               <p>El contenido del sitio es propiedad de nextAI y está protegido por derechos de autor.</p>
             </div>
-            
+
             <div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-4 border-l-4 border-primary-cyan">
               <h3 class="font-semibold text-gray-900 dark:text-white mb-2 flex items-center">
-                <span class="bg-primary-cyan text-white rounded-full w-6 h-6 flex items-center justify-center text-xs mr-2">2</span>
+                <span
+                  class="bg-primary-cyan text-white rounded-full w-6 h-6 flex items-center justify-center text-xs mr-2">2</span>
                 Uso Permitido
               </h3>
               <p>No se permite el uso indebido, reproducción no autorizada o distribución sin permiso expreso.</p>
             </div>
-            
+
             <div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-4 border-l-4 border-orange-500">
               <h3 class="font-semibold text-gray-900 dark:text-white mb-2 flex items-center">
-                <span class="bg-orange-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs mr-2">3</span>
+                <span
+                  class="bg-orange-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs mr-2">3</span>
                 Modificaciones
               </h3>
               <p>Nos reservamos el derecho de actualizar o modificar estos términos sin previo aviso.</p>
             </div>
-            
+
             <div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-4 border-l-4 border-red-500">
               <h3 class="font-semibold text-gray-900 dark:text-white mb-2 flex items-center">
-                <span class="bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs mr-2">4</span>
+                <span
+                  class="bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs mr-2">4</span>
                 Uso Responsable
               </h3>
-              <p>El uso de nuestras soluciones debe respetar las leyes locales y no podrá tener fines maliciosos o ilegales.</p>
+              <p>El uso de nuestras soluciones debe respetar las leyes locales y no podrá tener fines maliciosos o
+                ilegales.</p>
             </div>
           </div>
-          
+
           <p class="text-xs text-gray-500 dark:text-gray-400 mt-6 text-center">
             El uso continuado del sitio implica la aceptación de estos términos y condiciones.
           </p>
         </div>
       </div>
-      
+
       <!-- Footer del modal -->
-      <div class="bg-gray-50 dark:bg-gray-800 px-6 py-4 flex justify-end space-x-3 border-t border-gray-200 dark:border-gray-700">
-        <button onclick="closeModal('terminosModal')" 
-                class="px-6 py-2 bg-primary-violet hover:bg-primary-cyan text-white rounded-lg font-medium transition-all duration-200 hover:scale-105 shadow-md">
+      <div
+        class="bg-gray-50 dark:bg-gray-800 px-6 py-4 flex justify-end space-x-3 border-t border-gray-200 dark:border-gray-700">
+        <button onclick="closeModal('terminosModal')"
+          class="px-6 py-2 bg-primary-violet hover:bg-primary-cyan text-white rounded-lg font-medium transition-all duration-200 hover:scale-105 shadow-md">
           Acepto
         </button>
       </div>
@@ -668,7 +683,8 @@ Nuestra prioridad es ofrecer tecnología innovadora capaz de resolver problemas 
   </div>
 
   <!-- ==== SCRIPTS ==== -->
-  <script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@15.0.0/dist/smooth-scroll.polyfills.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@15.0.0/dist/smooth-scroll.polyfills.min.js"
+    defer></script>
   <script src="assets/js/script.js" defer></script>
   <script src="https://unpkg.com/lucide@latest" defer></script>
 
@@ -700,7 +716,7 @@ Nuestra prioridad es ofrecer tecnología innovadora capaz de resolver problemas 
     }
 
     // Cerrar modal al hacer clic fuera del contenido
-    document.addEventListener('click', function(event) {
+    document.addEventListener('click', function (event) {
       const modals = ['privacidadModal', 'terminosModal'];
       modals.forEach(modalId => {
         const modal = document.getElementById(modalId);
@@ -713,7 +729,7 @@ Nuestra prioridad es ofrecer tecnología innovadora capaz de resolver problemas 
     });
 
     // Cerrar modales con la tecla Escape
-    document.addEventListener('keydown', function(event) {
+    document.addEventListener('keydown', function (event) {
       if (event.key === 'Escape') {
         const modals = ['privacidadModal', 'terminosModal'];
         modals.forEach(modalId => {

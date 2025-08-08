@@ -319,7 +319,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
       if (calendlyEmbed && !calendlyEmbed.hasChildNodes()) {
         calendlyEmbed.innerHTML = `
-          <iframe src="https://calendly.com/rodrigoaunins/30min?hide_landing_page_details=1&hide_gdpr_banner=1" 
+          <iframe src="https://calendly.com/bruno-fernandez-paolini?hide_landing_page_details=1&hide_gdpr_banner=1" 
                   width="100%" 
                   height="100%" 
                   frameborder="0"
